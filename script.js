@@ -150,7 +150,7 @@
         'Name: ' + name + '\nEmail: ' + email + '\n\n' + message
       );
 
-      window.location.href = 'mailto:contact@hamanit.com?subject=' + subject + '&body=' + body;
+      window.location.href = 'mailto:joshham364@gmail.com?subject=' + subject + '&body=' + body;
 
       // Show success state
       contactForm.style.display = 'none';
