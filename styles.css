@@ -1542,3 +1542,17 @@ a.service-card {
 }
 a.service-card:visited { color: inherit; }
 
+.project-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-card:visited {
+  color: inherit;
+}
+
+.project-card:hover {
+  cursor: pointer;
+}
+
