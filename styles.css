@@ -1534,3 +1534,11 @@ p {
     padding: 24px;
   }
 }
+
+a.service-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+a.service-card:visited { color: inherit; }
+
