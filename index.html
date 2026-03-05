@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HAMAN IT - IT Infrastructure, Cybersecurity, and Technical Projects by Joshua Haman. Technology services for individuals and small businesses in Houston, Texas.">
+  <meta name="keywords" content="IT, cybersecurity, portfolio, Houston, Texas, web development, IT consulting, HAMAN IT">
+  <meta name="theme-color" content="#060b18">
+  <title>HAMAN IT | Joshua Haman - IT &amp; Cybersecurity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ======== Navigation ======== -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+        </div>
+        HAMAN<span class="highlight">IT</span>
+      </a>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <a href="#contact" class="nav-cta">
+        <span class="dot"></span>
+        Get in Touch
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ======== Hero ======== -->
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <div class="hero-grid"></div>
+        <div class="hero-glow"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-badge fade-in fade-delay-1">
+          <span class="pulse">
+            <span class="pulse-ring"></span>
+            <span class="pulse-dot"></span>
+          </span>
+          <svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          Houston, Texas
+        </div>
+
+        <h1 class="hero-name fade-in fade-delay-2">
+          Joshua <span class="accent">Haman</span>
+        </h1>
+
+        <p class="hero-brand fade-in fade-delay-3">HAMAN IT</p>
+
+        <p class="hero-tagline fade-in fade-delay-3">
+          IT Infrastructure, Cybersecurity &amp; Technical Projects
+        </p>
+
+        <div class="hero-typing fade-in fade-delay-4">
+          <span class="prefix">~/</span>
+          <span id="typing-text"></span><span class="cursor">|</span>
+        </div>
+
+        <p class="hero-description fade-in fade-delay-5">
+          IT and Cybersecurity student at Texas State Technical College with hands-on experience through labs, troubleshooting, and technical work. Building practical skills in network security, system administration, and infrastructure management.
+        </p>
+
+        <div class="hero-actions fade-in fade-delay-6">
+          <a href="#projects" class="btn btn-primary">
+            <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            View Projects
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Contact
+          </a>
+        </div>
+
+        <div class="hero-socials fade-in fade-delay-7">
+          <a href="https://github.com/joshuahaman" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+            <svg viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/joshuahaman" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <a href="#about" class="hero-scroll" aria-label="Scroll to about section">
+        <span>Scroll</span>
+        <svg viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+      </a>
+    </section>
+
+    <!-- ======== About ======== -->
+    <section class="section" id="about">
+      <div class="bg-gradient"></div>
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-label">
+            <svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+            about
+          </div>
+          <h2 class="section-title">Who I Am</h2>
+          <p class="section-subtitle">Building a foundation in IT infrastructure and cybersecurity through education, certifications, and hands-on technical projects.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-bio reveal">
+            <p>I'm Joshua Haman, an IT and Cybersecurity student at Texas State Technical College based in Houston, Texas. I'm passionate about cybersecurity, networking, and technical problem solving. My goal is to build a career protecting digital infrastructure and helping businesses stay secure.</p>
+            <p>With hands-on experience at Geek Squad, I've developed strong skills in diagnosing and resolving complex technical issues. From hardware repair to network troubleshooting, I bring real-world problem-solving ability backed by continuous learning and a drive to stay ahead of emerging threats.</p>
+            <div class="about-status">
+              <span class="dot"></span>
+              Currently seeking internship opportunities
+            </div>
+          </div>
+
+          <div class="about-cards">
+            <div class="card about-card reveal reveal-delay-1">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 6 3 6 3s3 0 6-3v-5"/></svg>
+              </div>
+              <div>
+                <div class="about-card-label">Education</div>
+                <div class="about-card-value">IT &amp; Cybersecurity</div>
+                <div class="about-card-detail">Texas State Technical College</div>
+              </div>
+            </div>
+
+            <div class="card about-card reveal reveal-delay-2">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+              </div>
+              <div>
+                <div class="about-card-label">Experience</div>
+                <div class="about-card-value">Geek Squad</div>
+                <div class="about-card-detail">Technical Support &amp; Repair</div>
+              </div>
+            </div>
+
+            <div class="card about-card reveal reveal-delay-3">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <div class="about-card-label">Focus Areas</div>
+                <div class="about-card-value">Security &amp; Networking</div>
+                <div class="about-card-detail">Cybersecurity, Technical Problem Solving</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== Technical Skills ======== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-label">
+            <svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+            skills
+          </div>
+          <h2 class="section-title">Technical Proficiencies</h2>
+        </div>
+
+        <div class="skills-grid">
+          <div class="card reveal">
+            <div class="skill-category-title">
+              <span class="dot"></span>
+              Networking
+            </div>
+            <ul class="skill-list">
+              <li class="skill-item">TCP/IP &amp; Subnetting</li>
+              <li class="skill-item">DNS &amp; DHCP</li>
+              <li class="skill-item">VPN Configuration</li>
+              <li class="skill-item">Router &amp; Switch Setup</li>
+              <li class="skill-item">Network Troubleshooting</li>
+              <li class="skill-item">Wireless Networking</li>
+            </ul>
+          </div>
+
+          <div class="card reveal reveal-delay-1">
+            <div class="skill-category-title">
+              <span class="dot"></span>
+              Cybersecurity Tools
+            </div>
+            <ul class="skill-list">
+              <li class="skill-item">Wireshark</li>
+              <li class="skill-item">Nmap</li>
+              <li class="skill-item">Snort IDS</li>
+              <li class="skill-item">Kali Linux</li>
+              <li class="skill-item">Metasploit</li>
+              <li class="skill-item">Burp Suite</li>
+            </ul>
+          </div>
+
+          <div class="card reveal reveal-delay-2">
+            <div class="skill-category-title">
+              <span class="dot"></span>
+              Operating Systems
+            </div>
+            <ul class="skill-list">
+              <li class="skill-item">Windows 10/11 &amp; Server</li>
+              <li class="skill-item">Linux (Ubuntu, Kali, CentOS)</li>
+              <li class="skill-item">macOS</li>
+              <li class="skill-item">VirtualBox / VMware</li>
+              <li class="skill-item">Active Directory</li>
+              <li class="skill-item">Group Policy</li>
+            </ul>
+          </div>
+
+          <div class="card reveal reveal-delay-3">
+            <div class="skill-category-title">
+              <span class="dot"></span>
+              Troubleshooting
+            </div>
+            <ul class="skill-list">
+              <li class="skill-item">Hardware Diagnostics</li>
+              <li class="skill-item">Component Repair</li>
+              <li class="skill-item">Data Recovery</li>
+              <li class="skill-item">Driver Configuration</li>
+              <li class="skill-item">System Imaging</li>
+              <li class="skill-item">Peripheral Setup</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== Projects ======== -->
+    <section class="section" id="projects">
+      <div class="bg-gradient"></div>
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-label">
+            <svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+            projects
+          </div>
+          <h2 class="section-title">Technical Projects</h2>
+          <p class="section-subtitle">Hands-on cybersecurity and IT projects demonstrating practical skills in secure infrastructure, networking, and development.</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="card project-card reveal">
+            <div class="card-header">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <svg class="arrow" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+            </div>
+            <h3 class="card-title">Virtualized IT &amp; Security Home Lab</h3>
+            <p class="card-text">Built a fully virtualized lab environment for practicing penetration testing, vulnerability analysis, Active Directory administration, and security tool configuration.</p>
+            <div class="learned">
+              <div class="learned-label">Key Learning</div>
+              <p class="learned-text">Network segmentation, firewall configuration, vulnerability assessment, and enterprise Active Directory management.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">VMware</span>
+              <span class="tag">pfSense</span>
+              <span class="tag">Windows Server</span>
+              <span class="tag">Kali Linux</span>
+              <span class="tag">Active Directory</span>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="card project-card reveal reveal-delay-1">
+            <div class="card-header">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <svg class="arrow" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+            </div>
+            <h3 class="card-title">Portfolio Website &mdash; HAMAN IT</h3>
+            <p class="card-text">Designed and built a professional portfolio website from scratch to showcase technical projects, skills, and technology services for individuals and small businesses.</p>
+            <div class="learned">
+              <div class="learned-label">Key Learning</div>
+              <p class="learned-text">Responsive web design, clean code architecture, version control with Git, and deployment to GitHub Pages.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">GitHub Pages</span>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="card project-card reveal reveal-delay-2">
+            <div class="card-header">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+              </div>
+              <svg class="arrow" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+            </div>
+            <h3 class="card-title">Python Network Scanning Tool</h3>
+            <p class="card-text">Developed a command-line network scanning tool that performs host discovery, port scanning, and basic service enumeration for security reconnaissance.</p>
+            <div class="learned">
+              <div class="learned-label">Key Learning</div>
+              <p class="learned-text">Network protocols, Python scripting, socket programming, security scanning techniques, and automation workflows.</p>
+            </div>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Nmap</span>
+              <span class="tag">Socket</span>
+              <span class="tag">Scapy</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== Services ======== -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-label">
+            <svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+            services
+          </div>
+          <h2 class="section-title">What I Offer</h2>
+          <p class="section-subtitle">I occasionally help individuals and small businesses with technology projects. Whether you need a website built, a network configured, or a computer fixed &mdash; I can help.</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="card service-card reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <h3 class="card-title">Portfolio Websites</h3>
+            <p class="card-text">Custom-designed personal portfolio sites to showcase your work, skills, and professional brand online.</p>
+            <div class="service-footer">
+              <span class="label">Starting at $299</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </div>
+          </div>
+
+          <div class="card service-card reveal reveal-delay-1">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/></svg>
+            </div>
+            <h3 class="card-title">Small Business Websites</h3>
+            <p class="card-text">Clean, modern websites built for small businesses that need a professional web presence to attract customers.</p>
+            <div class="service-footer">
+              <span class="label">Starting at $499</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </div>
+          </div>
+
+          <div class="card service-card reveal reveal-delay-2">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3 class="card-title">Basic IT Consulting</h3>
+            <p class="card-text">Technology guidance including network setup, security recommendations, and infrastructure planning.</p>
+            <div class="service-footer">
+              <span class="label">Hourly rate</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </div>
+          </div>
+
+          <div class="card service-card reveal reveal-delay-3">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h3 class="card-title">Computer Troubleshooting</h3>
+            <p class="card-text">Diagnose and resolve hardware and software issues, optimize performance, and recover data from failing devices.</p>
+            <div class="service-footer">
+              <span class="label">Per project</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="services-cta reveal">
+          <p>Need help with a website or a technical issue? I'd be happy to discuss how I can help.</p>
+          <a href="#contact" class="btn btn-primary">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Get in Touch
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== Experience ======== -->
+    <section class="section" id="experience">
+      <div class="bg-gradient"></div>
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-label">
+            <svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+            experience
+          </div>
+          <h2 class="section-title">Experience</h2>
+        </div>
+
+        <div class="experience-timeline">
+          <div class="experience-item reveal">
+            <div class="experience-date">2023 &mdash; Present</div>
+            <div class="experience-role">Advanced Repair Agent</div>
+            <div class="experience-company">Geek Squad &mdash; Best Buy, Houston, TX</div>
+            <ul class="experience-desc">
+              <li>Diagnose and repair hardware and software issues across laptops, desktops, and peripherals</li>
+              <li>Perform system imaging, data recovery, and OS installations for consumer and business clients</li>
+              <li>Troubleshoot network connectivity issues including Wi-Fi, Ethernet, and router configuration</li>
+              <li>Provide clear technical guidance to non-technical customers on device setup and security best practices</li>
+            </ul>
+          </div>
+
+          <div class="experience-item reveal reveal-delay-1">
+            <div class="experience-date">2022 &mdash; Present</div>
+            <div class="experience-role">IT &amp; Cybersecurity Student</div>
+            <div class="experience-company">Texas State Technical College</div>
+            <ul class="experience-desc">
+              <li>Studying networking, cybersecurity, and system administration with hands-on lab coursework</li>
+              <li>Building virtualized lab environments for penetration testing and security tool configuration</li>
+              <li>Working with Active Directory, Group Policy, and Windows Server in enterprise simulation environments</li>
+              <li>Developing scripts and tools in Python for network scanning and security automation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== Contact ======== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-label">
+            <svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+            contact
+          </div>
+          <h2 class="section-title">Let's Connect</h2>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <p>Have a project in mind or need IT help? Feel free to reach out. I'm always open to discussing new opportunities and technical challenges.</p>
+
+            <div class="contact-links">
+              <a href="mailto:contact@hamanit.com" class="contact-link">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <div class="contact-link-label">Email</div>
+                  <div class="contact-link-value">contact@hamanit.com</div>
+                </div>
+              </a>
+
+              <a href="https://linkedin.com/in/joshuahaman" target="_blank" rel="noopener noreferrer" class="contact-link">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </div>
+                <div>
+                  <div class="contact-link-label">LinkedIn</div>
+                  <div class="contact-link-value">joshuahaman</div>
+                </div>
+              </a>
+
+              <a href="https://github.com/joshuahaman" target="_blank" rel="noopener noreferrer" class="contact-link">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                </div>
+                <div>
+                  <div class="contact-link-label">GitHub</div>
+                  <div class="contact-link-value">joshuahaman</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-1">
+            <form class="contact-form" id="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell me about your project or question..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                <svg viewBox="0 0 24 24"><line x1="22" x2="11" y1="2" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                Send Message
+              </button>
+            </form>
+
+            <div class="form-success" id="form-success" style="display: none;">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24"><line x1="22" x2="11" y1="2" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </div>
+              <h3>Message ready to send!</h3>
+              <p>Your email client should have opened. If not, email me directly at contact@hamanit.com.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======== Footer ======== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="#" class="nav-logo">
+          <div class="nav-logo-icon">
+            <svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+          </div>
+          HAMAN<span class="highlight">IT</span>
+        </a>
+
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#services">Services</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="footer-divider"></div>
+
+        <p class="footer-copy">&copy; 2026 HAMAN IT. Built by Joshua Haman. Houston, Texas.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
