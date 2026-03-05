@@ -7,6 +7,8 @@ https://hamanit.org
 The website showcases my technical projects, skills, and experience as an IT & Cybersecurity student at Texas State Technical College (TSTC). It highlights hands-on work in infrastructure, networking, cybersecurity tools, and web development.
 This portfolio serves as both a technical showcase and a place where individuals or small businesses can learn about the technology services I offer.
 
+
+
 Features
 
 Personal portfolio and professional profile
@@ -16,6 +18,8 @@ Contact form for inquiries
 Responsive design for desktop and mobile
 Deployed using GitHub Pages with a custom domain
 
+
+
 Technologies Used
 
 HTML5
@@ -23,6 +27,8 @@ CSS3
 JavaScript
 Git & GitHub
 GitHub Pages (deployment
+
+
 
 Purpose of This Repository
 
