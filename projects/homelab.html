@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Lab | HAMAN IT</title>
+  <meta name="description" content="Virtualized IT & Security Home Lab - VMware, Active Directory, Windows Server, and security tooling practice environment." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+  <!-- ======== Navigation (same as homepage) ======== -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+        </div>
+        HAMAN<span class="highlight">IT</span>
+      </a>
+
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#skills" class="nav-link">Skills</a>
+        <a href="../index.html#projects" class="nav-link">Projects</a>
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="../index.html#experience" class="nav-link">Experience</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+
+      <a href="../index.html#contact" class="nav-cta">
+        <span class="dot"></span>
+        Get in Touch
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="../index.html#about" class="nav-link">About</a>
+      <a href="../index.html#skills" class="nav-link">Skills</a>
+      <a href="../index.html#projects" class="nav-link">Projects</a>
+      <a href="../index.html#services" class="nav-link">Services</a>
+      <a href="../index.html#experience" class="nav-link">Experience</a>
+      <a href="../index.html#contact" class="nav-link">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="section" id="project">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="section-label">
+            <svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+            project
+          </div>
+          <h1 class="section-title">Virtualized IT &amp; Security Home Lab</h1>
+          <p class="section-subtitle">
+            A VMware-based lab environment I use to practice Windows Server, Active Directory, networking, and security fundamentals in a safe sandbox.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <h3 class="card-title">Goal</h3>
+          <p class="card-text">
+            Build a realistic environment to strengthen my skills in system administration and security by configuring services, intentionally breaking things, and troubleshooting them end-to-end.
+          </p>
+        </div>
+
+        <div class="skills-grid" style="margin-top: 18px;">
+          <div class="card reveal">
+            <div class="skill-category-title"><span class="dot"></span> Environment</div>
+            <ul class="skill-list">
+              <li class="skill-item">VMware virtual network + multiple VMs</li>
+              <li class="skill-item">Windows Server (AD DS, DNS)</li>
+              <li class="skill-item">Windows client(s)</li>
+              <li class="skill-item">Linux servers / Kali for tooling</li>
+            </ul>
+          </div>
+
+          <div class="card reveal reveal-delay-1">
+            <div class="skill-category-title"><span class="dot"></span> What I Implemented</div>
+            <ul class="skill-list">
+              <li class="skill-item">Users, groups, permissions, file access</li>
+              <li class="skill-item">DNS concepts + troubleshooting</li>
+              <li class="skill-item">Basic hardening + baseline configs</li>
+              <li class="skill-item">Controlled misconfigs + remediation</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card reveal" style="margin-top: 18px;">
+          <h3 class="card-title">Proof / Screenshots</h3>
+          <p class="card-text">
+            Add screenshots here (VM list, AD Users/Groups, network diagram, etc.). This section makes the project feel real.
+          </p>
+        </div>
+
+        <div style="margin-top: 18px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn btn-secondary" href="../index.html#projects">
+            <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            Back to Projects
+          </a>
+
+          <a class="btn btn-primary" href="mailto:joshham364@gmail.com?subject=HAMAN%20IT%20-%20Home%20Lab%20Inquiry">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Ask About This Project
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="../script.js"></script>
+</body>
+</html>
