@@ -1397,6 +1397,12 @@ p {
 }
 
 /* ---- Scroll Reveal ---- */
+
+/* If JS fails, don't hide the whole site */
+.no-js .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -1542,11 +1548,13 @@ a.service-card {
 }
 a.service-card:visited { color: inherit; }
 
-.project-card {
+a.project-card {
   display: block;
   text-decoration: none;
   color: inherit;
 }
+a.project-card:visited { color: inherit; }
+a.project-card:hover { cursor: pointer; }
 
 .project-card:visited {
   color: inherit;
@@ -1555,6 +1563,3 @@ a.service-card:visited { color: inherit; }
 .project-card:hover {
   cursor: pointer;
 }
-
-.reveal { opacity: 0; transform: translateY(10px); transition: 0.6s; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
