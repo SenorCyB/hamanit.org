@@ -1556,3 +1556,5 @@ a.service-card:visited { color: inherit; }
   cursor: pointer;
 }
 
+.reveal { opacity: 0; transform: translateY(10px); transition: 0.6s; }
+.reveal.active { opacity: 1; transform: translateY(0); }
