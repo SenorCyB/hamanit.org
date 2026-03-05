@@ -132,7 +132,16 @@
       card.style.setProperty('--mouse-y', (e.clientY - rect.top) + 'px');
     });
   });
+/* Make service cards clickable without link styling */
+a.service-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
 
+a.service-card:visited {
+  color: inherit;
+}
   // ---- Contact form ----
   const contactForm = document.getElementById('contact-form');
   const formSuccess = document.getElementById('form-success');
