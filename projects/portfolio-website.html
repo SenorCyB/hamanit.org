@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Website | HAMAN IT</title>
+  <meta name="description" content="HAMAN IT Portfolio Website - designed and deployed with GitHub Pages and a custom domain." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+        </div>
+        HAMAN<span class="highlight">IT</span>
+      </a>
+
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#skills" class="nav-link">Skills</a>
+        <a href="../index.html#projects" class="nav-link">Projects</a>
+        <a href="../index.html#services" class="nav-link">Services</a>
+        <a href="../index.html#experience" class="nav-link">Experience</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+
+      <a href="../index.html#contact" class="nav-cta">
+        <span class="dot"></span>
+        Get in Touch
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="../index.html#about" class="nav-link">About</a>
+      <a href="../index.html#skills" class="nav-link">Skills</a>
+      <a href="../index.html#projects" class="nav-link">Projects</a>
+      <a href="../index.html#services" class="nav-link">Services</a>
+      <a href="../index.html#experience" class="nav-link">Experience</a>
+      <a href="../index.html#contact" class="nav-link">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="section" id="project">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <div class="section-label">
+            <svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+            project
+          </div>
+          <h1 class="section-title">Portfolio Website — HAMAN IT</h1>
+          <p class="section-subtitle">
+            I designed and deployed my portfolio to showcase projects, skills, and services — hosted on GitHub Pages with a custom domain.
+          </p>
+        </div>
+
+        <div class="card reveal">
+          <h3 class="card-title">What I Built</h3>
+          <ul class="skill-list">
+            <li class="skill-item">Responsive multi-section layout (About, Skills, Projects, Services, Experience, Contact)</li>
+            <li class="skill-item">Navigation + mobile menu</li>
+            <li class="skill-item">Project pages (case studies)</li>
+            <li class="skill-item">Deployed through GitHub Pages</li>
+          </ul>
+        </div>
+
+        <div class="skills-grid" style="margin-top: 18px;">
+          <div class="card reveal">
+            <div class="skill-category-title"><span class="dot"></span> Tech Used</div>
+            <ul class="skill-list">
+              <li class="skill-item">HTML / CSS / JavaScript</li>
+              <li class="skill-item">GitHub Pages</li>
+              <li class="skill-item">Custom domain + DNS</li>
+            </ul>
+          </div>
+
+          <div class="card reveal reveal-delay-1">
+            <div class="skill-category-title"><span class="dot"></span> What I Learned</div>
+            <ul class="skill-list">
+              <li class="skill-item">Deployments + debugging build issues</li>
+              <li class="skill-item">UI polish &amp; readability</li>
+              <li class="skill-item">How to present work professionally</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top: 18px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn btn-secondary" href="../index.html#projects">
+            <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            Back to Projects
+          </a>
+
+          <a class="btn btn-primary" href="../index.html">
+            <svg viewBox="0 0 24 24"><path d="M3 12l9-9 9 9"/><path d="M9 21V9h6v12"/></svg>
+            View Live Site
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="../script.js"></script>
+</body>
+</html>
