@@ -16,7 +16,6 @@
     rel="stylesheet"
   />
 
-  <!-- Swiper CSS for draggable gallery -->
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -26,7 +25,7 @@
 
   <style>
     .project-hero-copy {
-      max-width: 850px;
+      max-width: 860px;
     }
 
     .project-highlight-grid {
@@ -54,21 +53,21 @@
     }
 
     .project-stat-value {
-      font-size: 1.05rem;
+      font-size: 1.04rem;
       font-weight: 700;
       color: var(--text-primary);
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
     .project-detail-grid {
       display: grid;
-      grid-template-columns: 1.25fr 1fr;
+      grid-template-columns: 1.2fr 0.9fr;
       gap: 18px;
       margin-top: 18px;
     }
 
     .project-lead-text {
-      font-size: 1.04rem;
+      font-size: 1.02rem;
       color: var(--text-secondary);
       line-height: 1.8;
     }
@@ -99,7 +98,7 @@
 
     .projectSwiper {
       width: 100%;
-      padding-bottom: 12px;
+      padding-bottom: 10px;
       overflow: visible;
     }
 
@@ -189,7 +188,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 14px;
+      margin-top: 16px;
     }
 
     .project-badge {
@@ -198,13 +197,74 @@
       border: 1px solid var(--accent-border);
       background: rgba(45, 212, 191, 0.06);
       color: var(--text-secondary);
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-family: 'JetBrains Mono', monospace;
+    }
+
+    .builds-section {
+      margin-top: 18px;
+    }
+
+    .builds-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .build-card {
+      padding: 20px;
+      border-radius: 18px;
+      border: 1px solid var(--accent-border);
+      background: linear-gradient(180deg, rgba(15, 26, 46, 0.96), rgba(10, 17, 32, 0.96));
+      transition: 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .build-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(45, 212, 191, 0.08), transparent 42%);
+      pointer-events: none;
+    }
+
+    .build-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(45, 212, 191, 0.38);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+    }
+
+    .build-card-title {
+      position: relative;
+      z-index: 1;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    .build-card-text {
+      position: relative;
+      z-index: 1;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+    }
+
+    .bottom-info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 18px;
     }
 
     .cta-card {
       position: relative;
       overflow: hidden;
+      margin-top: 18px;
     }
 
     .cta-card::before {
@@ -215,14 +275,17 @@
       pointer-events: none;
     }
 
-    .cta-card p {
+    .cta-card p,
+    .cta-card h3 {
       position: relative;
       z-index: 1;
     }
 
     @media (max-width: 980px) {
       .project-highlight-grid,
-      .project-detail-grid {
+      .project-detail-grid,
+      .builds-grid,
+      .bottom-info-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -234,6 +297,15 @@
 
       .project-stat-value {
         font-size: 1rem;
+      }
+
+      .project-badges {
+        gap: 8px;
+      }
+
+      .project-badge {
+        font-size: 0.78rem;
+        padding: 7px 10px;
       }
     }
   </style>
@@ -312,7 +384,7 @@
 
           <div class="project-stat">
             <div class="project-stat-label">Value</div>
-            <div class="project-stat-value">A system that feels intentional, not overbuilt, mismatched, or wasteful.</div>
+            <div class="project-stat-value">A system that feels intentional, balanced, and worth the investment.</div>
           </div>
         </div>
 
@@ -355,7 +427,140 @@
           </div>
         </div>
 
-        <div class="skills-grid" style="margin-top: 18px;">
+        <div class="card reveal project-gallery-wrap">
+          <div class="project-gallery-header">
+            <div>
+              <h3 class="card-title">Build Gallery</h3>
+              <p class="gallery-note">Grab and drag to explore the build process and finished results.</p>
+            </div>
+          </div>
+
+          <div class="swiper projectSwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide project-slide">
+                <img src="../images/pc-build-1.jpg" alt="PC components selected for a custom build" />
+                <div class="project-slide-content">
+                  <div class="project-slide-title">Planning the Build</div>
+                  <p class="project-slide-text">
+                    Starting with the parts list and overall direction of the system based on performance goals,
+                    style preferences, and budget.
+                  </p>
+                </div>
+              </div>
+
+              <div class="swiper-slide project-slide">
+                <img src="../images/pc-build-2.jpg" alt="Custom PC during assembly inside the case" />
+                <div class="project-slide-content">
+                  <div class="project-slide-title">Assembly Process</div>
+                  <p class="project-slide-text">
+                    Putting the system together carefully with attention to fitment, cooling, and clean cable routing.
+                  </p>
+                </div>
+              </div>
+
+              <div class="swiper-slide project-slide">
+                <img src="../images/pc-build-3.jpg" alt="Cable management and airflow layout inside a custom PC" />
+                <div class="project-slide-content">
+                  <div class="project-slide-title">Optimization & Cable Management</div>
+                  <p class="project-slide-text">
+                    Refining the internals so the build looks intentional, runs efficiently, and supports proper airflow.
+                  </p>
+                </div>
+              </div>
+
+              <div class="swiper-slide project-slide">
+                <img src="../images/pc-build-4.jpg" alt="Completed custom desktop PC build" />
+                <div class="project-slide-content">
+                  <div class="project-slide-title">Finished System</div>
+                  <p class="project-slide-text">
+                    The final build reflects the user’s vision while staying grounded in real performance and usability.
+                  </p>
+                </div>
+              </div>
+
+              <div class="swiper-slide project-slide">
+                <img src="../images/pc-build-5.jpg" alt="BIOS or monitoring software showing system setup and performance" />
+                <div class="project-slide-content">
+                  <div class="project-slide-title">Configuration & Validation</div>
+                  <p class="project-slide-text">
+                    Final checks include BIOS setup, driver installation, monitoring, and stability verification.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-controls">
+            <button class="swiper-btn project-prev" aria-label="Previous slide">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+
+            <button class="swiper-btn project-next" aria-label="Next slide">
+              <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+            </button>
+
+            <div class="swiper-pagination swiper-pagination-custom"></div>
+          </div>
+        </div>
+
+        <div class="card reveal builds-section">
+          <h3 class="card-title">Selected Builds</h3>
+          <p class="card-text" style="margin-bottom: 18px;">
+            A few examples of systems I’ve planned, assembled, optimized, or upgraded around different goals, styles, and budgets.
+          </p>
+
+          <div class="builds-grid">
+            <div class="build-card">
+              <h4 class="build-card-title">High-Performance Gaming Build</h4>
+              <p class="build-card-text">
+                Designed for strong gaming performance with balanced cooling, clean cable management, and future upgrade flexibility.
+              </p>
+              <div class="project-badges">
+                <span class="project-badge">Gaming</span>
+                <span class="project-badge">Performance</span>
+                <span class="project-badge">Cooling</span>
+              </div>
+            </div>
+
+            <div class="build-card">
+              <h4 class="build-card-title">Budget Productivity System</h4>
+              <p class="build-card-text">
+                Built around value and reliability for everyday work, multitasking, and long-term usability without unnecessary cost.
+              </p>
+              <div class="project-badges">
+                <span class="project-badge">Budget</span>
+                <span class="project-badge">Productivity</span>
+                <span class="project-badge">Reliable</span>
+              </div>
+            </div>
+
+            <div class="build-card">
+              <h4 class="build-card-title">System Upgrade & Optimization</h4>
+              <p class="build-card-text">
+                Improved an existing PC through smarter part selection, airflow adjustments, and performance tuning instead of a full rebuild.
+              </p>
+              <div class="project-badges">
+                <span class="project-badge">Upgrade</span>
+                <span class="project-badge">Optimization</span>
+                <span class="project-badge">Troubleshooting</span>
+              </div>
+            </div>
+
+            <div class="build-card">
+              <h4 class="build-card-title">Aesthetic RGB Build</h4>
+              <p class="build-card-text">
+                Focused on combining visual style with practical layout, cable management, and airflow-conscious component placement.
+              </p>
+              <div class="project-badges">
+                <span class="project-badge">Style</span>
+                <span class="project-badge">Cable Management</span>
+                <span class="project-badge">Airflow</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-info-grid">
           <div class="card reveal">
             <div class="skill-category-title"><span class="dot"></span> Tools / Areas Used</div>
             <ul class="skill-list">
@@ -377,89 +582,7 @@
           </div>
         </div>
 
-        <div class="card reveal project-gallery-wrap">
-          <div class="project-gallery-header">
-            <div>
-              <h3 class="card-title">Build Gallery</h3>
-              <p class="gallery-note">Grab and drag to explore the build process and finished results.</p>
-            </div>
-          </div>
-
-          <div class="swiper projectSwiper">
-            <div class="swiper-wrapper">
-
-              <div class="swiper-slide project-slide">
-                <img src="../images/pc-build-1.jpg" alt="PC components selected for a custom build" />
-                <div class="project-slide-content">
-                  <div class="project-slide-title">Planning the Build</div>
-                  <p class="project-slide-text">
-                    Starting with the parts list and overall direction of the system based on performance goals,
-                    style preferences, and budget.
-                  </p>
-                </div>
-              </div>
-
-              <div class="swiper-slide project-slide">
-                <img src="../images/pc-build-2.jpg" alt="Custom PC during assembly inside the case" />
-                <div class="project-slide-content">
-                  <div class="project-slide-title">Assembly Process</div>
-                  <p class="project-slide-text">
-                    Putting the system together carefully with attention to component fitment, layout,
-                    cooling, and clean cable routing.
-                  </p>
-                </div>
-              </div>
-
-              <div class="swiper-slide project-slide">
-                <img src="../images/pc-build-3.jpg" alt="Cable management and airflow layout inside a custom PC" />
-                <div class="project-slide-content">
-                  <div class="project-slide-title">Optimization & Cable Management</div>
-                  <p class="project-slide-text">
-                    Refining the internals so the build looks intentional, runs efficiently, and supports
-                    proper airflow and long-term reliability.
-                  </p>
-                </div>
-              </div>
-
-              <div class="swiper-slide project-slide">
-                <img src="../images/pc-build-4.jpg" alt="Completed custom desktop PC build" />
-                <div class="project-slide-content">
-                  <div class="project-slide-title">Finished System</div>
-                  <p class="project-slide-text">
-                    The final build reflects the user’s vision while still being grounded in practical
-                    performance, balance, and usability.
-                  </p>
-                </div>
-              </div>
-
-              <div class="swiper-slide project-slide">
-                <img src="../images/pc-build-5.jpg" alt="BIOS or monitoring software showing system setup and performance" />
-                <div class="project-slide-content">
-                  <div class="project-slide-title">Configuration & Validation</div>
-                  <p class="project-slide-text">
-                    Final setup includes BIOS checks, driver installation, monitoring, and making sure the
-                    machine is stable and ready to use.
-                  </p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="swiper-controls">
-            <button class="swiper-btn project-prev" aria-label="Previous slide">
-              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
-            </button>
-
-            <button class="swiper-btn project-next" aria-label="Next slide">
-              <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
-            </button>
-
-            <div class="swiper-pagination swiper-pagination-custom"></div>
-          </div>
-        </div>
-
-        <div class="card reveal cta-card" style="margin-top: 18px;">
+        <div class="card reveal cta-card">
           <h3 class="card-title">Why This Project Matters</h3>
           <p class="card-text">
             This project is about more than assembling parts. It shows how I communicate with people, understand what
@@ -485,18 +608,15 @@
   </main>
 
   <script src="../script.js"></script>
-
-  <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <script>
     const projectSwiper = new Swiper(".projectSwiper", {
-      slidesPerView: 1.1,
+      slidesPerView: 1.08,
       spaceBetween: 18,
       grabCursor: true,
       loop: false,
       speed: 700,
-      centeredSlides: false,
       keyboard: {
         enabled: true,
       },
