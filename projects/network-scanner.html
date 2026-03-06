@@ -3,12 +3,240 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Network Scanner | HAMAN IT</title>
-  <meta name="description" content="Python Network Scanning Tool - host discovery, port scanning, and basic service enumeration." />
+  <title>Custom PC Builds & Hardware Optimization | HAMAN IT</title>
+  <meta
+    name="description"
+    content="Custom PC builds designed around user needs, budget, performance goals, and long-term reliability."
+  />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Swiper CSS for draggable gallery -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+
   <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    .project-hero-copy {
+      max-width: 850px;
+    }
+
+    .project-highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .project-stat {
+      padding: 20px;
+      border: 1px solid var(--accent-border);
+      background: linear-gradient(180deg, rgba(20, 34, 64, 0.82), rgba(10, 17, 32, 0.92));
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+    }
+
+    .project-stat-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 10px;
+    }
+
+    .project-stat-value {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+
+    .project-detail-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .project-lead-text {
+      font-size: 1.04rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .project-section-title {
+      margin-bottom: 14px;
+    }
+
+    .project-gallery-wrap {
+      margin-top: 18px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-gallery-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .gallery-note {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .projectSwiper {
+      width: 100%;
+      padding-bottom: 12px;
+      overflow: visible;
+    }
+
+    .project-slide {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--accent-border);
+      background: linear-gradient(180deg, rgba(15, 26, 46, 0.98), rgba(10, 17, 32, 0.98));
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.24);
+      height: auto;
+      user-select: none;
+    }
+
+    .project-slide img {
+      display: block;
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    .project-slide-content {
+      padding: 18px;
+    }
+
+    .project-slide-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .project-slide-text {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .swiper-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .swiper-btn {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      border: 1px solid var(--accent-border);
+      background: rgba(20, 34, 64, 0.8);
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .swiper-btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(45, 212, 191, 0.4);
+      background: rgba(24, 42, 76, 0.95);
+    }
+
+    .swiper-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .swiper-pagination-custom {
+      position: static !important;
+      width: auto !important;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .project-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .project-badge {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-border);
+      background: rgba(45, 212, 191, 0.06);
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .cta-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(45, 212, 191, 0.12), transparent 40%);
+      pointer-events: none;
+    }
+
+    .cta-card p {
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 980px) {
+      .project-highlight-grid,
+      .project-detail-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .project-slide img {
+        height: 240px;
+      }
+
+      .project-stat-value {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -59,44 +287,185 @@
             <svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
             project
           </div>
-          <h1 class="section-title">Python Network Scanning Tool</h1>
-          <p class="section-subtitle">
-            A command-line tool I built to practice networking fundamentals by performing host discovery, port scanning, and basic service enumeration.
-          </p>
+
+          <div class="project-hero-copy">
+            <h1 class="section-title">Custom PC Builds & Hardware Optimization</h1>
+            <p class="section-subtitle">
+              I work with people to turn an idea for a computer into a system that actually fits their needs.
+              Whether the goal is gaming, productivity, creative work, or a balanced everyday setup, I focus on
+              understanding what they want, what their budget allows, and how to build the best possible system
+              around those priorities.
+            </p>
+          </div>
         </div>
 
-        <div class="card reveal">
-          <h3 class="card-title">What It Does</h3>
-          <ul class="skill-list">
-            <li class="skill-item">Scans a target or subnet for live hosts</li>
-            <li class="skill-item">Checks common ports (or a user-defined range)</li>
-            <li class="skill-item">Outputs results cleanly for review</li>
-          </ul>
+        <div class="project-highlight-grid reveal reveal-delay-1">
+          <div class="project-stat">
+            <div class="project-stat-label">Approach</div>
+            <div class="project-stat-value">Consult first, then build around real goals instead of just specs.</div>
+          </div>
+
+          <div class="project-stat">
+            <div class="project-stat-label">Focus</div>
+            <div class="project-stat-value">Performance, reliability, upgrade flexibility, and clean hardware choices.</div>
+          </div>
+
+          <div class="project-stat">
+            <div class="project-stat-label">Value</div>
+            <div class="project-stat-value">A system that feels intentional, not overbuilt, mismatched, or wasteful.</div>
+          </div>
+        </div>
+
+        <div class="project-detail-grid">
+          <div class="card reveal">
+            <h3 class="card-title project-section-title">What I Do</h3>
+            <p class="project-lead-text">
+              Every build starts with a conversation. I like understanding how the system will actually be used,
+              what kind of performance matters most, what visual style the person wants, and where the budget needs
+              to be flexible or protected. From there, I translate that vision into a practical parts list and a build
+              plan that makes sense.
+            </p>
+
+            <ul class="skill-list" style="margin-top: 18px;">
+              <li class="skill-item">Consult with users to understand goals, budget, and intended use case</li>
+              <li class="skill-item">Choose parts that balance performance, compatibility, and long-term value</li>
+              <li class="skill-item">Assemble and configure systems with attention to thermals and reliability</li>
+              <li class="skill-item">Troubleshoot issues involving hardware, BIOS settings, drivers, or stability</li>
+              <li class="skill-item">Refine builds so they match both the vision and the real-world constraints</li>
+            </ul>
+          </div>
+
+          <div class="card reveal reveal-delay-1">
+            <div class="skill-category-title"><span class="dot"></span> What I Can Work With</div>
+            <ul class="skill-list">
+              <li class="skill-item">Gaming PCs and performance-focused systems</li>
+              <li class="skill-item">Productivity and workstation-oriented builds</li>
+              <li class="skill-item">Budget-conscious systems with smart upgrade paths</li>
+              <li class="skill-item">Component compatibility and hardware planning</li>
+              <li class="skill-item">BIOS / UEFI setup, drivers, and optimization</li>
+              <li class="skill-item">Thermals, airflow, cable management, and clean assembly</li>
+            </ul>
+
+            <div class="project-badges">
+              <span class="project-badge">PC Hardware</span>
+              <span class="project-badge">Consultation</span>
+              <span class="project-badge">System Design</span>
+              <span class="project-badge">Optimization</span>
+            </div>
+          </div>
         </div>
 
         <div class="skills-grid" style="margin-top: 18px;">
           <div class="card reveal">
-            <div class="skill-category-title"><span class="dot"></span> Tech Used</div>
+            <div class="skill-category-title"><span class="dot"></span> Tools / Areas Used</div>
             <ul class="skill-list">
-              <li class="skill-item">Python</li>
-              <li class="skill-item">Sockets</li>
-              <li class="skill-item">Optional: Nmap / Scapy integrations</li>
+              <li class="skill-item">CPU, GPU, RAM, NVMe, cooling, and power planning</li>
+              <li class="skill-item">BIOS / UEFI configuration and firmware familiarity</li>
+              <li class="skill-item">Windows installation, drivers, and system setup</li>
+              <li class="skill-item">Benchmarking, stress testing, and diagnostics</li>
             </ul>
           </div>
 
           <div class="card reveal reveal-delay-1">
             <div class="skill-category-title"><span class="dot"></span> What I Learned</div>
             <ul class="skill-list">
-              <li class="skill-item">TCP/IP behavior in real scans</li>
-              <li class="skill-item">Timeouts, retries, error handling</li>
-              <li class="skill-item">How to format output for usability</li>
+              <li class="skill-item">How to translate someone’s vision into real technical decisions</li>
+              <li class="skill-item">How to avoid mismatched parts and weak upgrade paths</li>
+              <li class="skill-item">How airflow, thermals, and layout affect long-term performance</li>
+              <li class="skill-item">How to solve problems before they become expensive mistakes</li>
             </ul>
           </div>
         </div>
 
-        <div class="card reveal" style="margin-top: 18px;">
-          <h3 class="card-title">Repo / Demo</h3>
-          <p class="card-text">In Progress.</p>
+        <div class="card reveal project-gallery-wrap">
+          <div class="project-gallery-header">
+            <div>
+              <h3 class="card-title">Build Gallery</h3>
+              <p class="gallery-note">Grab and drag to explore the build process and finished results.</p>
+            </div>
+          </div>
+
+          <div class="swiper projectSwiper">
+            <div class="swiper-wrapper">
+
+              <div class="swiper-slide project-slide">
+                <img src="../images/pc-build-1.jpg" alt="PC components selected for a custom build" />
+                <div class="project-slide-content">
+                  <div class="project-slide-title">Planning the Build</div>
+                  <p class="project-slide-text">
+                    Starting with the parts list and overall direction of the system based on performance goals,
+                    style preferences, and budget.
+                  </p>
+                </div>
+              </div>
+
+              <div class="swiper-slide project-slide">
+                <img src="../images/pc-build-2.jpg" alt="Custom PC during assembly inside the case" />
+                <div class="project-slide-content">
+                  <div class="project-slide-title">Assembly Process</div>
+                  <p class="project-slide-text">
+                    Putting the system together carefully with attention to component fitment, layout,
+                    cooling, and clean cable routing.
+                  </p>
+                </div>
+              </div>
+
+              <div class="swiper-slide project-slide">
+                <img src="../images/pc-build-3.jpg" alt="Cable management and airflow layout inside a custom PC" />
+                <div class="project-slide-content">
+                  <div class="project-slide-title">Optimization & Cable Management</div>
+                  <p class="project-slide-text">
+                    Refining the internals so the build looks intentional, runs efficiently, and supports
+                    proper airflow and long-term reliability.
+                  </p>
+                </div>
+              </div>
+
+              <div class="swiper-slide project-slide">
+                <img src="../images/pc-build-4.jpg" alt="Completed custom desktop PC build" />
+                <div class="project-slide-content">
+                  <div class="project-slide-title">Finished System</div>
+                  <p class="project-slide-text">
+                    The final build reflects the user’s vision while still being grounded in practical
+                    performance, balance, and usability.
+                  </p>
+                </div>
+              </div>
+
+              <div class="swiper-slide project-slide">
+                <img src="../images/pc-build-5.jpg" alt="BIOS or monitoring software showing system setup and performance" />
+                <div class="project-slide-content">
+                  <div class="project-slide-title">Configuration & Validation</div>
+                  <p class="project-slide-text">
+                    Final setup includes BIOS checks, driver installation, monitoring, and making sure the
+                    machine is stable and ready to use.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="swiper-controls">
+            <button class="swiper-btn project-prev" aria-label="Previous slide">
+              <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+
+            <button class="swiper-btn project-next" aria-label="Next slide">
+              <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+            </button>
+
+            <div class="swiper-pagination swiper-pagination-custom"></div>
+          </div>
+        </div>
+
+        <div class="card reveal cta-card" style="margin-top: 18px;">
+          <h3 class="card-title">Why This Project Matters</h3>
+          <p class="card-text">
+            This project is about more than assembling parts. It shows how I communicate with people, understand what
+            they actually need, make smart technical decisions, and turn an idea into a finished system that performs
+            well and feels built with purpose.
+          </p>
         </div>
 
         <div style="margin-top: 18px; display:flex; gap:12px; flex-wrap:wrap;">
@@ -105,7 +474,7 @@
             Back to Projects
           </a>
 
-          <a class="btn btn-primary" href="mailto:joshham364@gmail.com?subject=HAMAN%20IT%20-%20Network%20Scanner%20Project">
+          <a class="btn btn-primary" href="mailto:joshham364@gmail.com?subject=HAMAN%20IT%20-%20Custom%20PC%20Builds%20Project">
             <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             Ask About This Project
           </a>
@@ -116,5 +485,44 @@
   </main>
 
   <script src="../script.js"></script>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    const projectSwiper = new Swiper(".projectSwiper", {
+      slidesPerView: 1.1,
+      spaceBetween: 18,
+      grabCursor: true,
+      loop: false,
+      speed: 700,
+      centeredSlides: false,
+      keyboard: {
+        enabled: true,
+      },
+      navigation: {
+        nextEl: ".project-next",
+        prevEl: ".project-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination-custom",
+        type: "fraction",
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 1.3,
+          spaceBetween: 18,
+        },
+        900: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        1200: {
+          slidesPerView: 2.2,
+          spaceBetween: 22,
+        }
+      }
+    });
+  </script>
 </body>
 </html>
