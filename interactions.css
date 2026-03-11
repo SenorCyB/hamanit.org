@@ -1,7 +1,6 @@
 /* ================================================================
-   HAMAN IT — interactions.css
+   HAMAN IT — interactions.css  v4
    Cyber Dashboard Interactivity Layer
-   Add: <link rel="stylesheet" href="interactions.css"> in <head>
    ================================================================ */
 
 /* ── Text selection glow ─────────────────────────────────────── */
@@ -25,18 +24,23 @@
   *, *::before, *::after { cursor: none !important; }
 }
 
-/* ── Cyber canvas (fixed, behind everything) ─────────────────── */
+/* ── Cyber canvas — absolute inside .hero ────────────────────── */
 #cyber-canvas {
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  border-radius: inherit;
 }
 
-/* Lift all page sections above canvas */
-.nav, .hero, section,
-.about, .skills, .projects,
-.services, .experience, .contact, .footer {
+/* Hero already has position:relative — just make sure
+   its children that sit ON TOP of the canvas have z-index */
+.hero-noise,
+.hero-grid-lines,
+.hero-badge,
+.hero-content,
+.hero-scroll-hint,
+.hero-stat-bar {
   position: relative;
   z-index: 1;
 }
@@ -111,7 +115,7 @@
   box-shadow: 0 0 18px var(--accent, #6ba4ff);
 }
 
-/* Cursor crosshair lines (decorative) */
+/* Crosshair tick marks on hover */
 #cursor-ring::before,
 #cursor-ring::after {
   content: '';
@@ -131,9 +135,7 @@
   transform: translateY(-50%);
 }
 #cursor-ring.ring--hover::before,
-#cursor-ring.ring--hover::after {
-  opacity: 0.5;
-}
+#cursor-ring.ring--hover::after { opacity: 0.5; }
 
 /* ── Click ripple ────────────────────────────────────────────── */
 .click-ripple {
@@ -150,14 +152,13 @@
 }
 @keyframes ripple-out {
   from { width: 0;    height: 0;    opacity: 0.65; }
-  to   { width: 80px; height: 80px; opacity: 0; }
+  to   { width: 80px; height: 80px; opacity: 0;    }
 }
 
 /* ── Card scan-line sweep ────────────────────────────────────── */
 .skill-card,
-.service-card {
-  overflow: hidden; /* needed for sweep clip */
-}
+.service-card { overflow: hidden; }
+
 .card-sweep {
   position: absolute;
   top: -60%;
@@ -191,23 +192,16 @@
   to   { top: 110%; }
 }
 
-/* ── Section label: hover letter-spread + glitch cursor ──────── */
-.section-label {
-  transition: letter-spacing 0.25s ease;
-}
-.section-label:hover {
-  letter-spacing: 0.24em;
-}
+/* ── Section label: letter-spread on hover ───────────────────── */
+.section-label { transition: letter-spacing 0.25s ease; }
+.section-label:hover { letter-spacing: 0.24em; }
 
 /* ── Nav link hover dot indicator ───────────────────────────── */
-.nav-links a {
-  position: relative;
-}
+.nav-links a { position: relative; }
 .nav-links a::after {
   content: '';
   position: absolute;
-  bottom: -5px;
-  left: 50%;
+  bottom: -5px; left: 50%;
   width: 3px; height: 3px;
   border-radius: 50%;
   background: var(--accent);
@@ -216,11 +210,8 @@
 }
 .nav-links a:hover::after { transform: translateX(-50%) scale(1); }
 
-/* ── Contact item: left-border reveal on hover ───────────────── */
-.contact-link-item {
-  position: relative;
-  overflow: hidden;
-}
+/* ── Contact item: left-border reveal ───────────────────────── */
+.contact-link-item { position: relative; overflow: hidden; }
 .contact-link-item::before {
   content: '';
   position: absolute;
@@ -233,10 +224,8 @@
 }
 .contact-link-item:hover::before { transform: scaleY(1); }
 
-/* ── Project row: left-edge pulse on hover ───────────────────── */
-.project-row {
-  position: relative;
-}
+/* ── Project row: left-edge accent ──────────────────────────── */
+.project-row { position: relative; }
 .project-row::before {
   content: '';
   position: absolute;
@@ -255,31 +244,25 @@
 ::-webkit-scrollbar-thumb {
   background: var(--border2, rgba(100, 140, 255, 0.22));
   border-radius: 99px;
-  transition: background 0.2s;
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent, #6ba4ff); }
 
-/* ── Focus ring (keyboard nav) ───────────────────────────────── */
+/* ── Focus ring ─────────────────────────────────────────────── */
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
-/* ── Timeline dot pulse ──────────────────────────────────────── */
-.timeline-item::before {
-  transition: box-shadow 0.3s ease;
-}
+/* ── Timeline dot: expands on row hover ─────────────────────── */
+.timeline-item::before { transition: box-shadow 0.3s ease; }
 .timeline-item:hover::before {
   box-shadow:
     0 0 0 4px var(--accent-dim),
-    0 0 16px rgba(107, 164, 255, 0.55);
+    0 0 16px rgba(107, 164, 255, 0.5);
 }
 
-/* ── Stat number glow on view ────────────────────────────────── */
-.stat-num {
-  transition: text-shadow 0.5s ease;
-}
+/* ── Stat number: glow after count-up ───────────────────────── */
 .stat-num.counted {
   text-shadow: 0 0 20px rgba(107, 164, 255, 0.35);
 }
@@ -287,7 +270,7 @@
   text-shadow: 0 0 16px rgba(37, 88, 212, 0.25);
 }
 
-/* ── Hero badge: subtle pulse ────────────────────────────────── */
+/* ── Hero badge pulse ────────────────────────────────────────── */
 .hero-badge {
   animation: fadeUp 0.7s ease both, badge-pulse 4s ease 1.5s infinite;
 }
@@ -296,7 +279,7 @@
   50%       { box-shadow: 0 0 0 3px var(--accent-dim, rgba(107,164,255,0.13)); }
 }
 
-/* ── Mobile: restore default cursor ─────────────────────────── */
+/* ── Mobile: restore cursor ─────────────────────────────────── */
 @media (hover: none) {
   *, *::before, *::after  { cursor: auto !important; }
   #cursor-dot, #cursor-ring { display: none !important; }
