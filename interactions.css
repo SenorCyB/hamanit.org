@@ -54,7 +54,7 @@
   border-radius: 50%;
   background: var(--accent, #6ba4ff);
   box-shadow: 0 0 8px var(--accent, #6ba4ff);
-  transform: translate(-50%, -50%);
+  /* centering offset handled in JS — no static transform here */
   pointer-events: none;
   z-index: 9999;
   transition:
@@ -74,7 +74,7 @@
   border-radius: 50%;
   border: 1.5px solid var(--accent, #6ba4ff);
   opacity: 0.65;
-  transform: translate(-50%, -50%);
+  /* centering offset handled in JS — no static transform here */
   pointer-events: none;
   z-index: 9998;
   transition:
