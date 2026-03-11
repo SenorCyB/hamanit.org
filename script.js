@@ -1,152 +1,82 @@
-/* ========================================================================
-   HAMAN IT - Portfolio Scripts (SAFE VERSION)
-   - Won’t crash on pages missing certain elements
-   - Uses .reveal + .visible consistently
-   ======================================================================== */
+/* ================================================================
+   HAMAN IT — script.js
+   Add these lines to the TOP of your existing script.js
+   (or paste the full block, then append your existing code below)
+   ================================================================ */
 
-(() => {
-  "use strict";
+/* ── Theme Toggle ──────────────────────────────────────────────── */
+(function () {
+  const root   = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
 
-  // ---- Navigation: scroll background & active link ----
-  const nav = document.getElementById("nav");
-  const navLinks = document.querySelectorAll(".nav-link");
-  const sections = document.querySelectorAll("section[id]");
+  // Apply saved preference before first paint (avoids flash)
+  const saved = localStorage.getItem('hamanit-theme') || 'dark';
+  root.setAttribute('data-theme', saved);
 
-  function updateNav() {
-    if (!nav) return;
+  if (!toggle) return;
 
-    // Scrolled background
-    if (window.scrollY > 30) nav.classList.add("scrolled");
-    else nav.classList.remove("scrolled");
+  toggle.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme');
+    const next    = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('hamanit-theme', next);
+  });
+})();
 
-    // Active section highlighting (only works on pages with #sections)
-    const scrollPos = window.scrollY + 120;
-    let currentSection = "";
+/* ================================================================
+   ↓↓ PASTE YOUR EXISTING script.js CODE BELOW THIS LINE ↓↓
+   ================================================================ */
 
-    sections.forEach((section) => {
-      if (section.offsetTop <= scrollPos) currentSection = section.id;
-    });
+/* ── Nav scroll + hamburger ──────────────────────────────────── */
+const hamburger  = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
 
-    navLinks.forEach((link) => {
-      link.classList.remove("active");
-      const href = link.getAttribute("href") || "";
-      if (href === `#${currentSection}`) link.classList.add("active");
-    });
-  }
-
-  window.addEventListener("scroll", updateNav, { passive: true });
-  updateNav();
-
-  // ---- Mobile menu toggle ----
-  const navToggle = document.getElementById("nav-toggle");
-  const navMobile = document.getElementById("nav-mobile");
-
-  if (navToggle && navMobile) {
-    navToggle.addEventListener("click", () => {
-      const isOpen = navToggle.classList.toggle("open");
-      navMobile.classList.toggle("open", isOpen);
-    });
-
-    navMobile.querySelectorAll(".nav-link").forEach((link) => {
-      link.addEventListener("click", () => {
-        navToggle.classList.remove("open");
-        navMobile.classList.remove("open");
-      });
-    });
-  }
-
-  // ---- Typing animation (ONLY if #typing-text exists) ----
-  const typingEl = document.getElementById("typing-text");
-
-  if (typingEl) {
-    const roles = [
-      "IT & Cybersecurity Student",
-      "IT Support & Troubleshooting",
-      "Network Security + Labs",
-      "Hands-on Technical Projects",
-    ];
-
-    let roleIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function typeStep() {
-      const current = roles[roleIndex];
-
-      if (!isDeleting && charIndex < current.length) {
-        charIndex++;
-        typingEl.textContent = current.substring(0, charIndex);
-        setTimeout(typeStep, 55);
-      } else if (!isDeleting && charIndex === current.length) {
-        setTimeout(() => {
-          isDeleting = true;
-          typeStep();
-        }, 1800);
-      } else if (isDeleting && charIndex > 0) {
-        charIndex--;
-        typingEl.textContent = current.substring(0, charIndex);
-        setTimeout(typeStep, 30);
-      } else {
-        isDeleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-        setTimeout(typeStep, 350);
-      }
-    }
-
-    typeStep();
-  }
-
-  // ---- Scroll reveal (Intersection Observer) ----
-  const revealElements = document.querySelectorAll(".reveal");
-
-  if (revealElements.length) {
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
-      );
-
-      revealElements.forEach((el) => observer.observe(el));
-    } else {
-      revealElements.forEach((el) => el.classList.add("visible"));
-    }
-  }
-
-  // ---- Card mouse-tracking glow effect ----
-  document.querySelectorAll(".card").forEach((card) => {
-    card.addEventListener("mousemove", (e) => {
-      const rect = card.getBoundingClientRect();
-      card.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
-      card.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+if (hamburger && mobileMenu) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
     });
   });
+}
 
-  // ---- Contact form ----
-  const contactForm = document.getElementById("contact-form");
-  const formSuccess = document.getElementById("form-success");
+const nav = document.getElementById('nav');
+if (nav) {
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+}
 
-  if (contactForm && formSuccess) {
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById("name")?.value || "";
-      const email = document.getElementById("email")?.value || "";
-      const message = document.getElementById("message")?.value || "";
-
-      const subject = encodeURIComponent(`Message from ${name}`);
-      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
-
-      window.location.href = `mailto:joshham364@gmail.com?subject=${subject}&body=${body}`;
-
-      contactForm.style.display = "none";
-      formSuccess.style.display = "flex";
+/* ── Scroll-reveal ───────────────────────────────────────────── */
+const revealEls = document.querySelectorAll(
+  '.skill-card, .project-row, .service-card, .timeline-item'
+);
+const io = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
     });
-  }
-})();
+  },
+  { threshold: 0.1 }
+);
+revealEls.forEach(el => io.observe(el));
+
+/* ── Contact form → mailto ───────────────────────────────────── */
+function handleSubmit(e) {
+  e.preventDefault();
+  const name    = document.getElementById('name').value;
+  const email   = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+  const subject = encodeURIComponent('Portfolio Contact from ' + name);
+  const body    = encodeURIComponent('From: ' + name + '\nEmail: ' + email + '\n\n' + message);
+  window.location.href = 'mailto:joshham364@gmail.com?subject=' + subject + '&body=' + body;
+  const success = document.getElementById('formSuccess');
+  if (success) success.classList.add('show');
+}
