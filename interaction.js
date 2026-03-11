@@ -364,16 +364,18 @@
   }
 
   /* ══════════════════════════════════════════════════════════════
-     BOOT
+     BOOT — each block is isolated so one failure can't break others
   ══════════════════════════════════════════════════════════════ */
+
+  /* Cursor runs immediately — defer guarantees DOM is parsed */
+  try { new CustomCursor(); } catch (e) { console.warn('Cursor:', e); }
+
   document.addEventListener('DOMContentLoaded', () => {
-    new CyberCanvas();
-    new CustomCursor();
-    initRipple();
-    initGlitch();
-    initCounters();
-    initScanLines();
-    /* initHeroLetters removed — no letter glow on name */
+    try { new CyberCanvas();  } catch (e) { console.warn('Canvas:', e); }
+    try { initRipple();       } catch (e) {}
+    try { initGlitch();       } catch (e) {}
+    try { initCounters();     } catch (e) {}
+    try { initScanLines();    } catch (e) {}
   });
 
 })();
