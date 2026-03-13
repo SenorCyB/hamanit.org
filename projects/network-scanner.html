@@ -74,7 +74,7 @@
       --shadow-elevated:0 8px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06);
     }
 
-    [data-theme="light"] body { background: var(--bg-deep); }
+    [data-theme="light"] body { background: var(--bg); }
 
     /* ── Hero banner ── */
     .project-hero {
@@ -138,7 +138,7 @@
     .hero-tag {
       padding: 6px 14px;
       border-radius: 999px;
-      border: 1px solid var(--accent-border);
+      border: 1px solid var(--border2);
       background: var(--accent-dim);
       color: var(--accent);
       font-family: var(--ff-mono);
@@ -189,7 +189,7 @@
       width: 40px; height: 40px;
       border-radius: 10px;
       background: var(--accent-dim);
-      border: 1px solid var(--accent-border);
+      border: 1px solid var(--border2);
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 16px;
     }
@@ -332,7 +332,7 @@
     }
     .swiper-btn:hover {
       transform: translateY(-2px);
-      border-color: var(--accent-border);
+      border-color: var(--border2);
       box-shadow: 0 8px 32px var(--accent-glow);
       color: var(--accent);
     }
@@ -364,7 +364,7 @@
     .build-card {
       border-radius: 20px;
       border: 1px solid var(--border);
-      background: var(--bg-deep);
+      background: var(--bg);
       overflow: hidden;
       transition: transform 0.3s var(--transition), box-shadow 0.3s var(--transition), border-color 0.3s;
       cursor: default;
@@ -416,7 +416,7 @@
     .build-badge {
       padding: 4px 10px;
       border-radius: 999px;
-      border: 1px solid var(--accent-border);
+      border: 1px solid var(--border2);
       background: var(--accent-dim);
       color: var(--accent);
       font-family: var(--ff-mono);
@@ -551,7 +551,7 @@
       bottom: calc(100% + 8px);
       left: 50%;
       transform: translateX(-50%) scale(0.85);
-      background: var(--text-primary);
+      background: var(--text);
       color: #fff;
       font-size: 11px;
       font-family: var(--ff-mono);
@@ -700,7 +700,7 @@
       <div class="card anim-up">
         <div class="section-eyebrow">What I Do</div>
         <h2 class="block-title">Build Process</h2>
-        <p style="font-size:15px; color:var(--text-muted); line-height:1.75; margin-bottom:20px;">
+        <p style="font-size:15px; color:var(--muted); line-height:1.75; margin-bottom:20px;">
           Every build starts with a conversation. I like understanding how the system will actually be used &mdash; what performance matters most, what aesthetic the person wants, and where the budget should flex. From there, I translate that into a practical parts list and build plan.
         </p>
         <ul class="skill-list">
@@ -794,7 +794,7 @@
     <div class="builds-section anim-up">
       <div class="section-eyebrow">Portfolio</div>
       <h2 class="block-title">Selected Builds</h2>
-      <p style="font-size:14px; color:var(--text-muted); margin-bottom:4px;">Examples of custom systems designed, assembled, and optimized for different goals, styles, and budgets.</p>
+      <p style="font-size:14px; color:var(--muted); margin-bottom:4px;">Examples of custom systems designed, assembled, and optimized for different goals, styles, and budgets.</p>
       <div class="builds-grid">
         <div class="build-card">
           <img src="../Images/build-gaming.jpg" alt="Custom gaming PC build" class="build-image lightbox-trigger" />
