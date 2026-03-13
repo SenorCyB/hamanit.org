@@ -53,6 +53,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="../styles.css" />
   <link rel="stylesheet" href="../interactions.css" />
+  <link rel="stylesheet" href="../project-page.css" />
   <style>
     /* ── Page-level overrides: light theme vars (scoped, not forced) ── */
     [data-theme="light"] {
@@ -73,11 +74,11 @@
       --shadow-elevated:0 8px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06);
     }
 
-    body { background: var(--bg-deep); }
+    [data-theme="light"] body { background: var(--bg-deep); }
 
     /* ── Hero banner ── */
     .project-hero {
-      background: linear-gradient(160deg, #ffffff 0%, #f0f4ff 100%);
+      background: linear-gradient(160deg, var(--bg) 0%, var(--bg2) 100%);
       border-bottom: 1px solid var(--border);
       padding: 140px 0 64px;
       position: relative;
@@ -101,9 +102,9 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      font-family: var(--font-mono);
+      font-family: var(--ff-mono);
       font-size: 12px;
-      color: var(--text-faint);
+      color: var(--faint);
       margin-bottom: 28px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
@@ -115,7 +116,7 @@
       font-size: clamp(2rem, 5vw, 3.5rem);
       font-weight: 800;
       letter-spacing: -0.04em;
-      color: var(--text-primary);
+      color: var(--text);
       line-height: 1.05;
       max-width: 780px;
       margin-bottom: 20px;
@@ -128,7 +129,7 @@
     }
     .project-hero-sub {
       font-size: 17px;
-      color: var(--text-muted);
+      color: var(--muted);
       max-width: 620px;
       line-height: 1.7;
       margin-bottom: 36px;
@@ -140,7 +141,7 @@
       border: 1px solid var(--accent-border);
       background: var(--accent-dim);
       color: var(--accent);
-      font-family: var(--font-mono);
+      font-family: var(--ff-mono);
       font-size: 12px;
       font-weight: 500;
       letter-spacing: 0.04em;
@@ -163,11 +164,11 @@
       margin: 40px 0;
     }
     .stat-card {
-      background: #fff;
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 28px 24px;
-      box-shadow: var(--shadow-card);
+      box-shadow: 0 2px 16px var(--accent-glow);
       position: relative;
       overflow: hidden;
       transition: transform 0.3s var(--transition), box-shadow 0.3s var(--transition);
@@ -182,7 +183,7 @@
       opacity: 0;
       transition: opacity 0.3s;
     }
-    .stat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-elevated); }
+    .stat-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px var(--accent-glow); }
     .stat-card:hover::after { opacity: 1; }
     .stat-icon {
       width: 40px; height: 40px;
@@ -194,7 +195,7 @@
     }
     .stat-icon svg { width: 18px; height: 18px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
     .stat-label {
-      font-family: var(--font-mono);
+      font-family: var(--ff-mono);
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -204,7 +205,7 @@
     .stat-value {
       font-size: 15px;
       font-weight: 700;
-      color: var(--text-primary);
+      color: var(--text);
       line-height: 1.4;
       letter-spacing: -0.01em;
     }
@@ -229,7 +230,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      font-family: var(--font-mono);
+      font-family: var(--ff-mono);
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -247,21 +248,21 @@
       font-size: 19px;
       font-weight: 800;
       letter-spacing: -0.03em;
-      color: var(--text-primary);
+      color: var(--text);
       margin-bottom: 14px;
     }
 
     /* ── Skill list ── */
     .skill-list { gap: 12px; }
-    .skill-item { font-size: 14px; color: var(--text-muted); }
+    .skill-item { font-size: 14px; color: var(--muted); }
 
     /* ── Gallery ── */
     .gallery-section {
-      background: #fff;
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 24px;
       padding: 32px;
-      box-shadow: var(--shadow-card);
+      box-shadow: 0 2px 16px var(--accent-glow);
       margin-bottom: 24px;
     }
     .gallery-header {
@@ -274,21 +275,21 @@
     }
     .gallery-note {
       font-size: 13px;
-      color: var(--text-faint);
-      font-family: var(--font-mono);
+      color: var(--faint);
+      font-family: var(--ff-mono);
     }
     .projectSwiper { width: 100%; overflow: visible; }
     .project-slide {
       border-radius: 18px;
       overflow: hidden;
       border: 1px solid var(--border);
-      background: #fff;
-      box-shadow: var(--shadow-card);
+      background: var(--surface);
+      box-shadow: 0 2px 16px var(--accent-glow);
       height: auto;
       user-select: none;
       transition: transform 0.3s var(--transition), box-shadow 0.3s var(--transition);
     }
-    .project-slide:hover { transform: translateY(-3px); box-shadow: var(--shadow-elevated); }
+    .project-slide:hover { transform: translateY(-3px); box-shadow: 0 8px 32px var(--accent-glow); }
     .project-slide img {
       display: block;
       width: 100%;
@@ -302,13 +303,13 @@
     .project-slide-title {
       font-size: 15px;
       font-weight: 700;
-      color: var(--text-primary);
+      color: var(--text);
       margin-bottom: 6px;
       letter-spacing: -0.02em;
     }
     .project-slide-text {
       font-size: 13px;
-      color: var(--text-muted);
+      color: var(--muted);
       line-height: 1.6;
     }
     .swiper-controls {
@@ -321,37 +322,37 @@
       width: 44px; height: 44px;
       border-radius: 12px;
       border: 1px solid var(--border);
-      background: #fff;
-      color: var(--text-primary);
+      background: var(--surface);
+      color: var(--text);
       display: inline-flex;
       align-items: center; justify-content: center;
       cursor: pointer;
       transition: all 0.2s ease;
-      box-shadow: var(--shadow-card);
+      box-shadow: 0 2px 16px var(--accent-glow);
     }
     .swiper-btn:hover {
       transform: translateY(-2px);
       border-color: var(--accent-border);
-      box-shadow: var(--shadow-elevated);
+      box-shadow: 0 8px 32px var(--accent-glow);
       color: var(--accent);
     }
     .swiper-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
     .swiper-pagination-custom {
       position: static !important;
       width: auto !important;
-      color: var(--text-faint);
-      font-family: var(--font-mono);
+      color: var(--faint);
+      font-family: var(--ff-mono);
       font-size: 13px;
       letter-spacing: 0.08em;
     }
 
     /* ── Builds grid ── */
     .builds-section {
-      background: #fff;
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 24px;
       padding: 32px;
-      box-shadow: var(--shadow-card);
+      box-shadow: 0 2px 16px var(--accent-glow);
       margin-bottom: 24px;
     }
     .builds-grid {
@@ -381,7 +382,7 @@
     }
     .build-card:hover {
       transform: translateY(-6px);
-      box-shadow: var(--shadow-elevated);
+      box-shadow: 0 8px 32px var(--accent-glow);
       border-color: rgba(0,113,227,0.2);
     }
     .build-card:hover::before { opacity: 1; }
@@ -401,13 +402,13 @@
     .build-card-title {
       font-size: 15px;
       font-weight: 700;
-      color: var(--text-primary);
+      color: var(--text);
       margin-bottom: 8px;
       letter-spacing: -0.02em;
     }
     .build-card-text {
       font-size: 13px;
-      color: var(--text-muted);
+      color: var(--muted);
       line-height: 1.6;
       margin-bottom: 14px;
     }
@@ -418,7 +419,7 @@
       border: 1px solid var(--accent-border);
       background: var(--accent-dim);
       color: var(--accent);
-      font-family: var(--font-mono);
+      font-family: var(--ff-mono);
       font-size: 11px;
       transition: all 0.2s;
     }
@@ -455,13 +456,13 @@
       font-size: 22px;
       font-weight: 800;
       letter-spacing: -0.03em;
-      color: var(--text-primary);
+      color: var(--text);
       margin-bottom: 12px;
       position: relative;
     }
     .cta-card-text {
       font-size: 15px;
-      color: var(--text-muted);
+      color: var(--muted);
       line-height: 1.7;
       max-width: 640px;
       position: relative;
@@ -553,7 +554,7 @@
       background: var(--text-primary);
       color: #fff;
       font-size: 11px;
-      font-family: var(--font-mono);
+      font-family: var(--ff-mono);
       padding: 5px 10px;
       border-radius: 6px;
       white-space: nowrap;
