@@ -46,17 +46,554 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home Lab | HAMAN IT</title>
-  <meta name="description" content="Virtualized IT & Security Home Lab - VMware, Active Directory, Windows Server, and security tooling practice environment." />
+  <meta name="description" content="Virtualized IT &amp; Security Home Lab — VMware, Active Directory, Windows Server, and security tooling." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  
   <link rel="stylesheet" href="../styles.css" />
   <link rel="stylesheet" href="../interactions.css" />
   <link rel="stylesheet" href="../project-page.css" />
+  <style>
+    /* ── Page-level overrides: light theme vars (scoped, not forced) ── */
+    [data-theme="light"] {
+      --bg-deep:        #f5f5f7;
+      --bg-primary:     #ffffff;
+      --bg-card:        #ffffff;
+      --bg-card-hover:  #f0f0f5;
+      --accent:         #0071e3;
+      --accent-dim:     rgba(0,113,227,0.08);
+      --accent-glow:    rgba(0,113,227,0.04);
+      --accent-border:  rgba(0,113,227,0.2);
+      --text-primary:   #1d1d1f;
+      --text-secondary: #3d3d3f;
+      --text-muted:     #6e6e73;
+      --text-faint:     #a1a1a6;
+      --border:         rgba(0,0,0,0.08);
+      --shadow-card:    0 2px 20px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+      --shadow-elevated:0 8px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    [data-theme="light"] body { background: var(--bg-deep); }
+
+    /* ── Hero banner ── */
+    .project-hero {
+      background: linear-gradient(160deg, var(--bg) 0%, var(--bg2) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 140px 0 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,113,227,0.08), transparent 65%);
+      pointer-events: none;
+    }
+    .project-hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .project-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--ff-mono);
+      font-size: 12px;
+      color: var(--faint);
+      margin-bottom: 28px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .project-breadcrumb a { color: var(--accent); transition: opacity 0.2s; }
+    .project-breadcrumb a:hover { opacity: 0.7; }
+    .project-breadcrumb svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .project-hero-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--text);
+      line-height: 1.05;
+      max-width: 780px;
+      margin-bottom: 20px;
+    }
+    .project-hero-title .hl {
+      background: linear-gradient(135deg, #0071e3, #34aadc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .project-hero-sub {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 620px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+    .hero-tag {
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-border);
+      background: var(--accent-dim);
+      color: var(--accent);
+      font-family: var(--ff-mono);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      animation: tag-pop 0.5s var(--transition) both;
+    }
+    @keyframes tag-pop {
+      from { opacity: 0; transform: scale(0.85) translateY(6px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .hero-tag:nth-child(1) { animation-delay: 0.2s; }
+    .hero-tag:nth-child(2) { animation-delay: 0.3s; }
+    .hero-tag:nth-child(3) { animation-delay: 0.4s; }
+    .hero-tag:nth-child(4) { animation-delay: 0.5s; }
+
+    /* ── Stats row ── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 40px 0;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      box-shadow: 0 2px 16px var(--accent-glow);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s var(--transition), box-shadow 0.3s var(--transition);
+      cursor: default;
+    }
+    .stat-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(0,113,227,0.05), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .stat-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px var(--accent-glow); }
+    .stat-card:hover::after { opacity: 1; }
+    .stat-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .stat-icon svg { width: 18px; height: 18px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .stat-label {
+      font-family: var(--ff-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .stat-value {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+    }
+
+    /* ── Main content grid ── */
+    .project-content {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    /* ── Detail grid ── */
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    /* ── Section titles ── */
+    .section-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--ff-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .section-eyebrow::before {
+      content: '';
+      display: block;
+      width: 20px; height: 2px;
+      border-radius: 1px;
+      background: var(--accent);
+    }
+    .block-title {
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    /* ── Skill list ── */
+    .skill-list { gap: 12px; }
+    .skill-item { font-size: 14px; color: var(--muted); }
+
+    /* ── Gallery ── */
+    .gallery-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 2px 16px var(--accent-glow);
+      margin-bottom: 24px;
+    }
+    .gallery-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .gallery-note {
+      font-size: 13px;
+      color: var(--faint);
+      font-family: var(--ff-mono);
+    }
+    .projectSwiper { width: 100%; overflow: visible; }
+    .project-slide {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: 0 2px 16px var(--accent-glow);
+      height: auto;
+      user-select: none;
+      transition: transform 0.3s var(--transition), box-shadow 0.3s var(--transition);
+    }
+    .project-slide:hover { transform: translateY(-3px); box-shadow: 0 8px 32px var(--accent-glow); }
+    .project-slide img {
+      display: block;
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      pointer-events: none;
+      transition: transform 0.5s var(--transition);
+    }
+    .project-slide:hover img { transform: scale(1.03); }
+    .project-slide-content { padding: 18px; }
+    .project-slide-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+    .project-slide-text {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .swiper-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .swiper-btn {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 16px var(--accent-glow);
+    }
+    .swiper-btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-border);
+      box-shadow: 0 8px 32px var(--accent-glow);
+      color: var(--accent);
+    }
+    .swiper-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .swiper-pagination-custom {
+      position: static !important;
+      width: auto !important;
+      color: var(--faint);
+      font-family: var(--ff-mono);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── Builds grid ── */
+    .builds-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 2px 16px var(--accent-glow);
+      margin-bottom: 24px;
+    }
+    .builds-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .build-card {
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--bg-deep);
+      overflow: hidden;
+      transition: transform 0.3s var(--transition), box-shadow 0.3s var(--transition), border-color 0.3s;
+      cursor: default;
+      position: relative;
+    }
+    .build-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,113,227,0.04) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .build-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 32px var(--accent-glow);
+      border-color: rgba(0,113,227,0.2);
+    }
+    .build-card:hover::before { opacity: 1; }
+    .build-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s var(--transition);
+    }
+    .build-card:hover .build-image { transform: scale(1.04); }
+    .build-body {
+      padding: 18px;
+      position: relative;
+      z-index: 2;
+    }
+    .build-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .build-card-text {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .build-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+    .build-badge {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-border);
+      background: var(--accent-dim);
+      color: var(--accent);
+      font-family: var(--ff-mono);
+      font-size: 11px;
+      transition: all 0.2s;
+    }
+    .build-card:hover .build-badge { background: rgba(0,113,227,0.12); }
+
+    /* ── Bottom grid ── */
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    /* ── CTA card ── */
+    .cta-card {
+      background: linear-gradient(135deg, rgba(0,113,227,0.06), rgba(52,170,220,0.06));
+      border: 1px solid rgba(0,113,227,0.15);
+      border-radius: 24px;
+      padding: 40px 36px;
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-card::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,113,227,0.08), transparent 65%);
+      pointer-events: none;
+    }
+    .cta-card-title {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .cta-card-text {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 640px;
+      position: relative;
+    }
+
+    /* ── Floating particles ── */
+    .hero-particles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(0,113,227,0.12);
+      animation: float-particle linear infinite;
+    }
+    @keyframes float-particle {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 0.6; }
+      100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+    }
+
+    /* ── Scroll progress bar ── */
+    #scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #0071e3, #34aadc);
+      z-index: 9999;
+      width: 0%;
+      transition: width 0.1s linear;
+      border-radius: 0 2px 2px 0;
+    }
+
+    /* ── Image lightbox ── */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.82);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .lightbox.open { opacity: 1; pointer-events: auto; }
+    .lightbox-inner {
+      position: relative;
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+      transform: scale(0.92);
+      transition: transform 0.3s var(--transition);
+    }
+    .lightbox.open .lightbox-inner { transform: scale(1); }
+    .lightbox-inner img { display: block; max-width: 90vw; max-height: 80vh; object-fit: contain; }
+    .lightbox-close {
+      position: absolute;
+      top: 14px; right: 14px;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+      backdrop-filter: blur(8px);
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.25); }
+    .lightbox-close svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; }
+
+    /* ── Tooltip ── */
+    [data-tip] { position: relative; }
+    [data-tip]::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%) scale(0.85);
+      background: var(--text-primary);
+      color: #fff;
+      font-size: 11px;
+      font-family: var(--ff-mono);
+      padding: 5px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    [data-tip]:hover::after { opacity: 1; transform: translateX(-50%) scale(1); }
+
+    /* ── Animate in on scroll ── */
+    .anim-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s var(--transition), transform 0.7s var(--transition);
+    }
+    .anim-up.in-view { opacity: 1; transform: translateY(0); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .stat-row { grid-template-columns: 1fr 1fr; }
+      .detail-grid { grid-template-columns: 1fr; }
+      .bottom-grid { grid-template-columns: 1fr; }
+      .builds-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .stat-row { grid-template-columns: 1fr; }
+      .project-hero { padding: 120px 0 48px; }
+      .gallery-section, .builds-section { padding: 20px; }
+      .cta-card { padding: 28px 22px; }
+    }
+  </style>
 </head>
 <body>
 
-  <nav class="nav" id="nav">
+<body>
+
+<div id="scroll-progress"></div>
+
+<nav class="nav" id="nav">
   <a href="../index.html" class="nav-logo">HAMAN<span>IT</span></a>
   <ul class="nav-links">
     <li><a href="../index.html#about">About</a></li>
@@ -80,87 +617,157 @@
   </button>
 </nav>
 
-<!-- ── MOBILE MENU ───────────────────────────────────────────── -->
 <div class="mobile-menu" id="mobile-menu">
-  <a href="../index.html#about"     class="mm-link">About</a>
-  <a href="../index.html#skills"    class="mm-link">Skills</a>
-  <a href="../index.html#projects"  class="mm-link">Projects</a>
-  <a href="../index.html#services"  class="mm-link">Services</a>
+  <a href="../index.html#about"      class="mm-link">About</a>
+  <a href="../index.html#skills"     class="mm-link">Skills</a>
+  <a href="../index.html#projects"   class="mm-link">Projects</a>
+  <a href="../index.html#services"   class="mm-link">Services</a>
   <a href="../index.html#experience" class="mm-link">Experience</a>
   <a href="../Joshua_Haman_Resume.pdf" class="mm-link" target="_blank">Résumé</a>
-  <a href="../index.html#contact"   class="mm-cta">Get in Touch →</a>
+  <a href="../index.html#contact"    class="mm-cta">Get in Touch →</a>
 </div>
 
-  <main>
+<main>
 
-     <section class="section" id="project" style="padding-top: 140px;">      
-       <div class="container">
-        <div class="section-header">
-          <div class="section-label">
-            <svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
-            project
-          </div>
-          <h1 class="section-title">Virtualized IT &amp; Security Home Lab</h1>
-          <p class="section-subtitle">
-            A VMware-based lab environment I use to practice Windows Server, Active Directory, networking, and security fundamentals in a safe sandbox.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3 class="card-title">Goal</h3>
-          <p class="card-text">
-            Build a realistic environment to strengthen my skills in system administration and security by configuring services, intentionally breaking things, and troubleshooting them end-to-end.
-          </p>
-        </div>
-
-        <div class="skills-grid" style="margin-top: 18px;">
-          <div class="card reveal">
-            <div class="skill-category-title"><span class="dot"></span> Environment</div>
-            <ul class="skill-list">
-              <li class="skill-item">VMware virtual network + multiple VMs</li>
-              <li class="skill-item">Windows Server (AD DS, DNS)</li>
-              <li class="skill-item">Windows client(s)</li>
-              <li class="skill-item">Linux servers / Kali for tooling</li>
-            </ul>
-          </div>
-
-          <div class="card reveal reveal-delay-1">
-            <div class="skill-category-title"><span class="dot"></span> What I Implemented</div>
-            <ul class="skill-list">
-              <li class="skill-item">Users, groups, permissions, file access</li>
-              <li class="skill-item">DNS concepts + troubleshooting</li>
-              <li class="skill-item">Basic hardening + baseline configs</li>
-              <li class="skill-item">Controlled misconfigs + remediation</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card reveal" style="margin-top: 18px;">
-          <h3 class="card-title">Proof / Screenshots</h3>
-          <p class="card-text">
-            In progress
-          </p>
-        </div>
-
-        <div style="margin-top: 18px; display:flex; gap:12px; flex-wrap:wrap;">
-          <a class="btn-ghost" href="../index.html#projects">
-            <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
-            Back to Projects
-          </a>
-
-          <a class="btn-primary" href="mailto:joshham364@gmail.com?subject=HAMAN%20IT%20-%20Home%20Lab%20Inquiry">
-            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            Ask About This Project
-          </a>
-        </div>
-
+  <!-- Hero -->
+  <header class="project-hero">
+    <div class="hero-particles" id="hero-particles"></div>
+    <div class="project-hero-inner">
+      <nav class="project-breadcrumb">
+        <a href="../index.html">Home</a>
+        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        <a href="../index.html#projects">Projects</a>
+        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        <span>Home Lab</span>
+      </nav>
+      <h1 class="project-hero-title">
+        Virtualized IT &amp;<br><span class="hl">Security Home Lab</span>
+      </h1>
+      <p class="project-hero-sub">
+        A VMware-based sandbox built to practice enterprise IT and cybersecurity &mdash; running Windows Server, Active Directory, and security tooling in a controlled, deliberately breakable environment.
+      </p>
+      <div class="hero-tags">
+        <span class="hero-tag">VMware</span>
+        <span class="hero-tag">Windows Server</span>
+        <span class="hero-tag">Active Directory</span>
+        <span class="hero-tag">Kali Linux</span>
+        <span class="hero-tag">DNS &amp; Networking</span>
       </div>
-    </section>
+    </div>
+  </header>
 
-  </main>
+  <!-- Stats -->
+  <div class="project-hero-inner" style="margin: 0 auto; max-width: 1120px; padding: 0 24px;">
+    <div class="stat-row anim-up">
+      <div class="stat-card" tabindex="0">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="stat-label">Platform</div>
+        <div class="stat-value">VMware Workstation</div>
+      </div>
+      <div class="stat-card" tabindex="0">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="stat-label">Focus</div>
+        <div class="stat-value">Security &amp; Sysadmin</div>
+      </div>
+      <div class="stat-card" tabindex="0">
+        <div class="stat-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div class="stat-label">Status</div>
+        <div class="stat-value">Ongoing / Active</div>
+      </div>
+    </div>
+  </div>
 
-  
-<!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <!-- Content -->
+  <div class="project-content">
+
+    <!-- Detail grid -->
+    <div class="detail-grid">
+      <div class="card anim-up">
+        <div class="section-eyebrow">Overview</div>
+        <h2 class="block-title">What I Built</h2>
+        <p style="font-size:15px; color:var(--muted); line-height:1.75; margin-bottom:20px;">
+          A multi-VM environment running on VMware Workstation that mirrors a small enterprise network. The goal was hands-on repetition with the systems I'd encounter in a real IT or security role &mdash; in a place where breaking things is expected.
+        </p>
+        <ul class="skill-list">
+          <li class="skill-item">Deployed and configured Windows Server 2019 as a domain controller</li>
+          <li class="skill-item">Set up Active Directory: users, groups, OUs, and group policy</li>
+          <li class="skill-item">Configured DNS, DHCP, and internal name resolution</li>
+          <li class="skill-item">Joined Windows client machines to the domain</li>
+          <li class="skill-item">Introduced controlled misconfigurations and practiced remediation</li>
+        </ul>
+      </div>
+      <div class="card anim-up" style="animation-delay:0.1s;">
+        <div class="section-eyebrow">Lab Stack</div>
+        <h2 class="block-title">Environment</h2>
+        <ul class="skill-list">
+          <li class="skill-item">VMware Workstation &mdash; virtual network host</li>
+          <li class="skill-item">Windows Server 2019 &mdash; AD DS, DNS, DHCP</li>
+          <li class="skill-item">Windows 10/11 &mdash; domain-joined client</li>
+          <li class="skill-item">Kali Linux &mdash; offensive security tooling</li>
+          <li class="skill-item">Internal virtual network with isolated segments</li>
+        </ul>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:20px;">
+          <span class="build-badge">Active Directory</span>
+          <span class="build-badge">DNS</span>
+          <span class="build-badge">Group Policy</span>
+          <span class="build-badge">Firewalls</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom info -->
+    <div class="bottom-grid">
+      <div class="card anim-up">
+        <div class="section-eyebrow">Security Work</div>
+        <h3 class="block-title">What I Practiced</h3>
+        <ul class="skill-list">
+          <li class="skill-item">Firewall rules and baseline hardening</li>
+          <li class="skill-item">User privilege escalation and access control testing</li>
+          <li class="skill-item">Log review and basic incident analysis</li>
+          <li class="skill-item">Deploying and using Kali security tools in the lab</li>
+        </ul>
+      </div>
+      <div class="card anim-up" style="animation-delay:0.1s;">
+        <div class="section-eyebrow">Takeaways</div>
+        <h3 class="block-title">What I Learned</h3>
+        <ul class="skill-list">
+          <li class="skill-item">How Active Directory actually structures an enterprise environment</li>
+          <li class="skill-item">Why network segmentation matters for security</li>
+          <li class="skill-item">How to diagnose and fix real infrastructure problems</li>
+          <li class="skill-item">The value of breaking things in a safe place to understand how they work</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-card anim-up">
+      <h3 class="cta-card-title">Why This Project Matters</h3>
+      <p class="cta-card-text">
+        Most IT and security skills are best learned by doing, not reading. This lab is how I build real, hands-on experience with the infrastructure and security concepts that matter most &mdash; before stepping into a professional environment.
+      </p>
+    </div>
+
+    <!-- Actions -->
+    <div style="display:flex; gap:12px; flex-wrap:wrap;" class="anim-up">
+      <a class="btn-ghost" href="../index.html#projects">
+        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+        Back to Projects
+      </a>
+      <a class="btn-primary" href="mailto:joshham364@gmail.com?subject=HAMAN%20IT%20-%20Home%20Lab%20Inquiry">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Ask About This Project
+      </a>
+    </div>
+
+  </div>
+</main>
+
 <footer class="footer">
   <div class="container footer-inner">
     <a href="../index.html" class="footer-logo">HAMAN<span>IT</span></a>
@@ -176,19 +783,35 @@
   </div>
 </footer>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var els = document.querySelectorAll('.reveal');
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.08 });
-    els.forEach(function (el) { io.observe(el); });
-  });
-</script>
 <div id="cursor-dot"></div>
-  <div id="cursor-ring"></div>
-  <script src="../interactions.js" defer></script>
+<div id="cursor-ring"></div>
+<script src="../interactions.js" defer></script>
+<script>
+  const prog = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+    prog.style.width = pct + '%';
+  }, { passive: true });
+
+  const animEls = document.querySelectorAll('.anim-up');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('in-view'), i * 60);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  animEls.forEach(el => io.observe(el));
+
+  const container = document.getElementById('hero-particles');
+  for (let i = 0; i < 14; i++) {
+    const p = document.createElement('div');
+    p.classList.add('particle');
+    const size = Math.random() * 10 + 4;
+    p.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;bottom:${-size}px;animation-duration:${8+Math.random()*12}s;animation-delay:${Math.random()*8}s;`;
+    container.appendChild(p);
+  }
+</script>
 </body>
 </html>
