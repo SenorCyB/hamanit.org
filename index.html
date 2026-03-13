@@ -495,6 +495,15 @@
   </div>
 </footer>
 
+<!-- ── Scroll progress wheel ──────────────────────────────────── -->
+<div id="scroll-wheel" aria-hidden="true">
+  <svg viewBox="0 0 36 36">
+    <circle class="scroll-wheel-track" cx="18" cy="18" r="15.9"/>
+    <circle class="scroll-wheel-fill"  cx="18" cy="18" r="15.9"/>
+  </svg>
+  <span id="scroll-pct">0</span>
+</div>
+
 <!-- ── Cursor elements ────────────────────────────────────────── -->
 <div id="cursor-dot"></div>
 <div id="cursor-ring"></div>
@@ -579,5 +588,58 @@
 
 <script src="interactions.js" defer></script>
 
+<style>
+  /* ── Scroll progress wheel ── */
+  #scroll-wheel {
+    position: fixed;
+    bottom: 32px; right: 32px;
+    width: 48px; height: 48px;
+    z-index: 200;
+    opacity: 0;
+    transform: scale(0.7);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+  }
+  #scroll-wheel.visible { opacity: 1; transform: scale(1); }
+  #scroll-wheel svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+  .scroll-wheel-track {
+    fill: none;
+    stroke: var(--border2);
+    stroke-width: 2.5;
+  }
+  .scroll-wheel-fill {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    transition: stroke-dashoffset 0.1s linear;
+    filter: drop-shadow(0 0 4px var(--accent));
+  }
+  #scroll-pct {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--ff-mono);
+    font-size: 9px; font-weight: 600;
+    color: var(--accent); letter-spacing: -0.02em;
+  }
+  @media (max-width: 600px) {
+    #scroll-wheel { bottom: 20px; right: 20px; width: 40px; height: 40px; }
+  }
+</style>
+<script>
+  (function () {
+    var wheel    = document.getElementById('scroll-wheel');
+    var fill     = document.querySelector('.scroll-wheel-fill');
+    var label    = document.getElementById('scroll-pct');
+    window.addEventListener('scroll', function () {
+      var pct = Math.round(window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100) || 0;
+      fill.style.strokeDashoffset = 100 - pct;
+      label.textContent = pct;
+      wheel.classList.toggle('visible', window.scrollY > 80);
+    }, { passive: true });
+  }());
+</script>
 </body>
 </html>
