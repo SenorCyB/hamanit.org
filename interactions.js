@@ -48,7 +48,6 @@
         this.mouse.y = -9999;
       });
 
-      window.addEventListener('scroll', () => this._onScroll(), { passive: true });
       this._tick();
     }
 
