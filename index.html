@@ -149,20 +149,37 @@
     .contact-item { display:flex; align-items:center; gap:0.75rem; padding:0.85rem 0; border-bottom:1px solid var(--border); color:var(--text2); font-size:0.9rem; }
     .contact-item:last-child { border:none; }
     .contact-item svg { color:var(--accent); flex-shrink:0; }
-    .contact-form-box { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:2.5rem; box-shadow:var(--shadow); }
-    .contact-form-box h3 { font-size:1.15rem; font-weight:700; margin-bottom:1.5rem; color:var(--text); }
-    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-    @media(max-width:500px) { .form-row { grid-template-columns:1fr; } }
-    .form-group { display:flex; flex-direction:column; gap:0.38rem; margin-bottom:1rem; }
-    .form-group label { font-size:0.8rem; font-weight:600; color:var(--text2); }
-    .form-group input, .form-group select, .form-group textarea { background:var(--bg2); border:1px solid var(--border2); border-radius:8px; padding:0.68rem 1rem; color:var(--text); font-family:var(--ff); font-size:0.88rem; transition:border-color 0.2s, box-shadow 0.2s; outline:none; width:100%; }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(26,110,245,0.1); }
-    .form-group textarea { resize:vertical; min-height:120px; }
-    .form-group select { appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 1rem center; }
-    .form-submit { width:100%; padding:0.9rem; font-size:0.95rem; font-weight:700; background:var(--accent); color:#fff; border:none; border-radius:var(--radius); cursor:pointer; font-family:var(--ff); transition:background 0.2s, transform 0.2s; }
-    .form-submit:hover { background:var(--accent2); transform:translateY(-1px); }
-    .form-success { display:none; align-items:center; gap:0.5rem; margin-top:1rem; padding:0.85rem 1rem; background:rgba(52,211,153,0.12); border:1px solid rgba(52,211,153,0.3); border-radius:8px; color:#059669; font-size:0.86rem; font-weight:500; }
-    .form-success.show { display:flex; }
+    .contact-form-box { background:rgba(0,0,0,0.88); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:2.5rem; box-shadow:0 15px 40px rgba(0,0,0,0.4); }
+    .lbox-field { position:relative; margin-bottom:2rem; }
+    .lbox-field input { width:100%; padding:10px 0; font-size:15px; color:#fff; background:transparent; border:none; border-bottom:1px solid rgba(255,255,255,0.35); outline:none; font-family:var(--ff); transition:border-color 0.3s; }
+    .lbox-field input:focus { border-bottom-color:#fff; }
+    .lbox-field label { position:absolute; top:10px; left:0; font-size:15px; color:rgba(255,255,255,0.55); pointer-events:none; transition:0.4s ease; }
+    .lbox-field input:focus ~ label,
+    .lbox-field input:valid ~ label { top:-18px; font-size:11px; color:#fff; letter-spacing:0.05em; text-transform:uppercase; }
+    .lbox-field textarea:focus ~ label { top:-18px; font-size:11px; color:#fff; letter-spacing:0.05em; text-transform:uppercase; }
+    .lbox-field textarea:valid ~ label { top:-18px; font-size:11px; color:#fff; letter-spacing:0.05em; text-transform:uppercase; }
+
+    /* Select field */
+    .lbox-select-wrap { margin-bottom:2.5rem; }
+    .lbox-select { width:100%; padding:10px 0; font-size:15px; color:#fff; background:transparent; border:none; border-bottom:1px solid rgba(255,255,255,0.35); outline:none; font-family:var(--ff); appearance:none; cursor:pointer; }
+    .lbox-select option { background:#111; color:#fff; }
+    .lbox-select-label { position:absolute; top:10px; left:0; font-size:15px; color:rgba(255,255,255,0.55); pointer-events:none; transition:0.4s ease; }
+    .lbox-select:focus ~ .lbox-select-label,
+    .lbox-select:valid ~ .lbox-select-label { top:-18px; font-size:11px; color:#fff; letter-spacing:0.05em; text-transform:uppercase; }
+
+    /* Animated border button */
+    .lbox-btn { position:relative; display:inline-block; padding:12px 36px; font-weight:700; color:#fff; font-size:0.95rem; background:transparent; border:none; cursor:pointer; font-family:var(--ff); text-transform:uppercase; letter-spacing:3px; overflow:hidden; transition:background 0.3s, color 0.3s; }
+    .lbox-btn:hover { background:#fff; color:#111; border-radius:5px; }
+    .lbox-btn span { position:absolute; display:block; }
+    .lbox-btn span:nth-child(1) { top:0; left:-100%; width:100%; height:2px; background:linear-gradient(90deg,transparent,#1a6ef5); animation:lbtn1 1.5s linear infinite; }
+    .lbox-btn span:nth-child(2) { top:-100%; right:0; width:2px; height:100%; background:linear-gradient(180deg,transparent,#1a6ef5); animation:lbtn2 1.5s linear infinite; animation-delay:.375s; }
+    .lbox-btn span:nth-child(3) { bottom:0; right:-100%; width:100%; height:2px; background:linear-gradient(270deg,transparent,#1a6ef5); animation:lbtn3 1.5s linear infinite; animation-delay:.75s; }
+    .lbox-btn span:nth-child(4) { bottom:-100%; left:0; width:2px; height:100%; background:linear-gradient(360deg,transparent,#1a6ef5); animation:lbtn4 1.5s linear infinite; animation-delay:1.125s; }
+    @keyframes lbtn1 { 0%{left:-100%} 50%,100%{left:100%} }
+    @keyframes lbtn2 { 0%{top:-100%} 50%,100%{top:100%} }
+    @keyframes lbtn3 { 0%{right:-100%} 50%,100%{right:100%} }
+    @keyframes lbtn4 { 0%{bottom:-100%} 50%,100%{bottom:100%} }
+    .lbox-btn:disabled { opacity:0.6; cursor:not-allowed; }
 
     /* FOOTER */
     .footer { background:var(--bg2); border-top:1px solid var(--border); padding:3rem 2rem 2rem; }
@@ -626,9 +643,8 @@
         </div>
       </div>
       <div class="contact-form-box reveal">
-        <h3>Send Us a Message</h3>
 
-        <!-- Success Banner (shows above form, form stays visible) -->
+        <!-- Success Banner -->
         <div id="successBanner" style="display:none;align-items:center;gap:0.85rem;padding:1.1rem 1.25rem;background:rgba(52,211,153,0.12);border:1.5px solid rgba(52,211,153,0.4);border-radius:10px;margin-bottom:1.5rem;">
           <div style="width:36px;height:36px;border-radius:50%;background:rgba(52,211,153,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
             <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M20 6L9 17l-5-5"/></svg>
@@ -644,34 +660,43 @@
           Something went wrong. Please try again or email us directly at support@hamanit.org
         </div>
 
-        <!-- Form -->
+        <p style="margin:0 0 2rem;color:#fff;text-align:center;font-size:1.3rem;font-weight:800;letter-spacing:0.5px;">Send Us a Message</p>
+
         <form id="contact-form">
-          <div class="form-row">
-            <div class="form-group">
+          <div class="form-row" style="gap:0;">
+            <div class="lbox-field">
+              <input type="text" name="name" id="fname" required />
               <label>Full Name</label>
-              <input type="text" name="name" id="fname" placeholder="Your name" required />
             </div>
-            <div class="form-group">
+            <div class="lbox-field">
+              <input type="email" name="email" id="femail" required />
               <label>Email Address</label>
-              <input type="email" name="email" id="femail" placeholder="your@email.com" required />
             </div>
           </div>
-          <div class="form-group">
-            <label>Service Needed</label>
-            <select name="service" id="fservice">
-              <option value="">Select a service...</option>
+
+          <div class="lbox-field lbox-select-wrap">
+            <select name="service" id="fservice" class="lbox-select" required>
+              <option value="" disabled selected hidden></option>
               <option>IT Support & Repair</option>
               <option>Custom PC Build</option>
               <option>Business Website</option>
               <option>AI Consulting & Automation</option>
               <option>Not sure — need advice</option>
             </select>
+            <label class="lbox-select-label">Service Needed</label>
           </div>
-          <div class="form-group">
-            <label>Message</label>
-            <textarea name="message" id="fmessage" placeholder="Tell us what you need..." required></textarea>
+
+          <div class="lbox-field">
+            <textarea name="message" id="fmessage" required rows="4" style="width:100%;padding:10px 0;font-size:15px;color:#fff;background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,0.4);outline:none;resize:none;font-family:var(--ff);margin-bottom:10px;"></textarea>
+            <label style="top:10px;">Message</label>
           </div>
-          <button type="submit" class="form-submit" id="submitBtn">Send Message →</button>
+
+          <div style="text-align:center;margin-top:2rem;">
+            <button type="submit" id="submitBtn" class="lbox-btn">
+              <span></span><span></span><span></span><span></span>
+              Send Message
+            </button>
+          </div>
         </form>
       </div>
     </div>
