@@ -49,10 +49,13 @@
     .nav-links a:hover { background:var(--bg2); color:var(--text); }
     .nav-cta { background:var(--accent) !important; color:#fff !important; font-weight:600 !important; }
     .nav-cta:hover { background:var(--accent2) !important; }
-    .theme-checkbox { --toggle-size:14px; -webkit-appearance:none; -moz-appearance:none; appearance:none; width:6.25em; height:3.125em; background:linear-gradient(to right,#efefef 50%,#2a2a2a 50%) no-repeat; background-size:205%; background-position:0; transition:0.4s; border-radius:99em; position:relative; cursor:pointer; font-size:var(--toggle-size); flex-shrink:0; margin-left:0.75rem; }
-    .theme-checkbox::before { content:""; width:2.25em; height:2.25em; position:absolute; top:0.438em; left:0.438em; background:linear-gradient(to right,#efefef 50%,#2a2a2a 50%) no-repeat; background-size:205%; background-position:100%; border-radius:50%; transition:0.4s; }
-    .theme-checkbox:checked::before { left:calc(100% - 2.25em - 0.438em); background-position:0; }
-    .theme-checkbox:checked { background-position:100%; }
+    /* Theme toggle */
+    .theme-toggle-wrap { display:flex; align-items:center; gap:8px; margin-left:0.75rem; }
+    .toggle-track { width:52px; height:28px; border-radius:99px; background:#d1d5db; position:relative; cursor:pointer; transition:background 0.3s; flex-shrink:0; border:2px solid rgba(0,0,0,0.08); }
+    [data-theme="dark"] .toggle-track { background:#1a6ef5; border-color:rgba(255,255,255,0.1); }
+    .toggle-thumb { position:absolute; top:3px; left:3px; width:18px; height:18px; border-radius:50%; background:#fff; box-shadow:0 1px 4px rgba(0,0,0,0.2); transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1); display:flex; align-items:center; justify-content:center; font-size:10px; }
+    [data-theme="dark"] .toggle-thumb { transform:translateX(24px); }
+    .toggle-icon { line-height:1; }
     .hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; margin-left:auto; }
     .hamburger span { display:block; width:24px; height:2px; background:var(--text); border-radius:2px; transition:transform 0.25s, opacity 0.25s; }
     .hamburger.open span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
@@ -151,38 +154,39 @@
     .contact-item { display:flex; align-items:center; gap:0.75rem; padding:0.85rem 0; border-bottom:1px solid var(--border); color:var(--text2); font-size:0.9rem; }
     .contact-item:last-child { border:none; }
     .contact-item svg { color:var(--accent); flex-shrink:0; }
-    .contact-form-box { background:rgba(0,0,0,0.88); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:2.5rem; box-shadow:0 15px 40px rgba(0,0,0,0.4); }
+    .contact-form-box { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:2.5rem; box-shadow:var(--shadow); }
     .lbox-field { position:relative; margin-bottom:2rem; }
-    .lbox-field input { width:100%; padding:10px 0; font-size:15px; color:#fff; background:transparent; border:none; border-bottom:1px solid rgba(255,255,255,0.35); outline:none; font-family:var(--ff); transition:border-color 0.3s; }
-    .lbox-field input:focus { border-bottom-color:#fff; }
-    .lbox-field label { position:absolute; top:10px; left:0; font-size:15px; color:rgba(255,255,255,0.55); pointer-events:none; transition:0.4s ease; }
+    .lbox-field input { width:100%; padding:10px 0; font-size:15px; color:var(--text); background:transparent; border:none; border-bottom:1px solid var(--border2); outline:none; font-family:var(--ff); transition:border-color 0.3s; }
+    .lbox-field input:focus { border-bottom-color:var(--accent); }
+    .lbox-field label { position:absolute; top:10px; left:0; font-size:15px; color:var(--muted); pointer-events:none; transition:0.4s ease; }
     .lbox-field input:focus ~ label,
-    .lbox-field input:valid ~ label { top:-18px; font-size:11px; color:#fff; letter-spacing:0.05em; text-transform:uppercase; }
-    .lbox-field textarea { width:100%; padding:10px 0; padding-top:2rem; font-size:15px; color:#fff; background:transparent; border:none; border-bottom:1px solid rgba(255,255,255,0.35); outline:none; resize:none; font-family:var(--ff); margin-bottom:10px; transition:border-color 0.3s; }
-    .lbox-field textarea:focus { border-bottom-color:#fff; }
-    .lbox-field textarea ~ label { top:0; font-size:11px; color:#fff; letter-spacing:0.05em; text-transform:uppercase; }
+    .lbox-field input:valid ~ label { top:-18px; font-size:11px; color:var(--accent); letter-spacing:0.05em; text-transform:uppercase; }
+    .lbox-field textarea { width:100%; padding:10px 0; padding-top:2rem; font-size:15px; color:var(--text); background:transparent; border:none; border-bottom:1px solid var(--border2); outline:none; resize:none; font-family:var(--ff); margin-bottom:10px; transition:border-color 0.3s; }
+    .lbox-field textarea:focus { border-bottom-color:var(--accent); }
+    .lbox-field textarea ~ label { top:0; font-size:11px; color:var(--accent); letter-spacing:0.05em; text-transform:uppercase; }
 
     /* Select field */
     .lbox-select-wrap { margin-bottom:2.5rem; }
-    .lbox-select { width:100%; padding:10px 0; font-size:15px; color:#fff; background:transparent; border:none; border-bottom:1px solid rgba(255,255,255,0.35); outline:none; font-family:var(--ff); appearance:none; cursor:pointer; }
-    .lbox-select option { background:#111; color:#fff; }
-    .lbox-select-label { position:absolute; top:10px; left:0; font-size:15px; color:rgba(255,255,255,0.55); pointer-events:none; transition:0.4s ease; }
+    .lbox-select { width:100%; padding:10px 0; font-size:15px; color:var(--text); background:transparent; border:none; border-bottom:1px solid var(--border2); outline:none; font-family:var(--ff); appearance:none; cursor:pointer; transition:border-color 0.3s; }
+    .lbox-select:focus { border-bottom-color:var(--accent); }
+    .lbox-select option { background:var(--bg2); color:var(--text); }
+    .lbox-select-label { position:absolute; top:10px; left:0; font-size:15px; color:var(--muted); pointer-events:none; transition:0.4s ease; }
     .lbox-select:focus ~ .lbox-select-label,
-    .lbox-select:valid ~ .lbox-select-label { top:-18px; font-size:11px; color:#fff; letter-spacing:0.05em; text-transform:uppercase; }
+    .lbox-select:valid ~ .lbox-select-label { top:-18px; font-size:11px; color:var(--accent); letter-spacing:0.05em; text-transform:uppercase; }
 
     /* Animated border button */
-    .lbox-btn { position:relative; display:inline-block; padding:12px 36px; font-weight:700; color:#fff; font-size:0.95rem; background:transparent; border:none; cursor:pointer; font-family:var(--ff); text-transform:uppercase; letter-spacing:3px; overflow:hidden; transition:background 0.3s, color 0.3s, border-radius 0.3s; }
-    .lbox-btn:hover { background:#1a6ef5; color:#fff; border-radius:8px; }
+    .lbox-btn { position:relative; display:inline-block; padding:12px 36px; font-weight:700; color:var(--accent); font-size:0.95rem; background:transparent; border:none; cursor:pointer; font-family:var(--ff); text-transform:uppercase; letter-spacing:3px; overflow:hidden; transition:background 0.3s, color 0.3s, border-radius 0.3s; }
+    .lbox-btn:hover { background:var(--accent); color:#fff; border-radius:8px; }
     .lbox-btn span { position:absolute; display:block; }
-    .lbox-btn span:nth-child(1) { top:0; left:-100%; width:100%; height:2px; background:linear-gradient(90deg,transparent,#fff); animation:lbtn1 1.5s linear infinite; }
-    .lbox-btn span:nth-child(2) { top:-100%; right:0; width:2px; height:100%; background:linear-gradient(180deg,transparent,#fff); animation:lbtn2 1.5s linear infinite; animation-delay:.375s; }
-    .lbox-btn span:nth-child(3) { bottom:0; right:-100%; width:100%; height:2px; background:linear-gradient(270deg,transparent,#fff); animation:lbtn3 1.5s linear infinite; animation-delay:.75s; }
-    .lbox-btn span:nth-child(4) { bottom:-100%; left:0; width:2px; height:100%; background:linear-gradient(360deg,transparent,#fff); animation:lbtn4 1.5s linear infinite; animation-delay:1.125s; }
+    .lbox-btn span:nth-child(1) { top:0; left:-100%; width:100%; height:2px; background:linear-gradient(90deg,transparent,var(--accent)); animation:lbtn1 1.5s linear infinite; }
+    .lbox-btn span:nth-child(2) { top:-100%; right:0; width:2px; height:100%; background:linear-gradient(180deg,transparent,var(--accent)); animation:lbtn2 1.5s linear infinite; animation-delay:.375s; }
+    .lbox-btn span:nth-child(3) { bottom:0; right:-100%; width:100%; height:2px; background:linear-gradient(270deg,transparent,var(--accent)); animation:lbtn3 1.5s linear infinite; animation-delay:.75s; }
+    .lbox-btn span:nth-child(4) { bottom:-100%; left:0; width:2px; height:100%; background:linear-gradient(360deg,transparent,var(--accent)); animation:lbtn4 1.5s linear infinite; animation-delay:1.125s; }
     @keyframes lbtn1 { 0%{left:-100%} 50%,100%{left:100%} }
     @keyframes lbtn2 { 0%{top:-100%} 50%,100%{top:100%} }
     @keyframes lbtn3 { 0%{right:-100%} 50%,100%{right:100%} }
     @keyframes lbtn4 { 0%{bottom:-100%} 50%,100%{bottom:100%} }
-    .lbox-btn:disabled { opacity:0.6; cursor:not-allowed; }
+    .lbox-btn:disabled { opacity:0.5; cursor:not-allowed; }
 
     /* FOOTER */
     .footer { background:var(--bg2); border-top:1px solid var(--border); padding:3rem 2rem 2rem; }
@@ -327,7 +331,13 @@
       <li><a href="#contact">Contact</a></li>
       <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
     </ul>
-    <input type="checkbox" class="theme-checkbox" id="themeToggle" aria-label="Toggle theme" />
+    <div class="theme-toggle-wrap" id="themeToggle" role="button" aria-label="Toggle theme">
+      <div class="toggle-track">
+        <div class="toggle-thumb">
+          <span class="toggle-icon" id="toggleIcon">🌙</span>
+        </div>
+      </div>
+    </div>
     <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -663,7 +673,7 @@
           Something went wrong. Please try again or email us directly at support@hamanit.org
         </div>
 
-        <p style="margin:0 0 2rem;color:#fff;text-align:center;font-size:1.3rem;font-weight:800;letter-spacing:0.5px;">Send Us a Message</p>
+        <p style="margin:0 0 2rem;color:var(--text);text-align:center;font-size:1.3rem;font-weight:800;letter-spacing:0.5px;">Send Us a Message</p>
 
         <form id="contact-form">
           <div class="form-row" style="gap:0;">
@@ -769,14 +779,16 @@
   /* Theme */
   const html        = document.documentElement;
   const themeToggle = document.getElementById('themeToggle');
+  const toggleIcon  = document.getElementById('toggleIcon');
   const saved       = localStorage.getItem('hamanit-biz-theme') || 'light';
   html.setAttribute('data-theme', saved);
-  themeToggle.checked = saved === 'dark';
+  toggleIcon.textContent = saved === 'dark' ? '☀️' : '🌙';
 
-  themeToggle.addEventListener('change', () => {
-    const next = themeToggle.checked ? 'dark' : 'light';
+  themeToggle.addEventListener('click', () => {
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     html.setAttribute('data-theme', next);
     localStorage.setItem('hamanit-biz-theme', next);
+    toggleIcon.textContent = next === 'dark' ? '☀️' : '🌙';
   });
 
   /* Nav */
