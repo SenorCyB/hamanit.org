@@ -105,7 +105,11 @@
     .pillar-icon { width:40px; height:40px; border-radius:10px; background:var(--accent-lt); display:flex; align-items:center; justify-content:center; margin-bottom:0.7rem; color:var(--accent); }
     .pillar h4 { font-size:0.9rem; font-weight:700; margin-bottom:0.3rem; color:var(--text); }
     .pillar p { font-size:0.81rem; color:var(--muted); line-height:1.55; }
-    @media(max-width:768px) { .why-grid { grid-template-columns:1fr; } .why-pillars { grid-template-columns:1fr 1fr; } }
+    @media(max-width:768px) {
+      .about-story-grid { grid-template-columns:1fr !important; }
+      .about-mission-grid { grid-template-columns:1fr !important; }
+      .values-grid { grid-template-columns:1fr !important; }
+    }
 
     /* SERVICES */
     .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem; }
@@ -296,6 +300,7 @@
       <div>HAMAN<span>IT</span><small>Solutions</small></div>
     </a>
     <ul class="nav-links">
+      <li><a href="#about">About</a></li>
       <li><a href="#why">Why Us</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#testimonials">Clients</a></li>
@@ -308,6 +313,7 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
+  <a href="#about">About</a>
   <a href="#why">Why Us</a>
   <a href="#services">Services</a>
   <a href="#testimonials">Clients</a>
@@ -345,6 +351,131 @@
     <div class="hero-stat"><span class="hero-stat-num"><span class="count-num" data-target="4">4</span></span><span class="hero-stat-label">Core Services</span></div>
     <div class="hero-stat-div"></div>
     <div class="hero-stat"><span class="hero-stat-num"><span class="count-num" data-target="100">100</span>%</span><span class="hero-stat-label">Client Focused</span></div>
+  </div>
+</section>
+
+<!-- ABOUT US -->
+<section class="section section-alt" id="about">
+  <div class="container">
+
+    <!-- Company Story -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-bottom:5rem;" class="about-story-grid">
+      <div class="reveal-left">
+        <div class="section-tag">About Us</div>
+        <h2 class="section-title">A Houston-based technology company built on trust, reliability, and real results.</h2>
+        <p style="color:var(--text2);line-height:1.8;margin-bottom:1rem;">Haman IT Solutions is a locally owned and operated technology services company based in Katy, TX — serving individuals and small businesses across Greater Houston. We assist our clients by increasing productivity, reducing security risk, and delivering technology solutions that actually make sense for their budget and goals.</p>
+        <p style="color:var(--text2);line-height:1.8;">We handle the technical side so you can focus on what matters most — running and growing your business. From day-one troubleshooting to long-term technology strategy, we're the IT partner you can count on.</p>
+      </div>
+      <div class="reveal-right" style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;box-shadow:var(--shadow);text-align:center;">
+          <div style="font-size:2.2rem;font-weight:800;color:var(--accent);margin-bottom:0.35rem;">2+</div>
+          <div style="font-size:0.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;">Years in Business</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;box-shadow:var(--shadow);text-align:center;">
+          <div style="font-size:2.2rem;font-weight:800;color:var(--accent);margin-bottom:0.35rem;">4</div>
+          <div style="font-size:0.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;">Core Services</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.75rem;box-shadow:var(--shadow);text-align:center;">
+          <div style="font-size:2.2rem;font-weight:800;color:var(--accent);margin-bottom:0.35rem;">100%</div>
+          <div style="font-size:0.8rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;">Client Focused</div>
+        </div>
+        <div style="background:var(--accent);border-radius:var(--radius);padding:1.75rem;box-shadow:var(--shadow);text-align:center;">
+          <div style="font-size:2.2rem;font-weight:800;color:#fff;margin-bottom:0.35rem;">24/7</div>
+          <div style="font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:0.05em;">Available Support</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mission & Community -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:4rem;" class="about-mission-grid">
+      <div class="reveal" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2.5rem;box-shadow:var(--shadow);">
+        <div style="width:48px;height:48px;border-radius:12px;background:var(--accent-lt);display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:1.25rem;">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 style="font-size:1.15rem;font-weight:800;color:var(--text);margin-bottom:0.75rem;">Our Mission</h3>
+        <p style="color:var(--text2);line-height:1.8;font-size:0.95rem;">We pride ourselves on outstanding customer care and strong client relationships. Our number one priority is your trust and satisfaction. Unlike the traditional IT company that gets paid when things break — we're motivated to make sure nothing breaks at all. Your success is our success, and we hold ourselves to that standard every single day.</p>
+      </div>
+      <div class="reveal stagger-2" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2.5rem;box-shadow:var(--shadow);">
+        <div style="width:48px;height:48px;border-radius:12px;background:var(--accent-lt);display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:1.25rem;">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 style="font-size:1.15rem;font-weight:800;color:var(--text);margin-bottom:0.75rem;">Our Community</h3>
+        <p style="color:var(--text2);line-height:1.8;font-size:0.95rem;">Houston is the 4th largest city in the U.S. and home to thousands of small businesses that power our local economy. We work with those businesses directly — providing cost-effective technology solutions that enable real growth. We believe in giving back to the community that supports us, because when others grow, we grow together.</p>
+      </div>
+    </div>
+
+    <!-- Why Us / Values -->
+    <div class="reveal" style="margin-bottom:4rem;">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <div class="section-tag" style="text-align:center;">Why Haman IT Solutions</div>
+        <h2 class="section-title" style="max-width:600px;margin:0 auto 1rem;">The IT partner your business actually needs</h2>
+        <p style="color:var(--text2);max-width:580px;margin:0 auto;line-height:1.75;">As your business grows, so do your IT challenges. You need a reliable partner to handle technology strategy, support critical issues fast, and keep things running — without breaking the bank.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;" class="values-grid">
+        <div class="reveal stagger-1" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);display:flex;gap:1rem;align-items:flex-start;">
+          <div style="width:42px;height:42px;border-radius:10px;background:var(--accent-lt);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div>
+            <h4 style="font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.35rem;">Customized Solutions</h4>
+            <p style="font-size:0.85rem;color:var(--text2);line-height:1.6;">Everything we do is focused on your specific needs, timeline, and budget. We design solutions that fit your business — not the other way around.</p>
+          </div>
+        </div>
+        <div class="reveal stagger-2" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);display:flex;gap:1rem;align-items:flex-start;">
+          <div style="width:42px;height:42px;border-radius:10px;background:var(--accent-lt);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.8"/><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 6v6l4 2"/></svg>
+          </div>
+          <div>
+            <h4 style="font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.35rem;">Faster Resolution</h4>
+            <p style="font-size:0.85rem;color:var(--text2);line-height:1.6;">We respond fast and work efficiently. Whether it's a crashed laptop or a network outage — we get you back up and running with minimal downtime.</p>
+          </div>
+        </div>
+        <div class="reveal stagger-3" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);display:flex;gap:1rem;align-items:flex-start;">
+          <div style="width:42px;height:42px;border-radius:10px;background:var(--accent-lt);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div>
+            <h4 style="font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.35rem;">Predictable Cost</h4>
+            <p style="font-size:0.85rem;color:var(--text2);line-height:1.6;">No hidden fees, no surprise invoices. We offer transparent, affordable pricing so you can plan your technology budget with confidence.</p>
+          </div>
+        </div>
+        <div class="reveal stagger-4" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);display:flex;gap:1rem;align-items:flex-start;">
+          <div style="width:42px;height:42px;border-radius:10px;background:var(--accent-lt);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <h4 style="font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.35rem;">Better Value</h4>
+            <p style="font-size:0.85rem;color:var(--text2);line-height:1.6;">Our solutions decrease risk, increase productivity, and cut operational costs — delivering real value that goes beyond just fixing problems.</p>
+          </div>
+        </div>
+        <div class="reveal stagger-1" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);display:flex;gap:1rem;align-items:flex-start;">
+          <div style="width:42px;height:42px;border-radius:10px;background:var(--accent-lt);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div>
+            <h4 style="font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.35rem;">Dedicated Support</h4>
+            <p style="font-size:0.85rem;color:var(--text2);line-height:1.6;">You work directly with us — not a ticket queue or call center. Real people, fast answers, and genuine care for your business every step of the way.</p>
+          </div>
+        </div>
+        <div class="reveal stagger-2" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);display:flex;gap:1rem;align-items:flex-start;">
+          <div style="width:42px;height:42px;border-radius:10px;background:var(--accent-lt);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.8"/><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <div>
+            <h4 style="font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.35rem;">Local & Personal</h4>
+            <p style="font-size:0.85rem;color:var(--text2);line-height:1.6;">We're right here in Greater Houston — not a remote helpdesk overseas. Local knowledge, local presence, and a personal relationship with every client.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Consultation CTA -->
+    <div class="reveal" style="background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 100%);border-radius:var(--radius);padding:3rem;text-align:center;color:#fff;box-shadow:0 8px 40px rgba(26,110,245,0.3);">
+      <h3 style="font-size:1.6rem;font-weight:800;margin-bottom:0.5rem;">Need a Consultation?</h3>
+      <p style="opacity:0.85;margin-bottom:1.75rem;font-size:1rem;">Drop us a line — we're here to answer your questions and help you find the right solution.</p>
+      <a href="#contact" class="btn-white" style="background:#fff;color:var(--accent);padding:0.85rem 2.25rem;border-radius:var(--radius);font-weight:700;text-decoration:none;font-size:0.95rem;display:inline-block;transition:transform 0.2s,box-shadow 0.2s;">Contact Us Today →</a>
+    </div>
+
   </div>
 </section>
 
@@ -497,36 +628,37 @@
       <div class="contact-form-box reveal">
         <h3>Send Us a Message</h3>
 
-        <!-- Success Screen -->
-        <div data-fs-success style="display:none; flex-direction:column; align-items:center; text-align:center; padding:3rem 2rem;">
-          <div style="width:64px;height:64px;border-radius:50%;background:rgba(52,211,153,0.15);border:2px solid rgba(52,211,153,0.4);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
-            <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M20 6L9 17l-5-5"/></svg>
+        <!-- Success Banner (shows above form, form stays visible) -->
+        <div id="successBanner" style="display:none;align-items:center;gap:0.85rem;padding:1.1rem 1.25rem;background:rgba(52,211,153,0.12);border:1.5px solid rgba(52,211,153,0.4);border-radius:10px;margin-bottom:1.5rem;">
+          <div style="width:36px;height:36px;border-radius:50%;background:rgba(52,211,153,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M20 6L9 17l-5-5"/></svg>
           </div>
-          <h3 style="font-size:1.3rem;font-weight:800;color:var(--text);margin-bottom:0.5rem;">Message Sent!</h3>
-          <p style="color:var(--text2);font-size:0.92rem;line-height:1.7;max-width:320px;">Thanks for reaching out. We'll get back to you at your email address within 1 business day.</p>
-          <div style="margin-top:1.5rem;padding:0.75rem 1.25rem;background:var(--bg2);border-radius:8px;font-size:0.82rem;color:var(--muted);">📬 Response sent to <strong style="color:var(--accent);">support@hamanit.org</strong></div>
+          <div>
+            <div style="font-weight:700;color:#059669;font-size:0.92rem;">Message sent successfully!</div>
+            <div style="font-size:0.8rem;color:#047857;margin-top:0.1rem;">We'll get back to you within 1 business day.</div>
+          </div>
         </div>
 
-        <!-- Error -->
-        <div data-fs-error style="display:none; padding:0.85rem 1rem; background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); border-radius:8px; color:#dc2626; font-size:0.86rem; margin-bottom:1rem;"></div>
+        <!-- Error Banner -->
+        <div id="errorBanner" style="display:none;padding:0.85rem 1rem;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:8px;color:#dc2626;font-size:0.86rem;margin-bottom:1rem;">
+          Something went wrong. Please try again or email us directly at support@hamanit.org
+        </div>
 
         <!-- Form -->
         <form id="contact-form">
           <div class="form-row">
             <div class="form-group">
               <label>Full Name</label>
-              <input type="text" name="name" placeholder="Your name" required data-fs-field />
-              <span data-fs-error="name" style="color:#dc2626;font-size:0.78rem;"></span>
+              <input type="text" name="name" id="fname" placeholder="Your name" required />
             </div>
             <div class="form-group">
               <label>Email Address</label>
-              <input type="email" name="email" placeholder="your@email.com" required data-fs-field />
-              <span data-fs-error="email" style="color:#dc2626;font-size:0.78rem;"></span>
+              <input type="email" name="email" id="femail" placeholder="your@email.com" required />
             </div>
           </div>
           <div class="form-group">
             <label>Service Needed</label>
-            <select name="service" data-fs-field>
+            <select name="service" id="fservice">
               <option value="">Select a service...</option>
               <option>IT Support & Repair</option>
               <option>Custom PC Build</option>
@@ -537,10 +669,9 @@
           </div>
           <div class="form-group">
             <label>Message</label>
-            <textarea name="message" placeholder="Tell us what you need..." required data-fs-field></textarea>
-            <span data-fs-error="message" style="color:#dc2626;font-size:0.78rem;"></span>
+            <textarea name="message" id="fmessage" placeholder="Tell us what you need..." required></textarea>
           </div>
-          <button type="submit" class="form-submit" data-fs-submit-btn>Send Message →</button>
+          <button type="submit" class="form-submit" id="submitBtn">Send Message →</button>
         </form>
       </div>
     </div>
@@ -563,6 +694,7 @@
     </div>
     <div class="footer-col">
       <h4>Company</h4>
+      <a href="#about">About Us</a>
       <a href="#why">Why Us</a>
       <a href="#testimonials">Clients</a>
       <a href="#contact">Contact</a>
@@ -726,15 +858,49 @@
     document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
   });
 
+  /* Contact Form — Formspree fetch, keeps form visible */
+  const contactForm   = document.getElementById('contact-form');
+  const submitBtn     = document.getElementById('submitBtn');
+  const successBanner = document.getElementById('successBanner');
+  const errorBanner   = document.getElementById('errorBanner');
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+    successBanner.style.display = 'none';
+    errorBanner.style.display = 'none';
+
+    const data = {
+      name:    document.getElementById('fname').value,
+      email:   document.getElementById('femail').value,
+      service: document.getElementById('fservice').value,
+      message: document.getElementById('fmessage').value,
+    };
+
+    try {
+      const res = await fetch('https://formspree.io/f/xzdyeqnv', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        successBanner.style.display = 'flex';
+        contactForm.reset();
+        submitBtn.textContent = '✓ Sent!';
+        setTimeout(() => { submitBtn.textContent = 'Send Message →'; submitBtn.disabled = false; }, 4000);
+      } else {
+        throw new Error('Failed');
+      }
+    } catch {
+      errorBanner.style.display = 'block';
+      submitBtn.textContent = 'Send Message →';
+      submitBtn.disabled = false;
+    }
+  });
+
   /* Scroll top */
   document.getElementById('scroll-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 </script>
-
-<!-- Formspree Ajax -->
-<script>
-  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-  formspree('initForm', { formElement: '#contact-form', formId: 'xzdyeqnv' });
-</script>
-<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
