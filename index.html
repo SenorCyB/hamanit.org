@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,40 +13,44 @@
     html { scroll-behavior: smooth; }
 
     :root {
-      --accent:     #7a9cc4;
-      --accent2:    #5a7fa8;
-      --accent-lt:  rgba(122,156,196,0.10);
-      --accent-glow:rgba(122,156,196,0.15);
+      --accent:     #2C2C2E;
+      --accent2:    #1a1a1b;
+      --accent-lt:  rgba(44,44,46,0.07);
+      --accent-glow:rgba(44,44,46,0.10);
       --ff:         'Space Grotesk', sans-serif;
       --ff-mono:    'Space Mono', monospace;
       --radius:     4px;
       --radius-lg:  8px;
     }
     [data-theme="dark"] {
-      --bg:       #0e0d0b;
-      --bg2:      #141310;
-      --bg3:      #1c1a16;
-      --surface:  #181613;
-      --border:   rgba(255,255,255,0.06);
-      --border2:  rgba(255,255,255,0.12);
-      --text:     #f0ede8;
-      --text2:    #a09890;
-      --muted:    #6a6258;
-      --nav-bg:   rgba(14,13,11,0.92);
-      --shadow:   0 4px 32px rgba(0,0,0,0.4);
-      --shadow-lg:0 12px 60px rgba(0,0,0,0.5);
+      --accent:     #E5E5EA;
+      --accent2:    #c7c7cc;
+      --accent-lt:  rgba(229,229,234,0.07);
+      --accent-glow:rgba(229,229,234,0.10);
+      --bg:       #111112;
+      --bg2:      #1a1a1b;
+      --bg3:      #222224;
+      --surface:  #1a1a1b;
+      --border:   rgba(255,255,255,0.07);
+      --border2:  rgba(255,255,255,0.13);
+      --text:     #f5f5f7;
+      --text2:    #a1a1a6;
+      --muted:    #636366;
+      --nav-bg:   rgba(17,17,18,0.92);
+      --shadow:   0 4px 32px rgba(0,0,0,0.5);
+      --shadow-lg:0 12px 60px rgba(0,0,0,0.6);
     }
     [data-theme="light"] {
-      --bg:       #faf9f7;
-      --bg2:      #f2f0ec;
-      --bg3:      #e8e5e0;
+      --bg:       #f5f5f7;
+      --bg2:      #ffffff;
+      --bg3:      #e8e8ed;
       --surface:  #ffffff;
-      --border:   rgba(0,0,0,0.07);
-      --border2:  rgba(0,0,0,0.13);
-      --text:     #1a1714;
-      --text2:    #5a5248;
-      --muted:    #9a9288;
-      --nav-bg:   rgba(250,249,247,0.92);
+      --border:   rgba(0,0,0,0.08);
+      --border2:  rgba(0,0,0,0.14);
+      --text:     #1d1d1f;
+      --text2:    #515154;
+      --muted:    #86868b;
+      --nav-bg:   rgba(245,245,247,0.88);
       --shadow:   0 4px 32px rgba(0,0,0,0.06);
       --shadow-lg:0 12px 60px rgba(0,0,0,0.10);
     }
@@ -56,7 +60,7 @@
     /* ── LOADING SCREEN ── */
     #ls {
       position: fixed; inset: 0; z-index: 9999;
-      background: #0e0d0b;
+      background: #111112;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       gap: 2rem;
@@ -72,7 +76,7 @@
       font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
       color: #f0ede8;
     }
-    .ls-name span { color: var(--accent); }
+    .ls-name span { color: #f5f5f7; border-bottom: 2px solid #f5f5f7; padding-bottom: 1px; }
     .ls-tag {
       font-family: var(--ff-mono); font-size: 0.65rem;
       letter-spacing: 0.3em; color: #6a6258;
@@ -116,7 +120,7 @@
       font-weight: 700; font-size: 0.95rem; letter-spacing: 0.08em;
       text-transform: uppercase; color: var(--text); white-space: nowrap;
     }
-    .nav-logo span { color: var(--accent); }
+    .nav-logo span { color: var(--text); border-bottom: 2px solid var(--text); padding-bottom: 1px; }
     .nav-logo small { font-size: 0.45rem; letter-spacing: 0.25em; opacity: 0.4; display: block; }
     .nav-links { display: flex; align-items: center; gap: 3rem; list-style: none; margin-left: auto; }
     .nav-links a {
@@ -143,7 +147,7 @@
       transition: background 0.2s, color 0.2s !important;
     }
     .nav-cta::after { display: none !important; }
-    .nav-cta:hover { background: var(--accent) !important; color: var(--bg) !important; }
+    .nav-cta:hover { background: var(--accent) !important; color: var(--bg2) !important; }
 
     /* Toggle */
     .toggle-wrap { display: flex; align-items: center; margin-left: 1rem; }
@@ -224,8 +228,8 @@
       border: none; cursor: pointer;
       transition: all 0.25s ease; border-radius: var(--radius);
     }
-    .btn-primary { background: var(--accent); color: var(--bg); }
-    .btn-primary:hover { background: var(--text); }
+    .btn-primary { background: #2C2C2E; color: #fff; }
+    .btn-primary:hover { background: #1a1a1b; }
     .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border2); }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
     .hero-stats {
@@ -347,7 +351,7 @@
     .contact-item a:hover { color: var(--text); }
 
     /* Form */
-    .contact-form { display: flex; flex-direction: column; gap: 0; }
+    .contact-form { display: flex; flex-direction: column; gap: 0; background: var(--bg2); border: 1px solid var(--border2); padding: 3rem; }
     .contact-form h3 { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 3rem; font-family: var(--ff-mono); }
     .form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
     @media(max-width:500px) { .form-2col { grid-template-columns: 1fr; } }
@@ -410,11 +414,11 @@
     .cta-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
     /* ── FOOTER ── */
-    .footer { padding: 4rem 3rem; border-top: 1px solid var(--border); }
+    .footer { padding: 4rem 3rem; border-top: 2px solid var(--border2); background: var(--bg3); }
     .footer-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
     @media(max-width:768px) { .footer-inner { grid-template-columns: 1fr; gap: 2rem; } }
-    .footer-logo { text-decoration: none; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); }
-    .footer-logo span { color: var(--accent); }
+    .footer-logo { text-decoration: none; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); display: flex; align-items: center; gap: 8px; }
+    .footer-logo span { color: var(--text); border-bottom: 2px solid var(--text); padding-bottom: 1px; }
     .footer-brand p { font-size: 0.82rem; color: var(--muted); line-height: 1.8; margin-top: 1rem; max-width: 280px; }
     .footer-col h4 { font-family: var(--ff-mono); font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; }
     .footer-col a { display: block; color: var(--text2); text-decoration: none; font-size: 0.82rem; padding: 0.3rem 0; transition: color 0.2s; }
@@ -447,8 +451,8 @@
     .modal-meta-item { background: var(--bg3); padding: 1rem 1.5rem; }
     .modal-meta-label { font-family: var(--ff-mono); font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.35rem; }
     .modal-meta-val { font-size: 0.88rem; font-weight: 600; color: var(--text); }
-    .modal-cta { width: 100%; padding: 1rem; background: var(--accent); color: var(--bg); font-family: var(--ff); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.2s; }
-    .modal-cta:hover { background: var(--text); }
+    .modal-cta { width: 100%; padding: 1rem; background: #2C2C2E; color: #fff; font-family: var(--ff); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.2s; }
+    .modal-cta:hover { background: #1a1a1b; }
 
     /* ── REVEAL ── */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
@@ -477,15 +481,12 @@
 <!-- LOADING SCREEN -->
 <div id="ls">
   <div class="ls-logo">
-    <svg width="52" height="52" viewBox="0 0 60 60" fill="none">
-      <circle cx="30" cy="8"  r="5" fill="#7a9cc4"/>
-      <circle cx="8"  cy="48" r="5" fill="#7a9cc4"/>
-      <circle cx="52" cy="48" r="5" fill="#7a9cc4"/>
-      <line x1="30" y1="8"  x2="8"  y2="48" stroke="#7a9cc4" stroke-width="1.5"/>
-      <line x1="30" y1="8"  x2="52" y2="48" stroke="#7a9cc4" stroke-width="1.5"/>
-      <line x1="8"  y1="48" x2="52" y2="48" stroke="#7a9cc4" stroke-width="1.5"/>
+    <svg width="60" height="48" viewBox="0 0 60 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0"  y="27" width="14" height="21" rx="3" fill="#f5f5f7" opacity="0.30"/>
+      <rect x="18" y="16" width="14" height="32" rx="3" fill="#f5f5f7" opacity="0.65"/>
+      <rect x="36" y="0"  width="14" height="48" rx="3" fill="#f5f5f7"/>
     </svg>
-    <div class="ls-name">HAMAN<span>IT</span></div>
+    <div class="ls-name">HAM<span>IT</span></div>
     <div class="ls-tag">Smart Tech. Real Solutions.</div>
   </div>
   <div class="ls-bar-wrap"><div class="ls-bar"></div></div>
@@ -496,15 +497,12 @@
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <svg width="22" height="22" viewBox="0 0 60 60" fill="none">
-        <circle cx="30" cy="8"  r="5" fill="#7a9cc4"/>
-        <circle cx="8"  cy="48" r="5" fill="#7a9cc4"/>
-        <circle cx="52" cy="48" r="5" fill="#7a9cc4"/>
-        <line x1="30" y1="8"  x2="8"  y2="48" stroke="#7a9cc4" stroke-width="2"/>
-        <line x1="30" y1="8"  x2="52" y2="48" stroke="#7a9cc4" stroke-width="2"/>
-        <line x1="8"  y1="48" x2="52" y2="48" stroke="#7a9cc4" stroke-width="2"/>
+      <svg width="28" height="22" viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0"  y="22" width="10" height="14" rx="2" fill="currentColor" opacity="0.30"/>
+        <rect x="14" y="13" width="10" height="23" rx="2" fill="currentColor" opacity="0.60"/>
+        <rect x="28" y="0"  width="10" height="36" rx="2" fill="currentColor"/>
       </svg>
-      <div>HAMAN<span>IT</span><small>Solutions</small></div>
+      <div>HAM<span>IT</span><small>Solutions</small></div>
     </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
@@ -865,7 +863,14 @@
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <a href="#" class="footer-logo">HAMAN<span>IT</span> SOLUTIONS</a>
+      <a href="#" class="footer-logo">
+        <svg width="22" height="18" viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0"  y="22" width="10" height="14" rx="2" fill="currentColor" opacity="0.30"/>
+          <rect x="14" y="13" width="10" height="23" rx="2" fill="currentColor" opacity="0.65"/>
+          <rect x="28" y="0"  width="10" height="36" rx="2" fill="currentColor"/>
+        </svg>
+        HAM<span>IT</span> SOLUTIONS
+      </a>
       <p>Locally owned and operated technology services company based in Katy, TX. Serving individuals and small businesses across Greater Houston since 2024.</p>
     </div>
     <div class="footer-col">
@@ -947,7 +952,7 @@
 const html = document.documentElement;
 const themeToggle = document.getElementById('themeToggle');
 const toggleIcon  = document.getElementById('toggleIcon');
-const saved = localStorage.getItem('hamanit-biz-theme') || 'dark';
+const saved = localStorage.getItem('hamanit-biz-theme') || 'light';
 html.setAttribute('data-theme', saved);
 toggleIcon.textContent = saved === 'dark' ? '☀️' : '🌙';
 themeToggle.addEventListener('click', () => {
@@ -1025,29 +1030,92 @@ document.getElementById('contact-form').addEventListener('submit', async e => {
 /* ── Scroll top ── */
 document.getElementById('scroll-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-/* ── Morphing shapes ── */
+/* ── Particle network ── */
 (function() {
   const canvas = document.getElementById('hero-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
+
   function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
-  resize(); window.addEventListener('resize', () => { resize(); initShapes(); });
+  resize();
+  window.addEventListener('resize', () => { resize(); initParticles(); });
+
   function isDark() { return document.documentElement.getAttribute('data-theme') === 'dark'; }
-  function ease(t) { return t < 0.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
-  function lerpPoints(a, b, t) { return a.map((p, i) => ({ x: p.x+(b[i].x-p.x)*t, y: p.y+(b[i].y-p.y)*t })); }
-  class MorphShape {
-    constructor(x,y,size,speed,delay) { this.x=x;this.y=y;this.size=size;this.speed=speed;this.t=delay;this.sides=this._r();this.nextSides=this._r();this.rot=Math.random()*Math.PI*2;this.rotSpeed=(Math.random()-0.5)*0.002;this.floatOffset=Math.random()*Math.PI*2;this.floatSpeed=0.25+Math.random()*0.3;this.floatAmp=15+Math.random()*20;this._build(); }
-    _r() { return [3,4,5,6,8][Math.floor(Math.random()*5)]; }
-    _build() { const max=Math.max(this.sides,this.nextSides);this.fromPts=[];this.toPts=[];for(let i=0;i<max;i++){const af=(i%this.sides/this.sides)*Math.PI*2;const at=(i%this.nextSides/this.nextSides)*Math.PI*2;this.fromPts.push({x:Math.cos(af)*this.size,y:Math.sin(af)*this.size});this.toPts.push({x:Math.cos(at)*this.size,y:Math.sin(at)*this.size});} }
-    update(dt) { this.t+=dt*this.speed;this.rot+=this.rotSpeed;if(this.t>=1){this.t-=1;this.sides=this.nextSides;this.nextSides=this._r();this._build();} }
-    draw(now) { const pts=lerpPoints(this.fromPts,this.toPts,ease(this.t));const fy=Math.sin(now*0.001*this.floatSpeed+this.floatOffset)*this.floatAmp;const dark=isDark();const a=dark?0.12:0.07;const sa=dark?0.25:0.15;const accent=dark?'122,156,196':'90,127,168';ctx.save();ctx.translate(this.x,this.y+fy);ctx.rotate(this.rot);ctx.beginPath();pts.forEach((p,i)=>i===0?ctx.moveTo(p.x,p.y):ctx.lineTo(p.x,p.y));ctx.closePath();const g=ctx.createRadialGradient(0,0,0,0,0,this.size);g.addColorStop(0,`rgba(${accent},${a*1.5})`);g.addColorStop(1,`rgba(${accent},0)`);ctx.fillStyle=g;ctx.fill();ctx.beginPath();pts.forEach((p,i)=>i===0?ctx.moveTo(p.x,p.y):ctx.lineTo(p.x,p.y));ctx.closePath();ctx.strokeStyle=`rgba(${accent},${sa})`;ctx.lineWidth=1;ctx.stroke();ctx.restore(); }
+
+  const CONNECT_DIST = 140;
+  const MOUSE = { x: -9999, y: -9999 };
+  canvas.parentElement.addEventListener('mousemove', e => {
+    const r = canvas.getBoundingClientRect();
+    MOUSE.x = e.clientX - r.left;
+    MOUSE.y = e.clientY - r.top;
+  });
+  canvas.parentElement.addEventListener('mouseleave', () => { MOUSE.x = -9999; MOUSE.y = -9999; });
+
+  let particles = [];
+  function initParticles() {
+    particles = [];
+    const count = Math.floor((canvas.width * canvas.height) / 14000);
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        r: 1.5 + Math.random() * 1.5,
+      });
+    }
   }
-  const shapes=[];
-  function initShapes() { shapes.length=0;const W=canvas.width,H=canvas.height;[{x:W*.1,y:H*.3,size:120,speed:.15,delay:0},{x:W*.9,y:H*.25,size:140,speed:.12,delay:.3},{x:W*.8,y:H*.75,size:90,speed:.18,delay:.6},{x:W*.15,y:H*.8,size:80,speed:.2,delay:.1},{x:W*.5,y:H*.12,size:65,speed:.22,delay:.5},{x:W*.45,y:H*.88,size:60,speed:.19,delay:.8}].forEach(c=>shapes.push(new MorphShape(c.x,c.y,c.size,c.speed,c.delay))); }
-  initShapes();
-  let last=0;
-  function tick(now) { const dt=Math.min((now-last)/1000,0.05);last=now;ctx.clearRect(0,0,canvas.width,canvas.height);shapes.forEach(s=>{s.update(dt);s.draw(now);});requestAnimationFrame(tick); }
-  requestAnimationFrame(tick);
+  initParticles();
+
+  function tick() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const dark = isDark();
+    const dotColor  = dark ? 'rgba(229,229,234,' : 'rgba(44,44,46,';
+    const lineColor = dark ? 'rgba(229,229,234,' : 'rgba(44,44,46,';
+
+    for (const p of particles) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = canvas.width;
+      if (p.x > canvas.width) p.x = 0;
+      if (p.y < 0) p.y = canvas.height;
+      if (p.y > canvas.height) p.y = 0;
+    }
+
+    for (let i = 0; i < particles.length; i++) {
+      const a = particles[i];
+      for (let j = i + 1; j < particles.length; j++) {
+        const b = particles[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < CONNECT_DIST) {
+          const alpha = (1 - dist / CONNECT_DIST) * (dark ? 0.18 : 0.10);
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = lineColor + alpha + ')';
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+      const mdx = a.x - MOUSE.x, mdy = a.y - MOUSE.y;
+      const mdist = Math.sqrt(mdx*mdx + mdy*mdy);
+      const mouseAlpha = mdist < CONNECT_DIST ? (1 - mdist / CONNECT_DIST) * (dark ? 0.35 : 0.20) : 0;
+      if (mouseAlpha > 0) {
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(MOUSE.x, MOUSE.y);
+        ctx.strokeStyle = lineColor + mouseAlpha + ')';
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+      }
+      ctx.beginPath();
+      ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
+      ctx.fillStyle = dotColor + (dark ? 0.35 : 0.20) + ')';
+      ctx.fill();
+    }
+    requestAnimationFrame(tick);
+  }
+  tick();
 })();
 </script>
 </body>
