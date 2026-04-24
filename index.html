@@ -39,7 +39,7 @@
         <rect x="14" y="13" width="10" height="23" rx="2" fill="currentColor" opacity="0.65"/>
         <rect x="28" y="0"  width="10" height="36" rx="2" fill="currentColor"/>
       </svg>
-      <span>HAM<em>IT</em></span>
+      <span class="logo-word">HAM<em>IT</em></span>
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#services" data-magnetic>Services</a>
@@ -283,23 +283,24 @@
     <div class="about-split">
       <div class="about-left">
         <h2 class="section-title reveal-up">Built different.<br><em>On purpose.</em></h2>
-        <p class="about-big reveal-up">We started HAMIT because local businesses deserve real tech help — not a hold queue and a script.</p>
-        <p class="about-body reveal-up">Josh Haman is an IT &amp; Cybersecurity student, former Geek Squad agent, and active AI trainer. Every job comes with clear pricing, honest timelines, and a direct line back to the person who actually did the work.</p>
+        <p class="about-big reveal-up">Haman IT Solutions exists because small businesses and everyday people in Greater Houston deserve better tech support than what the big chains offer.</p>
+        <p class="about-body reveal-up">We're a locally owned technology company — not a franchise, not a call center. We provide IT support, custom PC builds, business websites, and AI consulting with clear pricing, honest timelines, and a direct line back to the team that actually did the work. No ticket systems. No hold music. Just solutions.</p>
+        <p class="about-body reveal-up">Based in Katy, TX. Serving Greater Houston since 2024. Remote support available anywhere.</p>
         <a href="#contact" class="btn btn-primary reveal-up" data-magnetic>Work With Us <span class="btn-arr">→</span></a>
       </div>
       <div class="about-right reveal-up">
         <div class="about-card-stack">
           <div class="about-card ac-1">
-            <span class="ac-label">MISSION</span>
-            <p>Professional-grade IT without the enterprise price tag or the corporate runaround.</p>
+            <span class="ac-label">OUR MISSION</span>
+            <p>Professional-grade IT support accessible to small businesses and individuals — without the enterprise price tag or the corporate runaround.</p>
           </div>
           <div class="about-card ac-2">
-            <span class="ac-label">LOCATION</span>
-            <p>Based in Katy, TX. Remote support available everywhere. On-site across Greater Houston.</p>
+            <span class="ac-label">SERVICE AREA</span>
+            <p>Based in Katy, TX. On-site across Greater Houston. Remote support available everywhere.</p>
           </div>
           <div class="about-card ac-3">
-            <span class="ac-label">BACKGROUND</span>
-            <p>Geek Squad · Outlier AI · Brookside Realty · Texas State Technical College</p>
+            <span class="ac-label">OUR APPROACH</span>
+            <p>Clear pricing. Honest timelines. Real people. We stand behind every job we deliver.</p>
           </div>
         </div>
       </div>
@@ -387,34 +388,37 @@
         </ul>
       </div>
       <div class="contact-right reveal-up">
-        <form id="contactForm" action="https://formspree.io/f/xzdyeqnv" method="POST" novalidate>
-          <div class="field-group">
-            <div class="field">
-              <input id="name" name="name" type="text" placeholder="Full Name" autocomplete="name" required />
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xzdyeqnv" method="POST" novalidate>
+          <p class="form-heading">SEND A MESSAGE</p>
+          <div class="form-row-pair">
+            <div class="form-row">
               <label for="name">Full Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
             </div>
-            <div class="field">
-              <input id="email" name="email" type="email" placeholder="Email Address" autocomplete="email" required />
+            <div class="form-row">
               <label for="email">Email Address</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
             </div>
           </div>
-          <div class="field field-select">
-            <select id="service" name="service" required>
-              <option value="">Service Needed…</option>
-              <option>IT Support &amp; Repair</option>
-              <option>Custom PC Build</option>
-              <option>Business Website</option>
-              <option>AI Consulting &amp; Automation</option>
-              <option>Something else</option>
-            </select>
+          <div class="form-row">
             <label for="service">Service Needed</label>
-            <svg class="select-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            <div class="select-wrap">
+              <select id="service" name="service" required>
+                <option value="">Select one&hellip;</option>
+                <option>IT Support &amp; Repair</option>
+                <option>Custom PC Build</option>
+                <option>Business Website</option>
+                <option>AI Consulting &amp; Automation</option>
+                <option>Something else</option>
+              </select>
+              <svg class="select-arr" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
           </div>
-          <div class="field">
-            <textarea id="message" name="message" placeholder="Tell me what's going on…" rows="5" required></textarea>
+          <div class="form-row">
             <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
           </div>
-          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" />
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp-field" aria-hidden="true" />
           <button type="submit" class="btn btn-primary btn-submit" data-magnetic>
             <span class="btn-label">Send Message</span>
             <span class="btn-arr">→</span>
