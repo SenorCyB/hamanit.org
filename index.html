@@ -27,12 +27,6 @@
 </head>
 <body>
 
-<!-- CURSOR -->
-<div class="cursor" id="cursor" aria-hidden="true">
-  <div class="cursor-dot"></div>
-  <div class="cursor-ring"></div>
-</div>
-
 <!-- NOISE OVERLAY -->
 <div class="noise" aria-hidden="true"></div>
 
@@ -160,6 +154,7 @@
             </div>
             <h3>IT Support<br>&amp; Repair</h3>
             <span class="service-tag">Remote &amp; On-site</span>
+            <span class="service-flip-hint">Hover to learn more ↗</span>
           </div>
           <div class="service-card-back">
             <p>Diagnostics, malware removal, OS reinstalls, data recovery, and network triage. Clear pricing, no upsell.</p>
@@ -180,6 +175,7 @@
             </div>
             <h3>Custom<br>PC Builds</h3>
             <span class="service-tag">Budget → Flagship</span>
+            <span class="service-flip-hint">Hover to learn more ↗</span>
           </div>
           <div class="service-card-back">
             <p>Part selection tuned to your budget and workload. Assembled, stress-tested, handed off running.</p>
@@ -200,6 +196,7 @@
             </div>
             <h3>Business<br>Websites</h3>
             <span class="service-tag">Design &amp; Build</span>
+            <span class="service-flip-hint">Hover to learn more ↗</span>
           </div>
           <div class="service-card-back">
             <p>Fast, mobile-first sites that actually convert. No templates. No page builders. Real code, real results.</p>
@@ -220,6 +217,7 @@
             </div>
             <h3>AI Consulting<br>&amp; Automation</h3>
             <span class="service-tag">Real Workflows</span>
+            <span class="service-flip-hint">Hover to learn more ↗</span>
           </div>
           <div class="service-card-back">
             <p>Practical AI integration for your actual business — not hype, not demos. Tools that save real hours.</p>
@@ -473,41 +471,6 @@
 <script src="interactions.js" defer></script>
 <script>
 // CUSTOM CURSOR
-(function(){
-  const cursor = document.getElementById('cursor');
-  if (!cursor || window.matchMedia('(pointer:coarse)').matches) { if(cursor) cursor.style.display='none'; return; }
-  const dot = cursor.querySelector('.cursor-dot');
-  const ring = cursor.querySelector('.cursor-ring');
-  let mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove',e=>{
-    mx=e.clientX; my=e.clientY;
-    dot.style.transform=`translate(${mx}px,${my}px)`;
-    cursor.classList.add('is-visible');
-  });
-  document.addEventListener('mouseleave',()=>cursor.classList.remove('is-visible'));
-  const lerp=(a,b,n)=>a+(b-a)*n;
-  (function animRing(){
-    rx=lerp(rx,mx,0.12); ry=lerp(ry,my,0.12);
-    ring.style.transform=`translate(${rx}px,${ry}px)`;
-    requestAnimationFrame(animRing);
-  })();
-  // Hover states
-  document.querySelectorAll('a,button,[data-magnetic]').forEach(el=>{
-    el.addEventListener('mouseenter',()=>cursor.classList.add('is-hover'));
-    el.addEventListener('mouseleave',()=>cursor.classList.remove('is-hover'));
-  });
-  // Magnetic elements
-  document.querySelectorAll('[data-magnetic]').forEach(el=>{
-    el.addEventListener('mousemove',e=>{
-      const r=el.getBoundingClientRect();
-      const x=(e.clientX-r.left-r.width/2)*0.25;
-      const y=(e.clientY-r.top-r.height/2)*0.25;
-      el.style.transform=`translate(${x}px,${y}px)`;
-    });
-    el.addEventListener('mouseleave',()=>{ el.style.transform=''; });
-  });
-})();
-
 // GLITCH TEXT
 (function(){
   const chars = '!<>-_\\/[]{}—=+*^?#@$%&';
