@@ -1,250 +1,55 @@
-/* ==========================================================================
-   HAMAN IT SOLUTIONS — interactions.css
-   Transitions · Hover states · Reveal animations · Reduced-motion guard
-   ========================================================================== */
+/* =========================================================
+   HAMIT — interactions.css
+   ========================================================= */
+:root{--t:200ms;--t-slow:600ms;--ease:cubic-bezier(0.22,1,0.36,1)}
 
-/* ---------- BASE TRANSITIONS ------------------------------------------- */
-:root {
-  --t-fast: 150ms;
-  --t-base: 240ms;
-  --t-slow: 600ms;
-}
+/* Theme transition */
+body{transition:background var(--t) var(--ease),color var(--t) var(--ease)}
 
-a, button, .btn, .service-chevron, .theme-toggle,
-.nav, .nav-links a, .footer-nav a, .contact-list a,
-.form-row input, .form-row select, .form-row textarea,
-.process-step, .why-card, .timeline-dot {
-  transition:
-    color var(--t-base) var(--ease),
-    background-color var(--t-base) var(--ease),
-    border-color var(--t-base) var(--ease),
-    transform var(--t-fast) var(--ease),
-    opacity var(--t-base) var(--ease);
-}
+/* Nav scrolled */
+.nav{transition:background .4s var(--ease),border-color .4s var(--ease),backdrop-filter .4s}
 
-/* Theme transition on body */
-body { transition: background-color var(--t-base) var(--ease), color var(--t-base) var(--ease); }
+/* Service cards — hover underline on front tag */
+.service-card-front .service-tag{transition:border-color .2s,color .2s}
+.service-card:hover .service-tag{border-color:var(--text2);color:var(--text)}
 
-/* ---------- BUTTON PRESSES --------------------------------------------- */
-.btn:hover { opacity: 0.92; }
-.btn-primary:hover { background: var(--text); }
-.btn-ghost:hover {
-  border-color: var(--text);
-  color: var(--text);
-  background: color-mix(in srgb, var(--text) 5%, transparent);
-}
-.btn:active { transform: scale(0.97); transition-duration: var(--t-fast); }
-.btn .btn-arrow { transition: transform var(--t-base) var(--ease); }
-.btn:hover .btn-arrow { transform: translateX(4px); }
+/* Review hover */
+.review-card{transition:transform .35s var(--ease),background .25s,border-color .25s}
 
-/* ---------- NAV --------------------------------------------------------- */
-.nav.scrolled {
-  background: color-mix(in srgb, var(--bg) 78%, transparent);
-  border-bottom-color: var(--border);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
-}
+/* Form field focus */
+.field input:focus,.field select:focus,.field textarea:focus{background:rgba(240,237,232,.03)}
+[data-theme="light"] .field input:focus,
+[data-theme="light"] .field select:focus,
+[data-theme="light"] .field textarea:focus{background:rgba(10,10,10,.02)}
 
-.nav-links a:hover { color: var(--text); }
-.nav-links a::after {
-  transition: transform var(--t-base) var(--ease);
-}
-.nav-links a:hover::after,
-.nav-links a:focus-visible::after {
-  transform: scaleX(1);
-}
-
-.theme-toggle:hover {
-  border-color: var(--text);
-  background: color-mix(in srgb, var(--text) 5%, transparent);
-}
-.theme-toggle .icon {
-  transition: transform var(--t-base) var(--ease), opacity var(--t-base) var(--ease);
-}
-.theme-toggle:hover .icon { transform: rotate(15deg); }
-
-.nav-menu-btn span {
-  transition: transform var(--t-base) var(--ease), opacity var(--t-base) var(--ease);
-}
-.nav-menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.nav-menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-.nav-menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-.mobile-menu a {
-  transition: padding-left var(--t-base) var(--ease), color var(--t-base) var(--ease);
-}
-.mobile-menu a:hover { padding-left: 8px; color: var(--text); }
-
-/* ---------- HERO -------------------------------------------------------- */
-.scroll-indicator { transition: opacity var(--t-base) var(--ease), transform var(--t-base) var(--ease); }
-.scroll-indicator:hover { opacity: 1; transform: translate(-50%, 4px); }
-.scroll-line {
-  position: relative;
-  overflow: hidden;
-}
-.scroll-line::after {
-  content: "";
-  position: absolute;
-  left: 0; top: -50%;
-  width: 100%; height: 50%;
-  background: var(--text);
-  animation: scrollDot 2.4s var(--ease) infinite;
-}
-@keyframes scrollDot {
-  0%   { transform: translateY(0);    opacity: 0; }
-  20%  { opacity: 1; }
-  100% { transform: translateY(300%); opacity: 0; }
-}
-
-/* ---------- SERVICE EXPAND --------------------------------------------- */
-.service-row {
-  transition: background-color var(--t-base) var(--ease);
-}
-.service-row:hover {
-  background: color-mix(in srgb, var(--text) 3%, transparent);
-}
-.service-head { transition: background-color var(--t-base) var(--ease); }
-
-.service-chevron {
-  transition: transform var(--t-base) var(--ease),
-              background-color var(--t-base) var(--ease),
-              border-color var(--t-base) var(--ease);
-}
-.service-row:hover .service-chevron {
-  border-color: var(--text);
-}
-.service-row.is-open .service-chevron {
-  transform: rotate(180deg);
-  background: var(--text);
-  color: var(--bg);
-  border-color: var(--text);
-}
-
-.service-body {
-  transition: height var(--t-slow) var(--ease);
-}
-.service-body-inner {
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity var(--t-base) var(--ease) 80ms,
-              transform var(--t-base) var(--ease) 80ms;
-}
-.service-row.is-open .service-body-inner {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ---------- WHY CARDS --------------------------------------------------- */
-.why-card { transition: background-color var(--t-base) var(--ease); }
-.why-card:hover {
-  background: color-mix(in srgb, var(--text) 4%, var(--bg));
-}
-
-/* ---------- PROCESS CARDS ---------------------------------------------- */
-.process-step {
-  transition: transform var(--t-base) var(--ease),
-              border-color var(--t-base) var(--ease),
-              background-color var(--t-base) var(--ease);
-}
-.process-step:hover {
-  transform: translateY(-4px);
-  border-color: color-mix(in srgb, var(--text) 22%, var(--border));
-}
-
-/* ---------- TIMELINE ---------------------------------------------------- */
-.timeline-item:hover .timeline-dot {
-  background: var(--text);
-}
-
-/* ---------- LINKS ------------------------------------------------------- */
-.contact-list a:hover {
-  border-bottom-color: var(--text);
-}
-.footer-nav a {
-  transition: color var(--t-base) var(--ease);
-}
-.footer-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0; bottom: 0;
-  height: 1px; width: 100%;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--t-base) var(--ease);
-}
-.footer-nav a:hover { color: var(--text); }
-.footer-nav a:hover::after { transform: scaleX(1); }
-
-/* ---------- FORM FOCUS -------------------------------------------------- */
-.form-row input:focus,
-.form-row select:focus,
-.form-row textarea:focus {
-  border-bottom-color: var(--text);
-  outline: none;
-}
-.form-row input::placeholder,
-.form-row textarea::placeholder { color: var(--muted); }
-
-.contact-form.is-loading .btn-submit { opacity: 0.6; pointer-events: none; }
-.contact-form.is-success {
-  border-color: color-mix(in srgb, #34c759 40%, var(--border));
-}
-
-/* ---------- SCROLL REVEAL ----------------------------------------------- */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition:
-    opacity var(--t-slow) var(--ease),
-    transform var(--t-slow) var(--ease);
-  will-change: opacity, transform;
-}
-.reveal.in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Stagger by index when same parent */
-.reveal[data-i="1"] { transition-delay: 60ms; }
-.reveal[data-i="2"] { transition-delay: 120ms; }
-.reveal[data-i="3"] { transition-delay: 180ms; }
-.reveal[data-i="4"] { transition-delay: 240ms; }
-.reveal[data-i="5"] { transition-delay: 300ms; }
-.reveal[data-i="6"] { transition-delay: 360ms; }
-
-/* Auto-stagger for grid children */
-.why-grid > .reveal:nth-child(1) { transition-delay: 0ms; }
-.why-grid > .reveal:nth-child(2) { transition-delay: 80ms; }
-.why-grid > .reveal:nth-child(3) { transition-delay: 160ms; }
-.why-grid > .reveal:nth-child(4) { transition-delay: 240ms; }
-.why-grid > .reveal:nth-child(5) { transition-delay: 320ms; }
-.why-grid > .reveal:nth-child(6) { transition-delay: 400ms; }
-
-.process-steps > .reveal:nth-child(1) { transition-delay: 0ms; }
-.process-steps > .reveal:nth-child(2) { transition-delay: 100ms; }
-.process-steps > .reveal:nth-child(3) { transition-delay: 200ms; }
-
-.timeline > .reveal:nth-child(1) { transition-delay: 0ms; }
-.timeline > .reveal:nth-child(2) { transition-delay: 80ms; }
-.timeline > .reveal:nth-child(3) { transition-delay: 160ms; }
-.timeline > .reveal:nth-child(4) { transition-delay: 240ms; }
-.timeline > .reveal:nth-child(5) { transition-delay: 320ms; }
+/* Scroll reveal stagger */
+.services-grid .reveal-up:nth-child(2){transition-delay:100ms}
+.services-grid .reveal-up:nth-child(3){transition-delay:200ms}
+.services-grid .reveal-up:nth-child(4){transition-delay:300ms}
+.why-grid .reveal-up:nth-child(2){transition-delay:80ms}
+.why-grid .reveal-up:nth-child(3){transition-delay:160ms}
+.why-grid .reveal-up:nth-child(4){transition-delay:240ms}
+.why-grid .reveal-up:nth-child(5){transition-delay:320ms}
+.why-grid .reveal-up:nth-child(6){transition-delay:400ms}
+.reviews-grid .reveal-up:nth-child(2){transition-delay:120ms}
+.reviews-grid .reveal-up:nth-child(3){transition-delay:240ms}
+.process-steps .reveal-up:nth-child(2){transition-delay:150ms}
+.process-steps .reveal-up:nth-child(3){transition-delay:300ms}
 
 /* Hero stagger */
-.hero-eyebrow.reveal { transition-delay: 100ms; }
-.hero-title.reveal   { transition-delay: 180ms; }
-.hero-sub.reveal     { transition-delay: 320ms; }
-.hero-ctas.reveal    { transition-delay: 420ms; }
+.hero-title .reveal-up:nth-child(1){transition-delay:100ms}
+.hero-title .reveal-up:nth-child(2){transition-delay:200ms}
+.hero-title .reveal-up:nth-child(3){transition-delay:300ms}
+.hero-title .reveal-up:nth-child(4){transition-delay:400ms}
 
-/* ---------- REDUCED MOTION --------------------------------------------- */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  .reveal { opacity: 1 !important; transform: none !important; }
-  .scroll-line::after { display: none; }
+/* About cards */
+.about-card{transition:filter .25s}
+
+/* Footer nav */
+.footer-nav a{transition:color .2s}
+
+/* Reduced motion */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .reveal-up{opacity:1!important;transform:none!important}
 }
