@@ -11,19 +11,25 @@
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
 
-  /* THEME */
+  /* THEME TOGGLE */
   const STORAGE_KEY = 'hamit-theme';
   const html = document.documentElement;
   const themeBtn = document.getElementById('themeToggle');
-  const applyTheme = mode => {
+  
+  const applyTheme = (mode) => {
     html.setAttribute('data-theme', mode);
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', mode==='dark'?'#080808':'#f5f5f5');
-    try { localStorage.setItem(STORAGE_KEY, mode); } catch{}
-    window.dispatchEvent(new CustomEvent('themechange',{detail:{mode}}));
+    try { localStorage.setItem(STORAGE_KEY, mode); } catch(e){}
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', mode === 'dark' ? '#080808' : '#f5f5f5');
+    window.dispatchEvent(new CustomEvent('themechange', { detail: { mode } }));
   };
-  const saved = (()=>{ try { return localStorage.getItem(STORAGE_KEY); } catch { return null; }})();
-  applyTheme(saved || 'dark');
-  themeBtn?.addEventListener('click', ()=>applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark'));
+
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+  }
 
   /* MOBILE MENU */
   const menuBtn = document.getElementById('navMenuBtn');
