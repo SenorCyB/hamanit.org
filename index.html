@@ -16,7 +16,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" />
 
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="interactions.css" />
@@ -40,8 +40,8 @@
     <nav class="nav-links" aria-label="Primary">
       <a href="#services">Services</a>
       <a href="#why">Why Us</a>
-      <a href="#about">About</a>
-      <a href="#reviews">Reviews</a>
+      <a href="#experience">Experience</a>
+      <a href="#process">Process</a>
       <a href="#contact">Contact</a>
     </nav>
 
@@ -65,8 +65,8 @@
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <a href="#services">Services</a>
     <a href="#why">Why Us</a>
-    <a href="#about">About</a>
-    <a href="#reviews">Reviews</a>
+    <a href="#experience">Experience</a>
+    <a href="#process">Process</a>
     <a href="#contact">Contact</a>
     <a href="https://lab.hamanit.org" class="mobile-menu-ext" target="_blank" rel="noopener">Portfolio <span aria-hidden="true">↗</span></a>
   </div>
@@ -86,25 +86,27 @@
         <span class="line">Local Tech.</span>
         <span class="line"><em>Real</em> Solutions.</span>
       </h1>
-      <p class="hero-sub reveal">
-        IT support, custom builds, and AI consulting for Greater Houston &mdash; done right, by a real person.
-      </p>
-      <div class="hero-ctas reveal">
-        <a href="#contact" class="btn btn-primary">Get a Quote</a>
-        <a href="https://lab.hamanit.org" class="btn btn-ghost" target="_blank" rel="noopener">
-          See Our Work <span class="btn-arrow" aria-hidden="true">&rarr;</span>
-        </a>
+      <div class="hero-bottom reveal">
+        <p class="hero-sub">
+          IT support, custom builds, and AI consulting for Greater Houston &mdash; done right, by a real person.
+        </p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary">Get a Quote</a>
+          <a href="https://lab.hamanit.org" class="btn btn-ghost" target="_blank" rel="noopener">
+            See Our Work <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
       </div>
     </div>
-
     <a class="scroll-indicator" href="#services" aria-label="Scroll to services">
-      <span class="scroll-label">Scroll</span>
       <span class="scroll-line" aria-hidden="true"></span>
+      <span class="scroll-label">Scroll</span>
     </a>
   </section>
 
   <!-- 01 SERVICES -->
-  <section class="section section-services" id="services">
+  <section class="section band-light section-services" id="services">
+    <div class="section-inner">
     <div class="section-head reveal">
       <span class="section-num">01</span>
       <h2 class="section-title">What we do.</h2>
@@ -196,10 +198,12 @@
         </div>
       </li>
     </ul>
+    </div>
   </section>
 
   <!-- 02 WHY US -->
-  <section class="section section-why" id="why">
+  <section class="section band-off section-why" id="why">
+    <div class="section-inner">
     <div class="section-head reveal">
       <span class="section-num">02</span>
       <h2 class="section-title">Why clients stay.</h2>
@@ -238,109 +242,292 @@
         <p class="why-copy">Based in Katy. Serving Greater Houston. Neighbors first, customers second.</p>
       </li>
     </ul>
+    </div>
   </section>
 
-
   <!-- 03 ABOUT -->
-  <section class="section section-about" id="about">
-    <div class="about-grid">
-      <div class="about-text reveal">
+  <section class="section band-dark section-about" id="about">
+    <div class="section-inner">
+      <div class="section-head reveal">
         <span class="section-num">03</span>
         <h2 class="section-title">About us.</h2>
-        <p class="about-lede">Haman IT Solutions was started with one idea: local businesses and everyday people deserve real tech help from someone who actually gives a damn.</p>
-        <p class="about-body">We're not a big-box chain. We're not a call center. We're a locally owned, Greater Houston technology company founded by Josh Haman &mdash; an IT &amp; Cybersecurity student, Geek Squad veteran, and AI trainer who's spent years solving real problems for real people.</p>
-        <p class="about-body">Every service we provide comes with clear pricing, plain-English explanations, and a direct line back to the person who did the work. No ticket systems. No runaround. Just tech that works.</p>
-        <div class="about-stats">
-          <div class="about-stat">
-            <span class="stat-num">2+</span>
-            <span class="stat-label">Years serving Greater Houston</span>
-          </div>
-          <div class="about-stat">
-            <span class="stat-num">4</span>
-            <span class="stat-label">Core services offered</span>
-          </div>
-          <div class="about-stat">
-            <span class="stat-num">1</span>
-            <span class="stat-label">Person you always talk to</span>
-          </div>
-        </div>
+        <p class="section-kicker">A locally owned tech company built on the belief that good IT help shouldn't cost a fortune or require a support ticket.</p>
       </div>
-      <div class="about-aside reveal">
-        <div class="about-card">
-          <svg width="40" height="32" viewBox="0 0 48 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect x="0"  y="22" width="10" height="14" rx="2" fill="currentColor" opacity="0.30"/>
-            <rect x="14" y="13" width="10" height="23" rx="2" fill="currentColor" opacity="0.65"/>
-            <rect x="28" y="0"  width="10" height="36" rx="2" fill="currentColor"/>
-          </svg>
-          <h3>Our mission</h3>
-          <p>Make professional-grade tech support accessible to small businesses and individuals in Greater Houston &mdash; without the enterprise price tag or the corporate runaround.</p>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p class="about-lede">We started Haman IT Solutions because local businesses deserve better than a big-box runaround.</p>
+          <p class="about-body">We're not a franchise. We're not offshore. We're a Greater Houston technology company run by Josh Haman &mdash; an IT &amp; Cybersecurity student, Geek Squad veteran, and AI trainer who's spent years turning complex tech problems into plain-English solutions.</p>
+          <p class="about-body">Every job comes with clear pricing, honest timelines, and a direct line back to the person who actually did the work. No escalations. No hold music. Just tech that works.</p>
+          <div class="about-stats">
+            <div class="about-stat">
+              <span class="stat-num">2+</span>
+              <span class="stat-label">Years serving Greater Houston</span>
+            </div>
+            <div class="about-stat">
+              <span class="stat-num">4</span>
+              <span class="stat-label">Core services offered</span>
+            </div>
+            <div class="about-stat">
+              <span class="stat-num">1</span>
+              <span class="stat-label">Person you always talk to</span>
+            </div>
+          </div>
         </div>
-        <div class="about-card">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
-          <h3>Based in Katy, TX</h3>
-          <p>Serving all of Greater Houston. Remote support available anywhere. On-site for Katy, Sugar Land, Cypress, and surrounding areas.</p>
+        <div class="about-aside reveal">
+          <div class="about-card">
+            <svg width="36" height="28" viewBox="0 0 48 36" fill="none" aria-hidden="true">
+              <rect x="0"  y="22" width="10" height="14" rx="2" fill="currentColor" opacity="0.30"/>
+              <rect x="14" y="13" width="10" height="23" rx="2" fill="currentColor" opacity="0.65"/>
+              <rect x="28" y="0"  width="10" height="36" rx="2" fill="currentColor"/>
+            </svg>
+            <h3>Our mission</h3>
+            <p>Make professional-grade IT support accessible to small businesses and individuals across Greater Houston &mdash; without the enterprise price tag or the corporate runaround.</p>
+          </div>
+          <div class="about-card">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+            <h3>Based in Katy, TX</h3>
+            <p>Remote support available anywhere. On-site for Katy, Sugar Land, Cypress, and surrounding Greater Houston areas.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- 04 REVIEWS -->
-  <section class="section section-reviews" id="reviews">
-    <div class="section-head reveal">
-      <span class="section-num">04</span>
-      <h2 class="section-title">What clients say.</h2>
-      <p class="section-kicker">Real feedback from real people in Greater Houston.</p>
+  <section class="section band-light section-reviews" id="reviews">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <span class="section-num">04</span>
+        <h2 class="section-title">What clients say.</h2>
+        <p class="section-kicker">Real feedback from real people across Greater Houston.</p>
+      </div>
+      <ul class="reviews-grid">
+        <li class="review-card reveal">
+          <div class="review-stars" aria-label="5 out of 5 stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote class="review-quote">"Josh fixed my laptop the same day I called. No upsell, no confusion &mdash; just a straight answer and a working computer. Exactly what I needed."</blockquote>
+          <div class="review-author">
+            <span class="review-name">Marcus T.</span>
+            <span class="review-context">Katy, TX &mdash; IT Support</span>
+          </div>
+        </li>
+        <li class="review-card reveal">
+          <div class="review-stars" aria-label="5 out of 5 stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote class="review-quote">"Had my business website built from scratch &mdash; clean, fast, and actually looks professional. Josh walked me through every decision and delivered ahead of schedule."</blockquote>
+          <div class="review-author">
+            <span class="review-name">Diana R.</span>
+            <span class="review-context">Sugar Land, TX &mdash; Business Website</span>
+          </div>
+        </li>
+        <li class="review-card reveal">
+          <div class="review-stars" aria-label="5 out of 5 stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote class="review-quote">"Built me a custom PC within my budget with room to upgrade later. Walked me through every part choice. Runs perfect and I actually understand what's inside it now."</blockquote>
+          <div class="review-author">
+            <span class="review-name">Roberto C.</span>
+            <span class="review-context">Cypress, TX &mdash; Custom PC Build</span>
+          </div>
+        </li>
+      </ul>
     </div>
-    <ul class="reviews-grid">
-      <li class="review-card reveal">
-        <div class="review-stars" aria-label="5 out of 5 stars">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <blockquote class="review-quote">"Josh fixed my laptop the same day I called. No upsell, no confusion — just a straight answer and a working computer. Exactly what I needed."</blockquote>
-        <div class="review-author">
-          <span class="review-name">Marcus T.</span>
-          <span class="review-context">Katy, TX &mdash; IT Support</span>
-        </div>
-      </li>
-      <li class="review-card reveal">
-        <div class="review-stars" aria-label="5 out of 5 stars">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <blockquote class="review-quote">"Had my business website built from scratch — clean, fast, and actually looks professional. Josh walked me through every decision and delivered ahead of schedule."</blockquote>
-        <div class="review-author">
-          <span class="review-name">Diana R.</span>
-          <span class="review-context">Sugar Land, TX &mdash; Business Website</span>
-        </div>
-      </li>
-      <li class="review-card reveal">
-        <div class="review-stars" aria-label="5 out of 5 stars">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <blockquote class="review-quote">"Built me a custom PC within my budget with room to upgrade later. Walked me through every part choice. It runs perfect and I actually understand what's inside it now."</blockquote>
-        <div class="review-author">
-          <span class="review-name">Roberto C.</span>
-          <span class="review-context">Cypress, TX &mdash; Custom PC Build</span>
-        </div>
-      </li>
-    </ul>
   </section>
 
   <!-- 05 PROCESS -->
+  <section class="section band-off section-process" id="process">
+    <div class="section-inner">
+      <div class="section-head reveal">
+        <span class="section-num">05</span>
+        <h2 class="section-title">How it works.</h2>
+        <p class="section-kicker">Three steps. No contracts before we've even talked.</p>
+      </div>
+      <ol class="process-steps">
+        <li class="process-step reveal">
+          <span class="process-num">01</span>
+          <h3 class="process-title">Reach out.</h3>
+          <p class="process-copy">Drop a message with what's going on &mdash; a failing laptop, a new build idea, a website that's embarrassing you. I reply the same day.</p>
+        </li>
+        <li class="process-step reveal">
+          <span class="process-num">02</span>
+          <h3 class="process-title">We diagnose.</h3>
+          <p class="process-copy">Remote look or an on-site visit, whichever makes sense. You get a plain-English scope, a real price, and an honest timeline before anything starts.</p>
+        </li>
+        <li class="process-step reveal">
+          <span class="process-num">03</span>
+          <h3 class="process-title">Problem solved.</h3>
+          <p class="process-copy">We do the work, hand it back running, and leave you with notes you can actually read later. If it breaks again, you call the same person.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 06 CONTACT -->
+  <section class="section band-light section-contact" id="contact">
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <span class="section-num">06</span>
+          <h2 class="section-title">Let's talk.</h2>
+          <p class="contact-lede">Tell me what's going on. You'll hear back the same day, from a real person &mdash; usually me.</p>
+          <ul class="contact-list">
+            <li>
+              <span class="contact-label">Email</span>
+              <a href="mailto:support@hamanit.org">support@hamanit.org</a>
+            </li>
+            <li>
+              <span class="contact-label">Location</span>
+              <span>Katy, TX &mdash; Serving Greater Houston</span>
+            </li>
+            <li>
+              <span class="contact-label">LinkedIn</span>
+              <a href="https://www.linkedin.com/company/hamanit" target="_blank" rel="noopener">Haman IT Solutions</a>
+            </li>
+          </ul>
+        </div>
+        <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/xzdyeqnv" method="POST" novalidate>
+          <div class="form-row">
+            <label for="name">Full Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required />
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div class="form-row">
+            <label for="service">Service Needed</label>
+            <div class="select-wrap">
+              <select id="service" name="service" required>
+                <option value="">Select one&hellip;</option>
+                <option>IT Support &amp; Repair</option>
+                <option>Custom PC Build</option>
+                <option>Business Website</option>
+                <option>AI Consulting &amp; Automation</option>
+                <option>Something else</option>
+              </select>
+              <span class="select-arrow" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp-field" aria-hidden="true" />
+          <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+            <span class="btn-label">Send Message</span>
+            <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+          </button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#top" class="footer-logo" aria-label="Haman IT Solutions home">
+        <svg class="logo-mark" width="28" height="22" viewBox="0 0 48 36" fill="none" aria-hidden="true">
+          <rect x="0"  y="22" width="10" height="14" rx="2" fill="currentColor" opacity="0.30"/>
+          <rect x="14" y="13" width="10" height="23" rx="2" fill="currentColor" opacity="0.65"/>
+          <rect x="28" y="0"  width="10" height="36" rx="2" fill="currentColor"/>
+        </svg>
+        <span class="logo-word">HAM<span class="logo-it">IT</span></span>
+      </a>
+      <p class="footer-tag">Smart Tech. Real Solutions.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="footer-meta">
+      <span>&copy; 2026 Haman IT Solutions. Katy, TX.</span>
+      <a href="mailto:support@hamanit.org">support@hamanit.org</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="interactions.js" defer></script>
+</body>
+</html>
+
+    <div class="section-head reveal">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Where this came from.</h2>
+      <p class="section-kicker">A decade of tinkering, and the work that put it into practice.</p>
+    </div>
+
+    <ol class="timeline">
+      <li class="timeline-item reveal">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="timeline-role">
+          <span class="timeline-period">Current</span>
+          <h3>Founder &mdash; Haman IT Solutions</h3>
+          <p>IT support, custom builds, business websites, and AI consulting for Greater Houston small businesses and individuals.</p>
+        </div>
+      </li>
+      <li class="timeline-item reveal">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="timeline-role">
+          <span class="timeline-period">Current</span>
+          <h3>AI Trainer &mdash; Outlier AI</h3>
+          <p>Training and evaluating frontier AI models &mdash; prompt quality, technical reasoning, and safety feedback loops.</p>
+        </div>
+      </li>
+      <li class="timeline-item reveal">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="timeline-role">
+          <span class="timeline-period">Prior</span>
+          <h3>IT Specialist &mdash; Brookside Realty</h3>
+          <p>Internal IT: workstation setup, networking, troubleshooting, and day-to-day support for a realty office.</p>
+        </div>
+      </li>
+      <li class="timeline-item reveal">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="timeline-role">
+          <span class="timeline-period">Prior</span>
+          <h3>Agent &mdash; Geek Squad / Best Buy</h3>
+          <p>Front-line consumer tech support: diagnostics, repairs, data recovery, and explaining hard things to regular humans.</p>
+        </div>
+      </li>
+      <li class="timeline-item reveal">
+        <span class="timeline-dot" aria-hidden="true"></span>
+        <div class="timeline-role">
+          <span class="timeline-period">In progress</span>
+          <h3>IT &amp; Cybersecurity &mdash; Texas State Technical College</h3>
+          <p>Active coursework in IT &amp; Cybersecurity &mdash; the academic half of keeping the tooling sharp.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- 04 PROCESS -->
   <section class="section section-process" id="process">
     <div class="section-head reveal">
-      <span class="section-num">05</span>
+      <span class="section-num">04</span>
       <h2 class="section-title">How it works.</h2>
       <p class="section-kicker">Three steps. No contracts to sign before we've even talked.</p>
     </div>
@@ -368,7 +555,7 @@
   <section class="section section-contact" id="contact">
     <div class="contact-grid">
       <div class="contact-info reveal">
-        <span class="section-num">06</span>
+        <span class="section-num">05</span>
         <h2 class="section-title">Let's talk.</h2>
         <p class="contact-lede">Tell me what's going on. You'll hear back the same day, from a real person &mdash; usually me.</p>
 
@@ -383,7 +570,11 @@
           </li>
           <li>
             <span class="contact-label">LinkedIn</span>
-            <a href="https://www.linkedin.com/company/hamanit" target="_blank" rel="noopener">Haman IT Solutions</a>
+            <a href="https://www.linkedin.com/in/joshua-haman-478b462b4" target="_blank" rel="noopener">Joshua Haman</a>
+          </li>
+          <li>
+            <span class="contact-label">Portfolio</span>
+            <a href="https://lab.hamanit.org" target="_blank" rel="noopener">lab.hamanit.org</a>
           </li>
         </ul>
       </div>
@@ -450,9 +641,9 @@
     <nav class="footer-nav" aria-label="Footer">
       <a href="#services">Services</a>
       <a href="#why">Why Us</a>
-      <a href="#about">About</a>
-      <a href="#reviews">Reviews</a>
+      <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
+      <a href="https://lab.hamanit.org" target="_blank" rel="noopener">Portfolio <span aria-hidden="true">&#8599;</span></a>
     </nav>
 
     <div class="footer-meta">
