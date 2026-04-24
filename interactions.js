@@ -25,12 +25,15 @@
       };
       body.addEventListener('transitionend', onEnd);
     } else {
-      // if currently auto, lock to pixel value first so the transition runs
+      // lock to pixel value first so the transition runs
       const current = body.getBoundingClientRect().height;
       body.style.height = current + 'px';
-      // force reflow
-      void body.offsetHeight;
-      body.style.height = '0px';
+      // double rAF ensures reflow before collapsing
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          body.style.height = '0px';
+        });
+      });
     }
   };
 
@@ -60,7 +63,7 @@
     });
   });
 
-  // recompute open row on resize (responsive width changes wrap copy)
+  // recompute open row on resize
   let rT;
   window.addEventListener('resize', () => {
     clearTimeout(rT);
@@ -68,15 +71,18 @@
       rows.forEach(row => {
         if (row.classList.contains('is-open')) {
           const body = row.querySelector('.service-body');
-          if (body) body.style.height = 'auto';
+          const inner = row.querySelector('.service-body-inner');
+          if (body && inner) {
+            body.style.height = 'auto';
+          }
         }
       });
     }, 120);
   });
 
-  // open first row by default for affordance
+  // open first row by default for affordance — delay so fonts/layout are painted
   if (rows[0]) {
-    requestAnimationFrame(() => openRow(rows[0]));
+    setTimeout(() => openRow(rows[0]), 120);
   }
 
   /* ---------- MOBILE MENU -------------------------------------------- */
