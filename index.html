@@ -27,6 +27,29 @@
 </head>
 <body>
 
+<!-- BOOT SCREEN -->
+<div class="boot" id="boot" role="presentation">
+  <div class="boot-grid" aria-hidden="true"></div>
+  <div class="boot-scan" aria-hidden="true"></div>
+  <button class="boot-skip" type="button" id="bootSkip" aria-label="Skip intro">SKIP <span aria-hidden="true">→</span></button>
+  <div class="boot-stack">
+    <div class="boot-tag-top">
+      <span class="boot-dot"></span>
+      <span>HAMIT://BOOT_SEQUENCE</span>
+    </div>
+    <div class="boot-bars" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="boot-word" data-text="HAMIT">HAMIT</div>
+    <div class="boot-tag">LOCAL TECH · REAL SOLUTIONS</div>
+    <div class="boot-bar"><span class="boot-bar-fill"></span></div>
+    <div class="boot-meta">
+      <span id="bootStatus">▮ HANDSHAKE</span>
+      <span class="boot-loc">KATY · TX</span>
+    </div>
+  </div>
+</div>
+
 <!-- NOISE OVERLAY -->
 <div class="noise" aria-hidden="true"></div>
 
@@ -284,7 +307,7 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M5 9l7-7 7 7M5 15l7 7 7-7"/></svg>
         </div>
         <h3>Better Value</h3>
-        <p>Geek Squad prices without the Geek Squad runaround. Seriously.</p>
+        <p>Big-box prices without the big-box runaround. Honest hourly, honest scope.</p>
         <span class="why-bg">04</span>
       </div>
       <div class="why-item reveal-up" data-delay="320">

@@ -5,6 +5,75 @@
 (()=>{
   'use strict';
 
+  /* BOOT SCREEN */
+  const boot = document.getElementById('boot');
+  if (boot) {
+    const reduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    let alreadySeen = false;
+    try { alreadySeen = sessionStorage.getItem('hamit-booted') === '1'; } catch(e){}
+
+    if (reduced || alreadySeen) {
+      boot.remove();
+    } else {
+      document.body.classList.add('booting');
+
+      const status = document.getElementById('bootStatus');
+      const messages = [
+        '▮ HANDSHAKE',
+        '▮ AUTH OK',
+        '▮ LOADING SYSTEMS',
+        '▮ KATY UPLINK',
+        '▮ READY'
+      ];
+      let mIdx = 0;
+      const ticker = setInterval(() => {
+        mIdx = Math.min(mIdx + 1, messages.length - 1);
+        if (status) status.textContent = messages[mIdx];
+        if (mIdx === messages.length - 1) clearInterval(ticker);
+      }, 320);
+
+      // Glitch the HAMIT wordmark
+      const word = boot.querySelector('.boot-word');
+      if (word) {
+        const orig = word.dataset.text;
+        const chars = '!<>-_\\/[]{}—=+*^?#@$%&';
+        setTimeout(() => {
+          let iter = 0;
+          const gv = setInterval(() => {
+            word.textContent = orig.split('').map((c, i) => {
+              if (i < iter) return orig[i];
+              return chars[Math.floor(Math.random() * chars.length)];
+            }).join('');
+            if (iter >= orig.length) {
+              clearInterval(gv);
+              word.textContent = orig;
+            }
+            iter += 0.45;
+          }, 45);
+        }, 600);
+      }
+
+      const finish = () => {
+        clearInterval(ticker);
+        if (status) status.textContent = '▮ READY';
+        boot.classList.add('done');
+        document.body.classList.remove('booting');
+        try { sessionStorage.setItem('hamit-booted', '1'); } catch(e){}
+        setTimeout(() => boot.remove(), 700);
+      };
+
+      setTimeout(finish, 2400);
+      document.getElementById('bootSkip')?.addEventListener('click', finish);
+      const onKey = (e) => {
+        if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') {
+          finish();
+          document.removeEventListener('keydown', onKey);
+        }
+      };
+      document.addEventListener('keydown', onKey);
+    }
+  }
+
   /* NAV SCROLL */
   const nav = document.getElementById('nav');
   const onScroll = ()=>{ if(!nav) return; nav.classList.toggle('scrolled', window.scrollY > 12) };
