@@ -13,8 +13,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=20260429b" />
-  <link rel="stylesheet" href="../interactions.css?v=20260429b" />
+  <link rel="stylesheet" href="../styles.css?v=20260429d" />
+  <link rel="stylesheet" href="../interactions.css?v=20260429d" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -161,12 +161,117 @@
     </div>
   </section>
 
-  <section class="detail-cta-block">
-    <h2>Ready for a <em>real website?</em></h2>
-    <p>Tell me about your business — I'll send a fixed quote and a rough timeline within 48 hours.</p>
-    <a href="../index.html#contact" class="btn btn-primary">Get a Quote <span class="btn-arr">→</span></a>
-    <a href="https://lab.hamanit.org" target="_blank" rel="noopener" class="btn btn-ghost">See Our Work <span class="btn-arr">↗</span></a>
+  <section class="detail-work">
+    <div class="detail-work-inner">
+      <div class="detail-work-head">
+        <span class="detail-work-label">RECENT WORK</span>
+        <h2>Sites I've shipped.<br><em>Live in the wild.</em></h2>
+      </div>
+      <div class="work-grid">
+        <a href="https://1cachouston.com" target="_blank" rel="noopener" class="work-card" style="--w-1:#1f3d5c;--w-2:#0a1f33">
+          <div class="work-preview">
+            <div class="work-browser">
+              <span class="work-dot"></span><span class="work-dot"></span><span class="work-dot"></span>
+              <span class="work-url">1cachouston.com</span>
+            </div>
+            <div class="work-preview-body">
+              <span class="work-mark">1CAC</span>
+              <span class="work-tag">Live</span>
+            </div>
+          </div>
+          <div class="work-meta">
+            <h3>1CAC Houston</h3>
+            <p>Concrete contractor site for a Houston-area trades business. Custom-coded, mobile-first, with a project gallery and lead capture.</p>
+            <span class="work-cta">Visit live site <span class="btn-arr">↗</span></span>
+          </div>
+        </a>
+        <a href="https://brooksiderealtytx.com" target="_blank" rel="noopener" class="work-card" style="--w-1:#2a3d2a;--w-2:#0f1e0f">
+          <div class="work-preview">
+            <div class="work-browser">
+              <span class="work-dot"></span><span class="work-dot"></span><span class="work-dot"></span>
+              <span class="work-url">brooksiderealtytx.com</span>
+            </div>
+            <div class="work-preview-body">
+              <span class="work-mark">BR</span>
+              <span class="work-tag">Live</span>
+            </div>
+          </div>
+          <div class="work-meta">
+            <h3>Brookside Realty TX</h3>
+            <p>Real estate brokerage site with listings, agent directory, and contact funnels. Built to convert without feeling corporate.</p>
+            <span class="work-cta">Visit live site <span class="btn-arr">↗</span></span>
+          </div>
+        </a>
+      </div>
+      <p class="detail-work-foot">More projects on <a href="https://lab.hamanit.org" target="_blank" rel="noopener">lab.hamanit.org <span aria-hidden="true">↗</span></a></p>
+    </div>
   </section>
+
+  <section class="detail-cta-block detail-cta-creative">
+    <div class="cta-bg" aria-hidden="true">
+      <div class="cta-bg-track">
+        <span>LAUNCH</span><span class="cta-bg-dot">·</span>
+        <span>BUILD</span><span class="cta-bg-dot">·</span>
+        <span>SHIP</span><span class="cta-bg-dot">·</span>
+        <span>WEBSITES</span><span class="cta-bg-dot">·</span>
+        <span>LAUNCH</span><span class="cta-bg-dot">·</span>
+        <span>BUILD</span><span class="cta-bg-dot">·</span>
+        <span>SHIP</span><span class="cta-bg-dot">·</span>
+        <span>WEBSITES</span><span class="cta-bg-dot">·</span>
+        <span>LAUNCH</span><span class="cta-bg-dot">·</span>
+        <span>BUILD</span><span class="cta-bg-dot">·</span>
+        <span>SHIP</span><span class="cta-bg-dot">·</span>
+        <span>WEBSITES</span><span class="cta-bg-dot">·</span>
+      </div>
+    </div>
+    <div class="cta-content">
+      <span class="cta-eyebrow"><span class="cta-eyebrow-dot"></span>READY WHEN YOU ARE</span>
+      <h2 class="cta-creative-h">
+        <span class="glitch-word" data-text="Ready for a">Ready for a</span>
+        <span class="glitch-word cta-em" data-text="real website?">real website?</span>
+      </h2>
+      <p class="cta-creative-p">Tell me about your business — I'll send a fixed quote and a rough timeline within 48 hours.</p>
+      <div class="cta-buttons">
+        <a href="../index.html#contact" class="btn btn-primary">Get a Quote <span class="btn-arr">→</span></a>
+        <a href="mailto:support@hamanit.org" class="btn btn-ghost">Email Me <span class="btn-arr">↗</span></a>
+      </div>
+      <p class="cta-tertiary">or call <a href="tel:+18323882401">(832) 388-2401</a></p>
+    </div>
+  </section>
+
+  <script>
+    // Fire glitch on the creative CTA when it scrolls into view + on hover
+    (function(){
+      const chars = '!<>-_\\/[]{}—=+*^?#@$%&';
+      function glitch(el){
+        const orig = el.dataset.text;
+        let iter = 0;
+        const iv = setInterval(()=>{
+          el.textContent = orig.split('').map((c,i)=>{
+            if(i < iter) return orig[i];
+            if(c === ' ') return ' ';
+            return chars[Math.floor(Math.random()*chars.length)];
+          }).join('');
+          if(iter >= orig.length){ clearInterval(iv); el.textContent = orig; }
+          iter += 0.45;
+        },35);
+      }
+      const heading = document.querySelector('.cta-creative-h');
+      if (!heading) return;
+      const words = heading.querySelectorAll('.glitch-word');
+      words.forEach(w => w.addEventListener('mouseenter', () => glitch(w)));
+      if ('IntersectionObserver' in window){
+        const io = new IntersectionObserver(entries => {
+          entries.forEach(e => {
+            if (!e.isIntersecting) return;
+            words.forEach((w, i) => setTimeout(() => glitch(w), i * 220));
+            io.disconnect();
+          });
+        }, { threshold: 0.4 });
+        io.observe(heading);
+      }
+    })();
+  </script>
 </main>
 
 <footer class="footer">
@@ -201,6 +306,6 @@
   </div>
 </footer>
 
-<script src="../interactions.js?v=20260429b" defer></script>
+<script src="../interactions.js?v=20260429d" defer></script>
 </body>
 </html>
