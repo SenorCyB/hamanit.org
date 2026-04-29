@@ -11,11 +11,71 @@
   <meta property="og:title" content="HAMIT — Local Tech. Real Solutions." />
   <meta property="og:description" content="IT support, custom builds, and AI consulting for Greater Houston — done right, by a real person." />
   <meta property="og:url" content="https://hamanit.org/" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://hamanit.org/#business",
+    "name": "Haman IT Solutions",
+    "alternateName": "HAMIT",
+    "description": "Locally owned IT support, custom PC builds, business websites, and AI consulting for individuals and small businesses in Greater Houston and Katy, TX.",
+    "url": "https://hamanit.org/",
+    "telephone": "+1-281-555-0100",
+    "email": "support@hamanit.org",
+    "priceRange": "$$",
+    "image": "https://hamanit.org/Images/og-image.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Katy",
+      "addressRegion": "TX",
+      "postalCode": "77449",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 29.7858,
+      "longitude": -95.8245
+    },
+    "areaServed": [
+      {"@type": "City", "name": "Katy"},
+      {"@type": "City", "name": "Houston"},
+      {"@type": "City", "name": "Sugar Land"},
+      {"@type": "City", "name": "Cypress"},
+      {"@type": "City", "name": "Richmond"},
+      {"@type": "City", "name": "Pearland"},
+      {"@type": "City", "name": "Spring"},
+      {"@type": "AdministrativeArea", "name": "Greater Houston"}
+    ],
+    "openingHoursSpecification": [
+      {"@type": "OpeningHoursSpecification","dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens": "09:00","closes": "18:00"},
+      {"@type": "OpeningHoursSpecification","dayOfWeek": ["Saturday"],"opens": "10:00","closes": "16:00"}
+    ],
+    "sameAs": ["https://www.linkedin.com/company/hamanit"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services",
+      "itemListElement": [
+        {"@type": "Offer","itemOffered": {"@type": "Service","name": "IT Support & Repair","description": "Diagnostics, malware removal, OS reinstalls, data recovery, and network triage.","url": "https://hamanit.org/services/it-support.html"}},
+        {"@type": "Offer","itemOffered": {"@type": "Service","name": "Custom PC Builds","description": "Part selection, assembly, stress-testing, and handoff.","url": "https://hamanit.org/services/pc-builds.html"}},
+        {"@type": "Offer","itemOffered": {"@type": "Service","name": "Business Websites","description": "Fast, mobile-first websites custom-coded with no templates or page builders.","url": "https://hamanit.org/services/websites.html"}},
+        {"@type": "Offer","itemOffered": {"@type": "Service","name": "AI Consulting & Automation","description": "Practical AI integration and workflow automation for small businesses.","url": "https://hamanit.org/services/ai-consulting.html"}}
+      ]
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "9",
+      "bestRating": "5",
+      "worstRating": "5"
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260429a" />
-  <link rel="stylesheet" href="interactions.css?v=20260429a" />
+  <link rel="stylesheet" href="styles.css?v=20260429b" />
+  <link rel="stylesheet" href="interactions.css?v=20260429b" />
   <script>
     // Instant theme init — runs before paint to prevent flash
     (function(){
@@ -68,9 +128,10 @@
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#services" data-magnetic>Services</a>
+      <a href="#pricing" data-magnetic>Pricing</a>
       <a href="#why" data-magnetic>Why Us</a>
-      <a href="#about" data-magnetic>About</a>
       <a href="#reviews" data-magnetic>Reviews</a>
+      <a href="#faq" data-magnetic>FAQ</a>
       <a href="#contact" data-magnetic>Contact</a>
     </nav>
     <div class="nav-right">
@@ -86,9 +147,11 @@
   </div>
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
     <a href="#why">Why Us</a>
     <a href="#about">About</a>
     <a href="#reviews">Reviews</a>
+    <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
     <a href="#contact" class="mobile-cta">Get a Quote <span aria-hidden="true">→</span></a>
   </div>
@@ -186,7 +249,7 @@
             <li>Remote fixes when possible</li>
             <li>Plain-English write-up every time</li>
           </ul>
-          <a href="#contact" class="service-cta">Get Help →</a>
+          <a href="services/it-support.html" class="service-cta">Learn More →</a>
         </div>
       </div>
       <div class="service-card reveal-up" data-delay="100">
@@ -205,7 +268,7 @@
             <li>Upgrade paths planned from day one</li>
             <li>Existing-rig upgrades welcome</li>
           </ul>
-          <a href="#contact" class="service-cta">Build Yours →</a>
+          <a href="services/pc-builds.html" class="service-cta">Learn More →</a>
         </div>
       </div>
       <div class="service-card reveal-up" data-delay="200">
@@ -224,7 +287,7 @@
             <li>SEO-ready from day one</li>
             <li>Ongoing support available</li>
           </ul>
-          <a href="#contact" class="service-cta">Start Project →</a>
+          <a href="services/websites.html" class="service-cta">Learn More →</a>
         </div>
       </div>
       <div class="service-card reveal-up" data-delay="300">
@@ -243,18 +306,93 @@
             <li>Staff training &amp; onboarding</li>
             <li>Ongoing optimization support</li>
           </ul>
-          <a href="#contact" class="service-cta">Automate →</a>
+          <a href="services/ai-consulting.html" class="service-cta">Learn More →</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 02 WHY US -->
-<section class="section section-dark" id="why">
+<!-- 02 PRICING -->
+<section class="section section-dark" id="pricing">
   <div class="section-inner">
     <div class="section-label reveal-up">
       <span class="label-num">02</span>
+      <span class="label-line"></span>
+      <span class="label-text">PRICING</span>
+    </div>
+    <div class="pricing-head">
+      <h2 class="section-title reveal-up">Real prices.<br><em>No surprises.</em></h2>
+      <p class="pricing-lede reveal-up">Every job gets a fixed quote before work starts. The numbers below are honest starting points so you know what to expect — most jobs land within these ranges.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal-up" data-delay="0">
+        <div class="price-head">
+          <span class="price-tag">IT Support &amp; Repair</span>
+          <span class="price-from">From</span>
+        </div>
+        <div class="price-amount"><span class="price-cur">$</span>85<span class="price-unit">/hr</span></div>
+        <ul class="price-list">
+          <li>Free 15-minute remote diagnostic</li>
+          <li>$95 minimum for on-site visits</li>
+          <li>Most fixes finish under 2 hours</li>
+          <li>Flat-rate options for common jobs</li>
+        </ul>
+        <a href="services/it-support.html" class="price-cta">See details →</a>
+      </div>
+      <div class="price-card price-card-feature reveal-up" data-delay="100">
+        <span class="price-flag">Most popular</span>
+        <div class="price-head">
+          <span class="price-tag">Custom PC Builds</span>
+          <span class="price-from">From</span>
+        </div>
+        <div class="price-amount"><span class="price-cur">$</span>250<span class="price-unit">build fee + parts</span></div>
+        <ul class="price-list">
+          <li>Quote includes parts list at real retail</li>
+          <li>Full assembly, BIOS update, stress-test</li>
+          <li>Cable management and OS install included</li>
+          <li>30-day workmanship warranty</li>
+        </ul>
+        <a href="services/pc-builds.html" class="price-cta">See details →</a>
+      </div>
+      <div class="price-card reveal-up" data-delay="200">
+        <div class="price-head">
+          <span class="price-tag">Business Websites</span>
+          <span class="price-from">From</span>
+        </div>
+        <div class="price-amount"><span class="price-cur">$</span>1,800<span class="price-unit">project</span></div>
+        <ul class="price-list">
+          <li>Custom design — no Wix or Squarespace</li>
+          <li>Mobile-first, SEO-ready, fast hosting</li>
+          <li>Up to 5 pages in starter scope</li>
+          <li>Optional ongoing care from $80/mo</li>
+        </ul>
+        <a href="services/websites.html" class="price-cta">See details →</a>
+      </div>
+      <div class="price-card reveal-up" data-delay="300">
+        <div class="price-head">
+          <span class="price-tag">AI Consulting</span>
+          <span class="price-from">From</span>
+        </div>
+        <div class="price-amount"><span class="price-cur">$</span>125<span class="price-unit">/hr</span></div>
+        <ul class="price-list">
+          <li>Workflow audit before any setup work</li>
+          <li>Project quotes from $1,500 fixed</li>
+          <li>Tool selection across major platforms</li>
+          <li>Staff training included</li>
+        </ul>
+        <a href="services/ai-consulting.html" class="price-cta">See details →</a>
+      </div>
+    </div>
+    <p class="pricing-note reveal-up">Need something not listed? <a href="#contact">Tell me what's going on</a> and I'll send a real quote within the day.</p>
+  </div>
+</section>
+
+<!-- 03 WHY US -->
+<section class="section section-dark" id="why">
+  <div class="section-inner">
+    <div class="section-label reveal-up">
+      <span class="label-num">03</span>
       <span class="label-line"></span>
       <span class="label-text">WHY US</span>
     </div>
@@ -343,7 +481,7 @@
 <section class="section" id="about">
   <div class="section-inner">
     <div class="section-label reveal-up">
-      <span class="label-num">03</span>
+      <span class="label-num">04</span>
       <span class="label-line"></span>
       <span class="label-text">ABOUT</span>
     </div>
@@ -380,7 +518,7 @@
 <section class="section section-dark" id="reviews">
   <div class="section-inner">
     <div class="section-label reveal-up">
-      <span class="label-num">04</span>
+      <span class="label-num">05</span>
       <span class="label-line"></span>
       <span class="label-text">REVIEWS</span>
     </div>
@@ -441,7 +579,7 @@
 <section class="section" id="process">
   <div class="section-inner">
     <div class="section-label reveal-up">
-      <span class="label-num">05</span>
+      <span class="label-num">06</span>
       <span class="label-line"></span>
       <span class="label-text">PROCESS</span>
     </div>
@@ -469,11 +607,100 @@
   </div>
 </section>
 
-<!-- 06 CONTACT -->
-<section class="section section-contact" id="contact">
+<!-- 07 FAQ -->
+<section class="section" id="faq">
   <div class="section-inner">
     <div class="section-label reveal-up">
-      <span class="label-num">06</span>
+      <span class="label-num">07</span>
+      <span class="label-line"></span>
+      <span class="label-text">FAQ</span>
+    </div>
+    <div class="faq-head">
+      <h2 class="section-title reveal-up">Quick answers.<br><em>No fluff.</em></h2>
+      <p class="faq-lede reveal-up">If something isn't covered here, email <a href="mailto:support@hamanit.org">support@hamanit.org</a> or use the form below — I reply same-day.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item reveal-up" data-delay="0">
+        <summary>
+          <span class="faq-q">How fast can you actually respond?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-a">
+          <p>Same-day reply during business hours (Mon-Fri 9-6, Sat 10-4 Central). Most messages get a real human answer within 2-4 hours. Urgent issues — laptop won't boot, malware lockout, deadline-blocking website bug — get prioritized and I'll usually have a remote session scheduled the same day.</p>
+        </div>
+      </details>
+      <details class="faq-item reveal-up" data-delay="60">
+        <summary>
+          <span class="faq-q">What's your service area for on-site visits?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-a">
+          <p>Greater Houston — Katy, Cypress, Sugar Land, Richmond, Pearland, Spring, Houston proper, and surrounding cities. No travel fee within ~25 miles of Katy. Beyond that I can usually still come out for a small mileage charge, or we handle it remotely. Remote support works anywhere with internet.</p>
+        </div>
+      </details>
+      <details class="faq-item reveal-up" data-delay="120">
+        <summary>
+          <span class="faq-q">Do you charge for diagnosis or quoting?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-a">
+          <p>No. The first 15 minutes of remote diagnosis is free. After that, you'll get a fixed quote before any billable work starts — if you don't want to move forward, you don't pay anything. PC build quotes and website project quotes are always free.</p>
+        </div>
+      </details>
+      <details class="faq-item reveal-up" data-delay="180">
+        <summary>
+          <span class="faq-q">Can I supply my own parts for a build or repair?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-a">
+          <p>Absolutely. If you've already bought parts (or want to), I'll work with what you have and only charge the build/repair fee. I'll flag anything that's a bad fit or known to fail before we start, so you're not stuck with a part that won't work for your use case.</p>
+        </div>
+      </details>
+      <details class="faq-item reveal-up" data-delay="240">
+        <summary>
+          <span class="faq-q">What's your warranty policy?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-a">
+          <p>30-day workmanship warranty on every repair and PC build — if it stops working because of something I did, I fix it free. Hardware failures fall back to the manufacturer warranty, which I'll help you process. Websites get 14 days of free post-launch tweaks before optional ongoing care kicks in.</p>
+        </div>
+      </details>
+      <details class="faq-item reveal-up" data-delay="300">
+        <summary>
+          <span class="faq-q">How do payments work?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-a">
+          <p>Card, ACH, Zelle, or check — whichever you prefer. Hourly work is billed after the job. Project work (builds, websites) takes a 50% deposit upfront and 50% at delivery. No invoices for work I haven't done; no auto-renewing charges anywhere.</p>
+        </div>
+      </details>
+      <details class="faq-item reveal-up" data-delay="360">
+        <summary>
+          <span class="faq-q">Mac, PC, Linux — do you handle all of them?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-a">
+          <p>All three for software, network, and general support. Custom builds are PC/Linux territory — Macs aren't user-buildable, but I can spec and configure them, migrate data, set up your environment, and handle peripherals.</p>
+        </div>
+      </details>
+      <details class="faq-item reveal-up" data-delay="420">
+        <summary>
+          <span class="faq-q">Do you do contracts or just one-off work?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-a">
+          <p>Both. Most clients start with a single project or repair, then move to a light monthly retainer once they realize they want a phone number to call when something breaks. No long-term lock-in — retainers are month-to-month and you can cancel any time with no penalty.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 08 CONTACT -->
+<section class="section section-contact section-dark" id="contact">
+  <div class="section-inner">
+    <div class="section-label reveal-up">
+      <span class="label-num">08</span>
       <span class="label-line"></span>
       <span class="label-text">CONTACT</span>
     </div>
@@ -482,7 +709,9 @@
         <h2 class="section-title">Let's<br><em>talk tech.</em></h2>
         <p class="contact-lede">Tell me what's going on. Same-day reply, from a real person — usually me.</p>
         <ul class="contact-info">
+          <li><span>PHONE</span><a href="tel:+12815550100">(281) 555-0100</a></li>
           <li><span>EMAIL</span><a href="mailto:support@hamanit.org">support@hamanit.org</a></li>
+          <li><span>HOURS</span><span>Mon-Fri 9-6 · Sat 10-4 CT</span></li>
           <li><span>LOCATION</span><span>Katy, TX — Greater Houston</span></li>
           <li><span>LINKEDIN</span><a href="https://www.linkedin.com/company/hamanit" target="_blank" rel="noopener">Haman IT Solutions ↗</a></li>
         </ul>
@@ -548,20 +777,26 @@
     </div>
     <nav class="footer-nav">
       <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
       <a href="#why">Why Us</a>
-      <a href="#about">About</a>
       <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="footer-copy">
       <span>© 2026 Haman IT Solutions. Katy, TX.</span>
+      <span class="footer-legal">
+        <a href="privacy.html">Privacy</a>
+        <span aria-hidden="true">·</span>
+        <a href="terms.html">Terms</a>
+      </span>
       <a href="mailto:support@hamanit.org">support@hamanit.org</a>
     </div>
   </div>
 </footer>
 
-<script src="script.js?v=20260429a" defer></script>
-<script src="interactions.js?v=20260429a" defer></script>
+<script src="script.js?v=20260429b" defer></script>
+<script src="interactions.js?v=20260429b" defer></script>
 <script>
 // CUSTOM CURSOR
 // GLITCH TEXT
