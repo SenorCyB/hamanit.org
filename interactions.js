@@ -80,26 +80,6 @@
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
 
-  /* THEME TOGGLE */
-  const STORAGE_KEY = 'hamit-theme';
-  const html = document.documentElement;
-  const themeBtn = document.getElementById('themeToggle');
-  
-  const applyTheme = (mode) => {
-    html.setAttribute('data-theme', mode);
-    try { localStorage.setItem(STORAGE_KEY, mode); } catch(e){}
-    const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', mode === 'dark' ? '#080808' : '#f5f5f5');
-    window.dispatchEvent(new CustomEvent('themechange', { detail: { mode } }));
-  };
-
-  if (themeBtn) {
-    themeBtn.addEventListener('click', () => {
-      const current = html.getAttribute('data-theme');
-      applyTheme(current === 'dark' ? 'light' : 'dark');
-    });
-  }
-
   /* MOBILE MENU */
   const menuBtn = document.getElementById('navMenuBtn');
   const menu = document.getElementById('mobileMenu');
