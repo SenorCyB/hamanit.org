@@ -53,6 +53,17 @@
   document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeMenu(); });
   window.addEventListener('resize', ()=>{ if(window.innerWidth>768) closeMenu(); });
 
+  /* REVIEWS MARQUEE — duplicate cards once for seamless infinite scroll */
+  const reviewsTrack = document.getElementById('reviewsTrack');
+  if (reviewsTrack && !window.matchMedia('(prefers-reduced-motion:reduce)').matches) {
+    const originals = Array.from(reviewsTrack.children);
+    originals.forEach(card => {
+      const clone = card.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      reviewsTrack.appendChild(clone);
+    });
+  }
+
   /* FORMSPREE */
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
