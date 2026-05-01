@@ -321,7 +321,7 @@ body.booting .reveal-up.in{opacity:0;transform:translateY(32px)}
   color:var(--text);
   margin-bottom:clamp(40px,6vw,72px);
 }
-.glitch-word{display:block;transition:color .3s}
+.glitch-word{display:block;white-space:nowrap;transition:color .3s}
 .hero-em{color:var(--text2)}
 
 .hero-bottom{

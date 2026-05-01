@@ -80,6 +80,40 @@
   window.addEventListener('scroll', onScroll, {passive:true});
   onScroll();
 
+  /* THEME TOGGLE
+     Inline <head> script sets data-theme from localStorage (default: 'dark')
+     before paint. Here we (a) sync the mobile theme-color meta to match,
+     and (b) wire the toggle button. */
+  const STORAGE_KEY = 'hamit-theme';
+  const html = document.documentElement;
+  const themeBtn = document.getElementById('themeToggle');
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+
+  const colorFor = (mode) => mode === 'dark' ? '#080808' : '#f5f5f5';
+
+  const syncMeta = (mode) => {
+    if (themeMeta) themeMeta.setAttribute('content', colorFor(mode));
+  };
+
+  const applyTheme = (mode) => {
+    html.setAttribute('data-theme', mode);
+    syncMeta(mode);
+    try { localStorage.setItem(STORAGE_KEY, mode); } catch(e){}
+    window.dispatchEvent(new CustomEvent('themechange', { detail: { mode } }));
+  };
+
+  // Sync meta to whatever the inline init script set (no localStorage write).
+  syncMeta(html.getAttribute('data-theme') || 'dark');
+
+  if (themeBtn) {
+    themeBtn.setAttribute('aria-pressed', String(html.getAttribute('data-theme') === 'dark'));
+    themeBtn.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      themeBtn.setAttribute('aria-pressed', String(next === 'dark'));
+    });
+  }
+
   /* MOBILE MENU */
   const menuBtn = document.getElementById('navMenuBtn');
   const menu = document.getElementById('mobileMenu');

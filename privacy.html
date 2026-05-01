@@ -13,8 +13,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260429f" />
-  <link rel="stylesheet" href="interactions.css?v=20260429f" />
+  <script>
+    // Instant theme init — runs before paint to prevent flash
+    (function(){
+      var saved = localStorage.getItem('hamit-theme');
+      var theme = saved || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css?v=20260501a" />
+  <link rel="stylesheet" href="interactions.css?v=20260501a" />
   <script>
     try { sessionStorage.setItem('hamit-booted','1'); } catch(e){}
   </script>
@@ -41,6 +49,11 @@
       <a href="index.html#contact">Contact</a>
     </nav>
     <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+
 <a href="index.html#contact" class="btn btn-sm btn-primary nav-cta">Get a Quote</a>
       <button class="nav-menu-btn" id="navMenuBtn" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -153,6 +166,6 @@
   </div>
 </footer>
 
-<script src="interactions.js?v=20260429f" defer></script>
+<script src="interactions.js?v=20260501a" defer></script>
 </body>
 </html>

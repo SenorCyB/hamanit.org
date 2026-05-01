@@ -5,7 +5,7 @@
   /* Theme — runs immediately to prevent flash */
   (function () {
     var root  = document.documentElement;
-    var saved = localStorage.getItem('hamanit-theme') || 'dark';
+    var saved = localStorage.getItem('hamit-theme') || 'dark';
     root.setAttribute('data-theme', saved);
 
     document.addEventListener('DOMContentLoaded', function () {
@@ -14,7 +14,7 @@
       btn.addEventListener('click', function () {
         var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         root.setAttribute('data-theme', next);
-        localStorage.setItem('hamanit-theme', next);
+        localStorage.setItem('hamit-theme', next);
       });
     });
   }());

@@ -9,32 +9,8 @@
   const root = document.documentElement;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- THEME --------------------------------------------------- */
-  const STORAGE_KEY = 'hamit-theme';
-  const themeBtn = document.getElementById('themeToggle');
-
-  const applyTheme = (mode) => {
-    root.setAttribute('data-theme', mode);
-    if (themeBtn) themeBtn.setAttribute('aria-pressed', String(mode === 'dark'));
-    const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', mode === 'dark' ? '#111112' : '#f5f5f7');
-  };
-
-  const stored = (() => {
-    try { return localStorage.getItem(STORAGE_KEY); } catch { return null; }
-  })();
-  const initial = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  applyTheme(initial);
-
-  if (themeBtn) {
-    themeBtn.addEventListener('click', () => {
-      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      applyTheme(next);
-      try { localStorage.setItem(STORAGE_KEY, next); } catch {}
-      // notify other modules (e.g. particle network) to recolor
-      window.dispatchEvent(new CustomEvent('themechange', { detail: { mode: next } }));
-    });
-  }
+  /* Theme init + toggle handled in interactions.js (inline <script> in <head>
+     sets data-theme before paint to prevent flash). */
 
   /* ---------- NAV SCROLL STATE --------------------------------------- */
   const nav = document.getElementById('nav');
