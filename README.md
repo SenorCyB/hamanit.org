@@ -1,39 +1,30 @@
-Overview
+# Haman IT Solutions — hamanit.org
 
-This repository contains the source code for my personal portfolio website:
+Source for [hamanit.org](https://hamanit.org), the website for Haman IT Solutions — a locally owned IT and technology services company in Katy, TX, serving Greater Houston.
 
-https://hamanit.org
+## Services
 
-The website showcases my technical projects, skills, and experience as an IT & Cybersecurity student at Texas State Technical College (TSTC). It highlights hands-on work in infrastructure, networking, cybersecurity tools, and web development.
-This portfolio serves as both a technical showcase and a place where individuals or small businesses can learn about the technology services I offer.
+- **IT Support & Repair** — diagnostics, malware removal, OS reinstalls, network triage
+- **Custom PC Builds** — part selection, assembly, stress-testing, handoff
+- **Business Websites** — fast, mobile-first, custom-coded (this site is the kind of work we ship)
+- **AI Consulting & Automation** — practical AI integration and workflow automation
 
+## Stack
 
+- Hand-written HTML / CSS / JavaScript — no build step, no framework
+- Deployed via GitHub Pages with custom domain (CNAME → hamanit.org)
+- Contact form via Formspree
+- Inter-page state (theme preference, boot-screen seen flag) in localStorage / sessionStorage
 
-Features
+## Local development
 
-Personal portfolio and professional profile
-Project showcase with technical descriptions
-Skills and technologies section
-Contact form for inquiries
-Responsive design for desktop and mobile
-Deployed using GitHub Pages with a custom domain
+```bash
+python -m http.server 8765
+# then open http://localhost:8765/
+```
 
+The `.claude/launch.json` wires this up for the in-editor preview.
 
+## Contact
 
-Technologies Used
-
-HTML5
-CSS3
-JavaScript
-Git & GitHub
-GitHub Pages (deployment
-
-
-
-Purpose of This Repository
-
-This project demonstrates:
-Front-end development fundamentals
-Git version control workflow
-Website deployment using GitHub Pages
-Technical documentation and project presentation
+support@hamanit.org · (832) 388-2401

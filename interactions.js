@@ -151,6 +151,16 @@
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
   if(form && status){
+    const showError = (msg) => {
+      form.classList.remove('is-loading');
+      status.dataset.state = 'err';
+      status.textContent = msg + ' ';
+      const a = document.createElement('a');
+      a.href = 'mailto:support@hamanit.org';
+      a.textContent = 'Email support@hamanit.org';
+      status.appendChild(a);
+      status.appendChild(document.createTextNode(' instead.'));
+    };
     form.addEventListener('submit', async e=>{
       e.preventDefault();
       status.removeAttribute('data-state');
@@ -166,12 +176,12 @@
           form.reset(); form.classList.remove('is-loading'); form.classList.add('is-success');
           status.dataset.state='ok'; status.textContent="Thanks — message sent. I'll be in touch shortly.";
         } else {
-          let msg='Something went wrong. Email support@hamanit.org directly.';
+          let msg='Something went wrong on our end.';
           try{ const j=await res.json(); if(j?.errors?.length) msg=j.errors.map(x=>x.message).join(' '); }catch{}
-          form.classList.remove('is-loading'); status.dataset.state='err'; status.textContent=msg;
+          showError(msg);
         }
       }catch{
-        form.classList.remove('is-loading'); status.dataset.state='err'; status.textContent='Network error. Try again or email support@hamanit.org.';
+        showError('Network error.');
       }
     });
   }

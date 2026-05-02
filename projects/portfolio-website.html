@@ -1,55 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-<script>
-  (function () {
-    var root  = document.documentElement;
-    var saved = localStorage.getItem('hamit-theme') || 'dark';
-    root.setAttribute('data-theme', saved);
-    document.addEventListener('DOMContentLoaded', function () {
-      var btn = document.getElementById('themeToggle');
-      if (!btn) return;
-      btn.addEventListener('click', function () {
-        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', next);
-        localStorage.setItem('hamit-theme', next);
-      });
-    });
-  }());
-  window.addEventListener('scroll', function () {
-    var nav = document.getElementById('nav');
-    if (nav) nav.classList.toggle('scrolled', window.scrollY > 40);
-  });
-  document.addEventListener('DOMContentLoaded', function () {
-    var hamburger  = document.getElementById('hamburger');
-    var mobileMenu = document.getElementById('mobile-menu');
-    if (hamburger && mobileMenu) {
-      hamburger.addEventListener('click', function () {
-        hamburger.classList.toggle('open');
-        mobileMenu.classList.toggle('open');
-      });
-      mobileMenu.querySelectorAll('a').forEach(function (a) {
-        a.addEventListener('click', function () {
-          hamburger.classList.remove('open');
-          mobileMenu.classList.remove('open');
-        });
-      });
-    }
-  });
-</script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/favicon.png" />
-  <title>Web Development | HAMAN IT</title>
-  <meta name="description" content="Custom website design and development &#8212; client work, redesigns, and full-stack deployments including brooksiderealty.com." />
+  <meta name="theme-color" content="#080808" />
+  <title>Web Development — HAMIT</title>
+  <meta name="description" content="Custom website design and development for real clients — including 1cachouston.com and brooksiderealtytx.com. Hand-coded, mobile-first, deployed end-to-end." />
+  <link rel="canonical" href="https://hamanit.org/projects/portfolio-website.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Web Development — HAMIT" />
+  <meta property="og:description" content="Custom website design and development for real clients — hand-coded, mobile-first, deployed end-to-end." />
+  <meta property="og:url" content="https://hamanit.org/projects/portfolio-website.html" />
+  <meta property="og:image" content="https://hamanit.org/Images/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://hamanit.org/Images/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css" />
-  <link rel="stylesheet" href="../interactions.css" />
-  <link rel="stylesheet" href="../project-page.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <script>
+    // Instant theme init — runs before paint to prevent flash
+    (function(){
+      var saved = localStorage.getItem('hamit-theme');
+      var theme = saved || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="../styles.css?v=20260501b" />
+  <link rel="stylesheet" href="../interactions.css?v=20260501b" />
+  <link rel="stylesheet" href="project-page.css?v=20260501b" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Web Development Portfolio",
+    "creator": {"@type": "LocalBusiness","@id": "https://hamanit.org/#business"},
+    "description": "Custom website design and development for real clients — hand-coded, mobile-first, deployed end-to-end.",
+    "url": "https://hamanit.org/projects/portfolio-website.html"
+  }
+  </script>
+  <script>
+    try { sessionStorage.setItem('hamit-booted','1'); } catch(e){}
+  </script>
   <style>
     .project-hero {
       background: linear-gradient(160deg, var(--bg) 0%, var(--bg2) 100%);
@@ -319,41 +315,50 @@
 
 <div id="scroll-progress"></div>
 
-<nav class="nav" id="nav">
-  <a href="../index.html" class="nav-logo">HAMAN<span>IT</span></a>
-  <ul class="nav-links">
-    <li><a href="../index.html#about">About</a></li>
-    <li><a href="../index.html#skills">Skills</a></li>
-    <li><a href="../index.html#projects">Projects</a></li>
-    <li><a href="../index.html#services">Services</a></li>
-    <li><a href="../index.html#experience">Experience</a></li>
-    <li><a href="../Joshua_Haman_Resume.pdf" target="_blank">R&#233;sum&#233;</a></li>
-  </ul>
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
-    <div class="toggle-track"><div class="toggle-thumb"><span class="icon-moon">&#127769;</span><span class="icon-sun">&#9728;&#65039;</span></div></div>
-  </button>
-  <a href="../index.html#contact" class="nav-cta">Get in Touch</a>
-  <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span></button>
-</nav>
-
-<div class="mobile-menu" id="mobile-menu">
-  <a href="../index.html#about"      class="mm-link">About</a>
-  <a href="../index.html#skills"     class="mm-link">Skills</a>
-  <a href="../index.html#projects"   class="mm-link">Projects</a>
-  <a href="../index.html#services"   class="mm-link">Services</a>
-  <a href="../index.html#experience" class="mm-link">Experience</a>
-  <a href="../Joshua_Haman_Resume.pdf" class="mm-link" target="_blank">R&#233;sum&#233;</a>
-  <a href="../index.html#contact"    class="mm-cta">Get in Touch &#8594;</a>
-</div>
+<header class="nav scrolled" id="nav" role="banner">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <svg width="22" height="18" viewBox="0 0 48 36" fill="none" aria-hidden="true">
+        <rect x="0"  y="22" width="10" height="14" rx="2" fill="currentColor" opacity="0.35"/>
+        <rect x="14" y="13" width="10" height="23" rx="2" fill="currentColor" opacity="0.65"/>
+        <rect x="28" y="0"  width="10" height="36" rx="2" fill="currentColor"/>
+      </svg>
+      <span class="logo-word">HAM<em>IT</em></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="../index.html#services">Services</a>
+      <a href="../index.html#pricing">Pricing</a>
+      <a href="../index.html#why">Why Us</a>
+      <a href="../index.html#faq">FAQ</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="../index.html#contact" class="btn btn-sm btn-primary nav-cta">Get a Quote</a>
+      <button class="nav-menu-btn" id="navMenuBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="../index.html#services">Services</a>
+    <a href="../index.html#pricing">Pricing</a>
+    <a href="../index.html#why">Why Us</a>
+    <a href="../index.html#faq">FAQ</a>
+    <a href="../index.html#contact">Contact</a>
+    <a href="../index.html#contact" class="mobile-cta">Get a Quote <span aria-hidden="true">→</span></a>
+  </div>
+</header>
 
 <main>
   <header class="project-hero">
     <div class="hero-particles" id="hero-particles"></div>
     <div class="project-hero-inner">
       <nav class="project-breadcrumb">
-        <a href="../index.html">Home</a>
-        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-        <a href="../index.html#projects">Projects</a>
+        <a href="../index.html">HAMIT</a>
         <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
         <span>Web Development</span>
       </nav>
@@ -583,12 +588,12 @@
     </div>
 
     <div style="display:flex; gap:12px; flex-wrap:wrap;" class="anim-up">
-      <a class="btn-ghost" href="../index.html#projects">
-        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
-        Back to Projects
+      <a class="btn btn-ghost" href="../index.html">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        Back to HAMIT
       </a>
-      <a class="btn-primary" href="mailto:joshham364@gmail.com?subject=HAMAN%20IT%20-%20Website%20Project%20Inquiry">
-        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <a class="btn btn-primary" href="../index.html#contact">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         Start a Project
       </a>
     </div>
@@ -597,23 +602,38 @@
 </main>
 
 <footer class="footer">
-  <div class="container footer-inner">
-    <a href="../index.html" class="footer-logo">HAMAN<span>IT</span></a>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="../index.html" class="footer-logo">
+        <svg width="20" height="16" viewBox="0 0 48 36" fill="none" aria-hidden="true">
+          <rect x="0"  y="22" width="10" height="14" rx="2" fill="currentColor" opacity="0.35"/>
+          <rect x="14" y="13" width="10" height="23" rx="2" fill="currentColor" opacity="0.65"/>
+          <rect x="28" y="0"  width="10" height="36" rx="2" fill="currentColor"/>
+        </svg>
+        <span>HAM<em>IT</em></span>
+      </a>
+      <p>Smart Tech. Real Solutions.</p>
+    </div>
     <nav class="footer-nav">
-      <a href="../index.html#about">About</a>
-      <a href="../index.html#skills">Skills</a>
-      <a href="../index.html#projects">Projects</a>
       <a href="../index.html#services">Services</a>
-      <a href="../index.html#experience">Experience</a>
+      <a href="../index.html#pricing">Pricing</a>
+      <a href="../index.html#why">Why Us</a>
+      <a href="../index.html#faq">FAQ</a>
       <a href="../index.html#contact">Contact</a>
     </nav>
-    <p class="footer-copy">&#169; 2026 HAMAN IT. Built by Joshua Haman. Houston, Texas.</p>
+    <div class="footer-copy">
+      <span>© 2026 Haman IT Solutions. Katy, TX.</span>
+      <span class="footer-legal">
+        <a href="../privacy.html">Privacy</a>
+        <span aria-hidden="true">·</span>
+        <a href="../terms.html">Terms</a>
+      </span>
+      <a href="mailto:support@hamanit.org">support@hamanit.org</a>
+    </div>
   </div>
 </footer>
 
-<div id="cursor-dot"></div>
-<div id="cursor-ring"></div>
-<script src="../interactions.js" defer></script>
+<script src="../interactions.js?v=20260501b" defer></script>
 <script>
   const prog = document.getElementById('scroll-progress');
   window.addEventListener('scroll', () => {
