@@ -1442,3 +1442,16 @@ body.booting .reveal-up.in{opacity:0;transform:translateY(32px)}
   .reveal-up{opacity:1!important;transform:none!important}
   .marquee-track{animation:none}
 }
+
+/* ---------- DETAIL-PAGE BACK LINK ------------------------- */
+.detail-back-row{
+  padding:clamp(40px,5vw,72px) var(--gut);
+  background:var(--bg);
+  border-top:1px solid var(--border);
+  display:flex;justify-content:center;
+}
+.detail-back-row .btn .btn-arr-back{
+  display:inline-block;
+  transition:transform .2s var(--ease);
+}
+.detail-back-row .btn:hover .btn-arr-back{transform:translateX(-4px)}
