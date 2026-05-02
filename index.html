@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="apple-touch-icon" href="/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/Images/favicon-180.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#080808" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>HAMIT — Local Tech. Real Solutions. Katy, TX.</title>
   <meta name="description" content="Locally owned IT support, custom PC builds, business websites, and AI consulting for individuals and small businesses in Greater Houston and Katy, TX." />
   <link rel="canonical" href="https://hamanit.org/" />
@@ -75,6 +77,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <script>
     // Instant theme init — runs before paint to prevent flash
@@ -84,8 +87,8 @@
       document.documentElement.setAttribute('data-theme', theme);
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=20260501c" />
-  <link rel="stylesheet" href="interactions.css?v=20260501c" />
+  <link rel="stylesheet" href="styles.css?v=20260502a" />
+  <link rel="stylesheet" href="interactions.css?v=20260502a" />
 </head>
 <body>
 
@@ -202,7 +205,7 @@
     </div>
     <div class="hero-stat">
       <span class="stat-n" data-count="100">0</span><span class="stat-plus">%</span>
-      <span class="stat-l">Same-Day Response</span>
+      <span class="stat-l">Same-Day Reply</span>
     </div>
   </div>
 </section>
@@ -380,12 +383,12 @@
           <span class="price-tag">AI Consulting</span>
           <span class="price-from">From</span>
         </div>
-        <div class="price-amount"><span class="price-cur">$</span>125<span class="price-unit">/hr</span></div>
+        <div class="price-amount"><span class="price-cur">$</span>1,500<span class="price-unit">project</span></div>
         <ul class="price-list">
-          <li>Workflow audit before any setup work</li>
-          <li>Project quotes from $1,500 fixed</li>
+          <li>Workflow audit ($450) before any build</li>
+          <li>Hourly consulting / training: $125/hr</li>
           <li>Tool selection across major platforms</li>
-          <li>Staff training included</li>
+          <li>Staff training included with every build</li>
         </ul>
         <a href="services/ai-consulting.html" class="price-cta">See details →</a>
       </div>
@@ -693,6 +696,24 @@
           <p>Both. Most clients start with a single project or repair, then move to a light monthly retainer once they realize they want a phone number to call when something breaks. No long-term lock-in — retainers are month-to-month and you can cancel any time with no penalty.</p>
         </div>
       </details>
+      <details class="faq-item reveal-up" data-delay="480">
+        <summary>
+          <span class="faq-q">Do you sign NDAs for business work?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-a">
+          <p>Yes. We treat anything non-public you share — credentials, business processes, project details — as confidential by default, but if your business needs a signed NDA before we look at anything, send it over and we'll review and sign before the first call. No charge for the review.</p>
+        </div>
+      </details>
+      <details class="faq-item reveal-up" data-delay="540">
+        <summary>
+          <span class="faq-q">How is hourly time tracked and billed?</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq-a">
+          <p>The first hour is billed as a full hour. After that, additional time is rounded up to the nearest 15 minutes — so a 1-hour-10-minute job is billed at 1.25 hours, not 2. You'll always get an itemized invoice showing what time was spent on what.</p>
+        </div>
+      </details>
     </div>
   </div>
 </section>
@@ -722,17 +743,17 @@
           <div class="form-row-pair">
             <div class="form-row">
               <label for="name">Full Name</label>
-              <input id="name" name="name" type="text" autocomplete="name" required />
+              <input id="name" name="name" type="text" autocomplete="name" aria-describedby="formStatus" required />
             </div>
             <div class="form-row">
               <label for="email">Email Address</label>
-              <input id="email" name="email" type="email" autocomplete="email" required />
+              <input id="email" name="email" type="email" autocomplete="email" aria-describedby="formStatus" required />
             </div>
           </div>
           <div class="form-row">
             <label for="service">Service Needed</label>
             <div class="select-wrap">
-              <select id="service" name="service" required>
+              <select id="service" name="service" aria-describedby="formStatus" required>
                 <option value="">Select one&hellip;</option>
                 <option>IT Support &amp; Repair</option>
                 <option>Custom PC Build</option>
@@ -745,7 +766,7 @@
           </div>
           <div class="form-row">
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
+            <textarea id="message" name="message" rows="5" aria-describedby="formStatus" required></textarea>
           </div>
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp-field" aria-hidden="true" />
           <button type="submit" class="btn btn-primary btn-submit" data-magnetic>
@@ -795,8 +816,8 @@
   </div>
 </footer>
 
-<script src="script.js?v=20260501c" defer></script>
-<script src="interactions.js?v=20260501c" defer></script>
+<script src="script.js?v=20260502a" defer></script>
+<script src="interactions.js?v=20260502a" defer></script>
 <script>
 // CUSTOM CURSOR
 // GLITCH TEXT
@@ -859,11 +880,27 @@
   els.forEach(e=>io.observe(e));
 })();
 
-// SERVICE CARD FLIP on touch
+// SERVICE CARD FLIP — touch tap and keyboard (Enter/Space) reveal back
 (function(){
-  if(!window.matchMedia('(pointer:coarse)').matches) return;
-  document.querySelectorAll('.service-card').forEach(card=>{
-    card.addEventListener('click',()=>card.classList.toggle('flipped'));
+  const cards = document.querySelectorAll('.service-card');
+  const isCoarse = window.matchMedia('(pointer:coarse)').matches;
+  cards.forEach(card=>{
+    if (isCoarse) {
+      card.addEventListener('click', e => {
+        if (e.target.closest('a')) return; // let the inner link work
+        card.classList.toggle('flipped');
+      });
+    }
+    /* keyboard support for everyone — let users reveal the back */
+    card.setAttribute('tabindex','0');
+    card.setAttribute('role','group');
+    card.setAttribute('aria-label', (card.querySelector('h3')?.textContent || 'Service') + ' — press Enter to expand');
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.classList.toggle('flipped');
+      }
+    });
   });
 })();
 </script>

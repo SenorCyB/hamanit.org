@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/Images/favicon-180.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#080808" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>404 — Page not found | HAMIT</title>
+  <meta name="description" content="The page you're looking for doesn't exist. Head back to HAMIT or get in touch." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <script>
+    (function(){
+      var saved = localStorage.getItem('hamit-theme');
+      var theme = saved || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="/styles.css?v=20260502a" />
+  <link rel="stylesheet" href="/interactions.css?v=20260502a" />
+  <script>
+    try { sessionStorage.setItem('hamit-booted','1'); } catch(e){}
+  </script>
+  <style>
+    .err-page{
+      min-height:100vh;min-height:100svh;
+      display:grid;place-items:center;
+      padding:var(--gut);background:var(--bg);color:var(--text);
+      text-align:center;
+    }
+    .err-inner{display:grid;gap:24px;max-width:560px;justify-items:center}
+    .err-code{
+      font-family:var(--mono);font-size:.78rem;letter-spacing:.2em;
+      text-transform:uppercase;color:var(--text2);
+      display:inline-flex;align-items:center;gap:10px;
+      padding:7px 14px;border:1px solid var(--border2);border-radius:999px;
+    }
+    .err-code-dot{
+      width:7px;height:7px;border-radius:50%;background:#dc2626;
+      box-shadow:0 0 0 3px rgba(220,38,38,.22);
+    }
+    .err-title{
+      font-family:var(--ff);font-weight:700;
+      font-size:clamp(3rem,9vw,6rem);
+      line-height:.95;letter-spacing:-.04em;color:var(--text);
+    }
+    .err-title em{font-style:normal;color:var(--text2)}
+    .err-sub{
+      font-size:1.1rem;color:var(--text2);font-weight:300;
+      line-height:1.65;max-width:42ch;
+    }
+    .err-ctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+  </style>
+</head>
+<body>
+
+<header class="nav scrolled" id="nav" role="banner">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="HAMIT home">
+      <svg width="22" height="18" viewBox="0 0 48 36" fill="none" aria-hidden="true">
+        <rect x="0"  y="22" width="10" height="14" rx="2" fill="currentColor" opacity="0.35"/>
+        <rect x="14" y="13" width="10" height="23" rx="2" fill="currentColor" opacity="0.65"/>
+        <rect x="28" y="0"  width="10" height="36" rx="2" fill="currentColor"/>
+      </svg>
+      <span class="logo-word">HAM<em>IT</em></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/#services">Services</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/#why">Why Us</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="/#contact" class="btn btn-sm btn-primary nav-cta">Get a Quote</a>
+    </div>
+  </div>
+</header>
+
+<main class="err-page">
+  <div class="err-inner">
+    <span class="err-code"><span class="err-code-dot" aria-hidden="true"></span>404 — Page not found</span>
+    <h1 class="err-title">Wrong<br><em>turn.</em></h1>
+    <p class="err-sub">That page doesn't exist — or it moved. Head back to the homepage, browse the services, or get in touch and we'll point you to what you need.</p>
+    <div class="err-ctas">
+      <a href="/" class="btn btn-primary">Back to home <span class="btn-arr">→</span></a>
+      <a href="/#services" class="btn btn-ghost">See services <span class="btn-arr">↓</span></a>
+      <a href="/#contact" class="btn btn-ghost">Contact us <span class="btn-arr">→</span></a>
+    </div>
+  </div>
+</main>
+
+<script src="/interactions.js?v=20260502a" defer></script>
+</body>
+</html>

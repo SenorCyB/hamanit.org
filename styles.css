@@ -24,6 +24,11 @@
   --ease-in:  cubic-bezier(0.55,0,1,0.45);
   --r:        4px;
 }
+/* Status / accent colors — tuned for AA contrast in each theme */
+:root{
+  --ok:    #4ade80;   /* dark theme: light green for contrast on dark bg */
+  --err:   #f87171;   /* dark theme: light red for contrast on dark bg */
+}
 [data-theme="light"]{
   --bg:    #f5f5f5;
   --bg2:   #ffffff;
@@ -35,6 +40,8 @@
   --accent:#0a0a0a;
   --border:rgba(10,10,10,0.08);
   --border2:rgba(10,10,10,0.14);
+  --ok:    #15803d;   /* light theme: deep green for contrast on white bg */
+  --err:   #b91c1c;   /* light theme: deep red for contrast on white bg */
 }
 
 /* ---------- RESET ----------------------------------------- */
@@ -908,8 +915,9 @@ body.booting .reveal-up.in{opacity:0;transform:translateY(32px)}
 .hp-field{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 .btn-submit{margin-top:4px;width:100%;justify-content:center}
 .form-status{font-size:.88rem;min-height:1.2em;color:var(--text2)}
-.form-status[data-state="ok"]{color:#16a34a}
-.form-status[data-state="err"]{color:#dc2626}
+.form-status[data-state="ok"]{color:var(--ok)}
+.form-status[data-state="err"]{color:var(--err)}
+.form-status a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 .contact-form.is-loading .btn-submit{opacity:.5;pointer-events:none}
 
 @media(max-width:640px){.form-row-pair{grid-template-columns:1fr}}
@@ -1441,6 +1449,48 @@ body.booting .reveal-up.in{opacity:0;transform:translateY(32px)}
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
   .reveal-up{opacity:1!important;transform:none!important}
   .marquee-track{animation:none}
+  /* Disable the on-hover slide-up flip — show details inline instead */
+  .service-card-back{position:static;transform:none;border-top:1px solid var(--border)}
+  /* FAQ icon shouldn't rotate */
+  .faq-item[open] .faq-icon{transform:none}
+  /* Theme transition snaps */
+  body{transition:none}
+}
+
+/* ---------- DETAIL-PAGE RELATED SERVICES ------------------ */
+.detail-related{
+  padding:clamp(56px,6vw,88px) var(--gut);
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+}
+.detail-related-inner{max-width:var(--max);margin:0 auto;display:grid;gap:24px}
+.detail-related-label{
+  font-family:var(--mono);font-size:.78rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--text2);
+}
+.detail-related-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:clamp(16px,2vw,24px);
+}
+.detail-related-card{
+  display:grid;gap:8px;
+  padding:clamp(20px,2.5vw,28px);
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:var(--r);
+  transition:border-color .25s,background .25s,transform .25s var(--ease);
+}
+.detail-related-card:hover{border-color:var(--border2);background:var(--bg3);transform:translateY(-3px)}
+.detail-related-name{
+  font-family:var(--ff);font-weight:700;font-size:1.1rem;
+  letter-spacing:-.02em;color:var(--text);
+}
+.detail-related-name::after{
+  content:' →';color:var(--text2);transition:color .2s;
+}
+.detail-related-card:hover .detail-related-name::after{color:var(--text)}
+.detail-related-desc{font-size:.92rem;line-height:1.55;color:var(--text2);font-weight:300}
+@media(max-width:768px){
+  .detail-related-grid{grid-template-columns:1fr}
 }
 
 /* ---------- DETAIL-PAGE BACK LINK ------------------------- */

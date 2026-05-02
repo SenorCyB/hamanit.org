@@ -123,6 +123,7 @@
     menu.setAttribute('aria-hidden','true');
     menuBtn.setAttribute('aria-expanded','false');
     document.body.style.overflow='';
+    menuBtn.focus();
   };
   const openMenu = ()=>{
     if(!menu||!menuBtn) return;
@@ -130,10 +131,13 @@
     menu.setAttribute('aria-hidden','false');
     menuBtn.setAttribute('aria-expanded','true');
     document.body.style.overflow='hidden';
+    /* move focus to first menu link so keyboard users land inside the panel */
+    const firstLink = menu.querySelector('a');
+    if (firstLink) firstLink.focus();
   };
   menuBtn?.addEventListener('click', ()=>menu.classList.contains('open')?closeMenu():openMenu());
   menu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
-  document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeMenu(); });
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape' && menu?.classList.contains('open')) closeMenu(); });
   window.addEventListener('resize', ()=>{ if(window.innerWidth>768) closeMenu(); });
 
   /* REVIEWS MARQUEE — duplicate cards once for seamless infinite scroll */

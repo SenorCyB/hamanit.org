@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="apple-touch-icon" href="/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/Images/favicon-180.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#080808" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Privacy Policy — HAMIT</title>
   <meta name="description" content="How Haman IT Solutions collects, uses, and protects your information." />
   <link rel="canonical" href="https://hamanit.org/privacy.html" />
@@ -15,6 +17,9 @@
   <meta property="og:description" content="How Haman IT Solutions collects, uses, and protects your information." />
   <meta property="og:url" content="https://hamanit.org/privacy.html" />
   <meta property="og:image" content="https://hamanit.org/Images/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="HAMIT — Local Tech. Real Solutions. Katy, TX." />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://hamanit.org/Images/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,8 +33,8 @@
       document.documentElement.setAttribute('data-theme', theme);
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=20260501c" />
-  <link rel="stylesheet" href="interactions.css?v=20260501c" />
+  <link rel="stylesheet" href="styles.css?v=20260502a" />
+  <link rel="stylesheet" href="interactions.css?v=20260502a" />
   <script>
     try { sessionStorage.setItem('hamit-booted','1'); } catch(e){}
   </script>
@@ -86,7 +91,7 @@
         <span>Privacy</span>
       </nav>
       <h1 class="section-title">Privacy Policy.</h1>
-      <p class="legal-meta">Last updated: April 29, 2026</p>
+      <p class="legal-meta">Last updated: May 2, 2026</p>
 
       <div class="legal-body">
         <p>Haman IT Solutions ("HAMIT", "we", "us") respects your privacy. This policy explains what information we collect, why we collect it, and how we handle it. It applies to <a href="https://hamanit.org">hamanit.org</a> and any services we provide directly.</p>
@@ -97,12 +102,12 @@
           <li><strong>Contact form submissions:</strong> name, email address, the service you're asking about, and the message you send.</li>
           <li><strong>Direct communication:</strong> emails, calls, or messages you send us.</li>
           <li><strong>Service-related data:</strong> if you become a client, we store the information needed to do the work — invoices, project notes, hardware lists, account credentials you've explicitly shared with us.</li>
-          <li><strong>Basic site analytics:</strong> aggregate, non-identifying traffic data (page views, referrer, country, device type) used only to understand how the site is performing.</li>
         </ul>
 
         <h2>What we don't collect</h2>
         <ul>
-          <li>We do not use third-party advertising or tracking pixels.</li>
+          <li>We do not run a third-party analytics tracker — no Google Analytics, no Plausible, no Fathom. We do not collect aggregate page-view statistics from this site.</li>
+          <li>We do not use advertising or tracking pixels.</li>
           <li>We do not sell, rent, or share your information with third parties for marketing.</li>
           <li>We do not store payment card numbers — payments are processed by our payment providers.</li>
         </ul>
@@ -111,15 +116,26 @@
         <ul>
           <li>To reply to your inquiry and follow up on the work you asked about.</li>
           <li>To deliver, support, and bill for any services you engage us for.</li>
-          <li>To improve the website (e.g. fixing layout issues based on aggregate analytics).</li>
           <li>To meet legal and tax obligations.</li>
         </ul>
 
-        <h2>Where it lives</h2>
-        <p>Form submissions are delivered to us through Formspree, which operates under their own <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">privacy policy</a>. Email is hosted with our email provider. Project records live on encrypted, password-protected systems. We retain records for the lifetime of the engagement plus up to seven years for tax and accounting purposes, then they're deleted.</p>
+        <h2>Third parties that may receive your data</h2>
+        <p>This site is intentionally light on third-party services, but a few are involved:</p>
+        <ul>
+          <li><strong>Formspree</strong> processes contact-form submissions and forwards them to us. Their handling of your data is governed by their <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener">privacy policy</a>.</li>
+          <li><strong>GitHub Pages</strong> (a Microsoft service) hosts the site itself. Your IP address and basic request data are visible to GitHub when you load any page.</li>
+          <li><strong>Google Fonts</strong> serves the typefaces (Space Grotesk, Space Mono) we use across the site. Your browser fetches them directly from <code>googleapis.com</code> and <code>gstatic.com</code>, which means Google receives your IP address and the page you're loading.</li>
+          <li><strong>jsDelivr CDN</strong> serves a JavaScript carousel library on a single project page (<code>/projects/network-scanner.html</code>). Your IP and referrer are visible to jsDelivr only on that page.</li>
+          <li><strong>Email and project records:</strong> our email and engagement notes live on encrypted, password-protected systems. We retain records for the lifetime of the engagement plus up to seven years for tax and accounting purposes, then they're deleted.</li>
+        </ul>
 
-        <h2>Cookies</h2>
-        <p>The site uses a single first-party preference value in your browser's <code>localStorage</code> to remember your light/dark theme choice. We do not set tracking cookies.</p>
+        <h2>Cookies and browser storage</h2>
+        <p>We do not set any cookies on this site. We do use a small amount of first-party browser storage:</p>
+        <ul>
+          <li><code>localStorage["hamit-theme"]</code> remembers your light/dark theme choice across visits. Persists until you clear it.</li>
+          <li><code>sessionStorage["hamit-booted"]</code> tracks whether you've already seen the intro animation in this tab, so we don't replay it. Cleared automatically when you close the tab.</li>
+        </ul>
+        <p>Both are first-party preferences only — not used to track or identify you, and not shared with anyone.</p>
 
         <h2>Your rights</h2>
         <p>You can request a copy of any personal data we hold about you, or ask us to correct or delete it. Email <a href="mailto:support@hamanit.org">support@hamanit.org</a> and we'll respond within 30 days. Texas residents have additional rights under the Texas Data Privacy and Security Act; California residents under the CCPA. Both are honored on request regardless of jurisdiction.</p>
@@ -173,6 +189,6 @@
   </div>
 </footer>
 
-<script src="interactions.js?v=20260501c" defer></script>
+<script src="interactions.js?v=20260502a" defer></script>
 </body>
 </html>

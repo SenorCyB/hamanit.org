@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/png" href="/favicon.png" />
-  <link rel="apple-touch-icon" href="/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/Images/favicon-180.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#080808" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Custom PC Builds — Katy, TX | HAMIT</title>
   <meta name="description" content="Custom PC builds tuned to your budget and workload. Real parts pricing, full assembly, stress-tested, ready to run." />
   <link rel="canonical" href="https://hamanit.org/services/pc-builds.html" />
@@ -17,6 +19,7 @@
   <meta property="og:image" content="https://hamanit.org/Images/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="HAMIT — Local Tech. Real Solutions. Katy, TX." />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://hamanit.org/Images/og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,8 +33,8 @@
       document.documentElement.setAttribute('data-theme', theme);
     })();
   </script>
-  <link rel="stylesheet" href="../styles.css?v=20260501c" />
-  <link rel="stylesheet" href="../interactions.css?v=20260501c" />
+  <link rel="stylesheet" href="../styles.css?v=20260502a" />
+  <link rel="stylesheet" href="../interactions.css?v=20260502a" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -40,6 +43,17 @@
     "provider": {"@type": "LocalBusiness","@id": "https://hamanit.org/#business"},
     "areaServed": {"@type": "AdministrativeArea","name": "Greater Houston"},
     "description": "Custom-spec'd PC builds. Parts at retail, assembly, BIOS update, stress-test, OS install, cable management, and 30-day workmanship warranty."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem","position": 1,"name": "HAMIT","item": "https://hamanit.org/"},
+      {"@type": "ListItem","position": 2,"name": "Services","item": "https://hamanit.org/#services"},
+      {"@type": "ListItem","position": 3,"name": "Custom PC Builds","item": "https://hamanit.org/services/pc-builds.html"}
+    ]
   }
   </script>
   <script>
@@ -192,7 +206,7 @@
       </div>
       <div class="build-grid">
         <article class="build-card">
-          <div class="build-photo" style="background-image:url('../Images/build-budget.jpg')">
+          <div class="build-photo" style="background-image:image-set(url('../Images/build-budget.webp') type('image/webp'),url('../Images/build-budget.jpg') type('image/jpeg'));background-image:-webkit-image-set(url('../Images/build-budget.webp') type('image/webp'),url('../Images/build-budget.jpg') type('image/jpeg'))">
             <span class="build-tag">Everyday</span>
           </div>
           <div class="build-meta">
@@ -201,7 +215,7 @@
           </div>
         </article>
         <article class="build-card">
-          <div class="build-photo" style="background-image:url('../Images/build-upgrade.jpg')">
+          <div class="build-photo" style="background-image:image-set(url('../Images/build-upgrade.webp') type('image/webp'),url('../Images/build-upgrade.jpg') type('image/jpeg'));background-image:-webkit-image-set(url('../Images/build-upgrade.webp') type('image/webp'),url('../Images/build-upgrade.jpg') type('image/jpeg'))">
             <span class="build-tag">Upgrade</span>
           </div>
           <div class="build-meta">
@@ -210,7 +224,7 @@
           </div>
         </article>
         <article class="build-card">
-          <div class="build-photo" style="background-image:url('../Images/build-gaming.jpg')">
+          <div class="build-photo" style="background-image:image-set(url('../Images/build-gaming.webp') type('image/webp'),url('../Images/build-gaming.jpg') type('image/jpeg'));background-image:-webkit-image-set(url('../Images/build-gaming.webp') type('image/webp'),url('../Images/build-gaming.jpg') type('image/jpeg'))">
             <span class="build-tag">Gaming</span>
           </div>
           <div class="build-meta">
@@ -219,7 +233,7 @@
           </div>
         </article>
         <article class="build-card">
-          <div class="build-photo" style="background-image:url('../Images/build-white.jpg')">
+          <div class="build-photo" style="background-image:image-set(url('../Images/build-white.webp') type('image/webp'),url('../Images/build-white.jpg') type('image/jpeg'));background-image:-webkit-image-set(url('../Images/build-white.webp') type('image/webp'),url('../Images/build-white.jpg') type('image/jpeg'))">
             <span class="build-tag">Flagship</span>
           </div>
           <div class="build-meta">
@@ -239,6 +253,26 @@
       <a href="mailto:support@hamanit.org" class="btn btn-ghost">Email Me <span class="btn-arr">↗</span></a>
     </div>
     <p class="cta-tertiary">or call <a href="tel:+18323882401">(832) 388-2401</a></p>
+  </section>
+
+  <section class="detail-related" aria-label="Related services">
+    <div class="detail-related-inner">
+      <span class="detail-related-label">Related services</span>
+      <div class="detail-related-grid">
+        <a href="it-support.html" class="detail-related-card">
+          <span class="detail-related-name">IT Support &amp; Repair</span>
+          <span class="detail-related-desc">Once the new build is running — keep it that way with same-week support.</span>
+        </a>
+        <a href="websites.html" class="detail-related-card">
+          <span class="detail-related-name">Business Websites</span>
+          <span class="detail-related-desc">A new site to match your shiny new workstation. Fast and SEO-ready.</span>
+        </a>
+        <a href="ai-consulting.html" class="detail-related-card">
+          <span class="detail-related-name">AI Consulting</span>
+          <span class="detail-related-desc">Put the new horsepower to work — local LLMs, automation, the real stuff.</span>
+        </a>
+      </div>
+    </div>
   </section>
 
   <section class="detail-back-row" aria-label="Back to all services">
@@ -281,6 +315,6 @@
   </div>
 </footer>
 
-<script src="../interactions.js?v=20260501c" defer></script>
+<script src="../interactions.js?v=20260502a" defer></script>
 </body>
 </html>
